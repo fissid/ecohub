@@ -13,8 +13,7 @@ html {
 }
 
 body {
-  background: linear-gradient(to left bottom, lightblue, aliceblue);
+  background: linear-gradient(to left bottom, $color-lightBlue, $color-white);
   height: 100vh;
-
-  color: white;
+  width: 100vw;
 }

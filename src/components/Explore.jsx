@@ -38,6 +38,12 @@ export default function Explore() {
                 <use xlinkHref={`${icons}#icon-create`}></use>
               </svg>
             </div>
+            <ul className="portfolio__list">
+              <li>Teaching Assistant</li>
+              <li>Freelance programmer</li>
+              <li>Reasearch</li>
+              <li>Student projects</li>
+            </ul>
           </div>
           <div className="quiz"></div>
         </div>

@@ -14,8 +14,7 @@
   border-radius: 50px;
 
   &:hover {
-    background: rgba(darkblue, 0.4);
-
+    background: $color-primary-grey;
     cursor: pointer;
   }
 
@@ -31,7 +30,7 @@
 }
 
 .selected {
-  background: rgba(darkblue, 0.4);
+  background: $color-primary-grey;
 
   cursor: none;
 }

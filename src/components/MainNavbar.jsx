@@ -56,7 +56,12 @@ export default function MainNavbar() {
           <MenuBtn name={each.name} icon={each.icon} key={each.name} selected={each.selected} />
         ))}
       </div>
-      <button className="nav__logout">Log Out</button>
+      <button className="nav__logout">
+        <svg className="nav__logout--icon">
+          <use xlinkHref={`${icons}#icon-logout`}></use>
+        </svg>
+        <span className="mav__lagout--text">Log Out</span>
+      </button>
     </div>
   );
 }

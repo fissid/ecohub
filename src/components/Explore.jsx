@@ -25,27 +25,29 @@ export default function Explore() {
         </div>
       </div>
       <div className="explore__feed">
-        <div className="skills">
+        <div className="skills left">
           <h5>Skills & Endorsement</h5>
           <Skills name="Python" people={people}></Skills>
           {/* <Skills name="Data Structure" people={people}></Skills> */}
         </div>
-        <div className="portfolio">
-          <div className="portfolio__header">
-            <h5>Portfolio / Activities</h5>
-            <svg className="icon">
-              <use xlinkHref={`${icons}#icon-add`}></use>
-            </svg>
-            <svg className="icon">
-              <use xlinkHref={`${icons}#icon-create`}></use>
-            </svg>
+        <div className="right">
+          <div className="portfolio">
+            <div className="portfolio__header">
+              <h5>Portfolio / Activities</h5>
+              <svg className="icon">
+                <use xlinkHref={`${icons}#icon-add`}></use>
+              </svg>
+              <svg className="icon">
+                <use xlinkHref={`${icons}#icon-create`}></use>
+              </svg>
+            </div>
+            <ul className="portfolio__list">
+              <li>Teaching Assistant</li>
+              <li>Freelance programmer</li>
+              <li>Reasearch</li>
+              <li>Student projects</li>
+            </ul>
           </div>
-          <ul className="portfolio__list">
-            <li>Teaching Assistant</li>
-            <li>Freelance programmer</li>
-            <li>Reasearch</li>
-            <li>Student projects</li>
-          </ul>
         </div>
         <div className="quiz"></div>
       </div>

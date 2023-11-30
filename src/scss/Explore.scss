@@ -37,6 +37,19 @@
   }
   &__feed {
     display: flex;
+    .left {
+      flex: 1 1 50%;
+      height: 100%;
+      border-radius: 20px;
+      background: $color-primary-super-light;
+      h5 {
+        font-size: 2rem;
+        font-weight: 600;
+      }
+    }
+    .right {
+      flex: 1 1 50%;
+    }
   }
   &__suggestion {
   }

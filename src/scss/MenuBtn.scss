@@ -14,13 +14,14 @@
   border-radius: 50px;
 
   &:hover {
-    background: darkblue;
+    background: rgba(darkblue, 0.4);
+
     cursor: pointer;
   }
 
   &__icon {
-    height: 19px;
-    width: 19px;
+    height: 18px;
+    width: 18px;
     fill: $color-white;
     // background: #000;
   }
@@ -30,6 +31,7 @@
 }
 
 .selected {
-  background: darkblue;
+  background: rgba(darkblue, 0.4);
+
   cursor: none;
 }

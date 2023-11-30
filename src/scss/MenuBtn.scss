@@ -1,0 +1,35 @@
+@import "./variables";
+.menu-btn {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+  color: white;
+  background: transparent;
+  //   border: 1px solid white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 50px;
+
+  &:hover {
+    background: darkblue;
+    cursor: pointer;
+  }
+
+  &__icon {
+    height: 19px;
+    width: 19px;
+    fill: $color-white;
+    // background: #000;
+  }
+
+  &__name {
+  }
+}
+
+.selected {
+  background: darkblue;
+  cursor: none;
+}

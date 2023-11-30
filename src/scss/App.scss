@@ -1,9 +1,14 @@
 @import "./variables";
-.main {
-  height: 100%;
-  background: #000;
-  opacity: 0.5;
+.app {
+  height: 93vh;
   display: flex;
   flex-flow: column nowrap;
   margin: 3rem 5rem;
+
+  border: 1px solid black;
+}
+
+.top {
+  display: flex;
+  flex-flow: row nowrap;
 }

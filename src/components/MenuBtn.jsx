@@ -1,7 +1,7 @@
 import "../scss/MenuBtn.scss";
 export default function MenuBtn({ icon, name, notif, selected }) {
   return (
-    <button className={`menu-btn ${selected && ""}`}>
+    <button className={`menu-btn ${selected && "selected"}`}>
       <svg className="menu-btn__icon">
         <use xlinkHref={icon}></use>
       </svg>

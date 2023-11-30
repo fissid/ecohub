@@ -1,3 +1,4 @@
+import "../scss/Skills.scss";
 export default function Skills({ name, people }) {
   return (
     <div className="skill">

@@ -4,6 +4,8 @@ import p1 from "../img/p1.jpeg";
 import p2 from "../img/p2.jpeg";
 import p3 from "../img/p3.jpg";
 import p4 from "../img/p4.jpeg";
+import "../scss/Explore.scss";
+
 export default function Explore() {
   const people = [
     { profile: `${p1}`, name: "Mehmet" },
@@ -17,37 +19,37 @@ export default function Explore() {
         <h4>Welcome back Saeed!</h4>
         <div className="explore__search--box">
           <input type="text" name="search" id="" className="box" placeholder="Search" />
-          <svg className="nav__logout--icon">
+          <svg className="icon">
             <use xlinkHref={`${icons}#icon-search`}></use>
           </svg>
         </div>
-
-        <div className="explore__feed">
-          <div className="skills">
-            <h5>Skills & Endorsement</h5>
-            <Skills name="Python" people={people}></Skills>
-            {/* <Skills name="Data Structure" people={people}></Skills> */}
-          </div>
-          <div className="portfolio">
-            <div className="portfolio__header">
-              <h5>Portfolio / Activities</h5>
-              <svg className="nav__logout--icon">
-                <use xlinkHref={`${icons}#icon-add`}></use>
-              </svg>
-              <svg className="nav__logout--icon">
-                <use xlinkHref={`${icons}#icon-create`}></use>
-              </svg>
-            </div>
-            <ul className="portfolio__list">
-              <li>Teaching Assistant</li>
-              <li>Freelance programmer</li>
-              <li>Reasearch</li>
-              <li>Student projects</li>
-            </ul>
-          </div>
-          <div className="quiz"></div>
-        </div>
       </div>
+      <div className="explore__feed">
+        <div className="skills">
+          <h5>Skills & Endorsement</h5>
+          <Skills name="Python" people={people}></Skills>
+          {/* <Skills name="Data Structure" people={people}></Skills> */}
+        </div>
+        <div className="portfolio">
+          <div className="portfolio__header">
+            <h5>Portfolio / Activities</h5>
+            <svg className="icon">
+              <use xlinkHref={`${icons}#icon-add`}></use>
+            </svg>
+            <svg className="icon">
+              <use xlinkHref={`${icons}#icon-create`}></use>
+            </svg>
+          </div>
+          <ul className="portfolio__list">
+            <li>Teaching Assistant</li>
+            <li>Freelance programmer</li>
+            <li>Reasearch</li>
+            <li>Student projects</li>
+          </ul>
+        </div>
+        <div className="quiz"></div>
+      </div>
+      <div className="explore__suggestions"></div>
     </div>
   );
 }

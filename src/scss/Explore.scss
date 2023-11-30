@@ -1,0 +1,38 @@
+@import "./variables";
+.explore {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  &__search {
+    display: flex;
+    h4 {
+      display: inline-block;
+      flex: 1 1;
+    }
+    &--box {
+      background: $color-primary-flash-white;
+      display: flex;
+      align-items: center;
+      border: 1px solid rgba($color-primary-grey, 0.5);
+      border-radius: 10px;
+      padding: 0.5rem;
+      input {
+        border: none;
+        background: transparent;
+        &::placeholder {
+          color: rgba($color-primary-grey, 0.5);
+        }
+      }
+    }
+    .icon {
+      width: 17px;
+      height: 17px;
+      fill: rgba($color-primary-grey, 0.5);
+    }
+  }
+  &__feed {
+  }
+  &__suggestion {
+  }
+}

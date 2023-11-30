@@ -23,6 +23,10 @@
         &::placeholder {
           color: rgba($color-primary-grey, 0.5);
         }
+        &:focus {
+          outline: none;
+          border: none;
+        }
       }
     }
     .icon {
@@ -32,6 +36,7 @@
     }
   }
   &__feed {
+    display: flex;
   }
   &__suggestion {
   }

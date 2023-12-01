@@ -18,10 +18,12 @@ export default function Explore() {
   ];
   const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
   function editPortfolioHandler() {
+    // editing (delete btn) is not completed
     changeAddadble(false);
     changeEditable((prev) => !prev);
   }
   function addPortfolioHandler() {
+    // adding is not completed
     changeEditable(false);
   }
   return (

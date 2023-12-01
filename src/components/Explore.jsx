@@ -5,14 +5,20 @@ import p2 from "../img/p2.jpeg";
 import p3 from "../img/p3.jpg";
 import p4 from "../img/p4.jpeg";
 import "../scss/Explore.scss";
+import { useState } from "react";
 
 export default function Explore() {
+  const [editable, changeEditable] = useState(true);
   const people = [
     { profile: `${p1}`, name: "Mehmet" },
     { profile: `${p2}`, name: "John" },
     { profile: `${p3}`, name: "Ana" },
     { profile: `${p4}`, name: "Walter" },
   ];
+  const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
+  function editPortfolioHandler() {
+    changeEditable((prev) => !prev);
+  }
   return (
     <div className="explore">
       <div className="explore__search">
@@ -36,19 +42,28 @@ export default function Explore() {
           <div className="portfolio">
             <div className="portfolio__header">
               <h5>Portfolio / Activities</h5>
-              <svg className="icon">
-                <use xlinkHref={`${icons}#icon-add`}></use>
-              </svg>
-              <svg className="icon">
-                <use xlinkHref={`${icons}#icon-create`}></use>
-              </svg>
+              <div>
+                <button className="edit">
+                  <svg className="icon">
+                    <use xlinkHref={`${icons}#icon-add`}></use>
+                  </svg>
+                </button>
+                <button className="edit" onClick={editPortfolioHandler}>
+                  <svg className="icon">
+                    <use xlinkHref={`${icons}#icon-create`}></use>
+                  </svg>
+                </button>
+              </div>
             </div>
-            <ul className="portfolio__list">
-              <li>Teaching Assistant</li>
-              <li>Freelance programmer</li>
-              <li>Reasearch</li>
-              <li>Student projects</li>
+            <ul className={`${editable ? "portfolio__list portfolio__list--editable" : "portfolio__list"}`}>
+              {portfolioList.map((each, i) => (
+                <li key={i}>{each}</li>
+              ))}
             </ul>
+            <div className={`${editable ? "portfolio__btns" : "none"}`}>
+              <button className="save">Save</button>
+              <button className="cancel">Cancel</button>
+            </div>
           </div>
           <div className="quiz">QUIZ</div>
         </div>

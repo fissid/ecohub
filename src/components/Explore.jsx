@@ -9,6 +9,7 @@ import { useState } from "react";
 
 export default function Explore() {
   const [editable, changeEditable] = useState(true);
+  const [addable, changeAddadble] = useState(true);
   const people = [
     { profile: `${p1}`, name: "Mehmet" },
     { profile: `${p2}`, name: "John" },
@@ -17,7 +18,11 @@ export default function Explore() {
   ];
   const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
   function editPortfolioHandler() {
+    changeAddadble(false);
     changeEditable((prev) => !prev);
+  }
+  function addPortfolioHandler() {
+    changeEditable(false);
   }
   return (
     <div className="explore">
@@ -43,7 +48,7 @@ export default function Explore() {
             <div className="portfolio__header">
               <h5>Portfolio / Activities</h5>
               <div>
-                <button className="edit">
+                <button className="edit" onClick={addPortfolioHandler}>
                   <svg className="icon">
                     <use xlinkHref={`${icons}#icon-add`}></use>
                   </svg>
@@ -58,14 +63,16 @@ export default function Explore() {
             <ul className={`${editable ? "portfolio__list portfolio__list--editable" : "portfolio__list"}`}>
               {portfolioList.map((each, i) => (
                 <li key={i}>
-                  <button className={`${editable ? "delete" : "none"}`}>X</button>
+                  <input type="checkbox" name={each} className={`${editable ? "delete" : "none"}`}></input>
                   {each}
                 </li>
               ))}
             </ul>
             <div className={`${editable ? "portfolio__btns" : "none"}`}>
               <button className="save">Delete</button>
-              <button className="cancel">Cancel</button>
+              <button className="cancel" onClick={editPortfolioHandler}>
+                Cancel
+              </button>
             </div>
           </div>
           <div className="quiz">QUIZ</div>

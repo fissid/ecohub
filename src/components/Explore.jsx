@@ -28,7 +28,9 @@ export default function Explore() {
         <div className="skills left">
           <h5>Skills & Endorsement</h5>
           <Skills name="Python" people={people}></Skills>
-          {/* <Skills name="Data Structure" people={people}></Skills> */}
+          <Skills name="Data Structure" people={[...people].reverse()}></Skills>
+          <Skills name="Algorithm" people={people}></Skills>
+          <Skills name="Mathematik " people={[...people].reverse()}></Skills>
         </div>
         <div className="right">
           <div className="portfolio">
@@ -48,8 +50,8 @@ export default function Explore() {
               <li>Student projects</li>
             </ul>
           </div>
+          <div className="quiz">QUIZ</div>
         </div>
-        <div className="quiz"></div>
       </div>
       <div className="explore__suggestions"></div>
     </div>

@@ -2,10 +2,51 @@
 .skill {
   display: flex;
   flex-flow: column nowrap;
+  padding: 0.3rem 0;
   .topping {
     display: flex;
-    gap: 2rem;
+    gap: 5px;
+    align-items: center;
+    margin-bottom: -3px;
+    &__name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+    &__rates {
+      font-size: 1.7rem;
+      color: lighten($color-primary-grey, 10%);
+    }
+    small {
+      color: $color-primary-grey;
+      padding-bottom: 10px;
+      font-size: 20px;
+    }
   }
-  rem .people {
+  .people {
+    display: flex;
+    align-items: flex-end;
+    &__img {
+      width: 30px;
+      height: 30px;
+      border-radius: 50px;
+      &--2 {
+        transform: translateX(-25px);
+      }
+      &--1 {
+        transform: translateX(-15px);
+      }
+
+      &:hover {
+        z-index: 1;
+      }
+    }
+    &__text {
+      font-size: 1.3rem;
+      margin-left: -15px;
+      &::first-letter {
+        font-size: 150%;
+      }
+    }
   }
 }

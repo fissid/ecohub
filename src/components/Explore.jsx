@@ -8,8 +8,8 @@ import "../scss/Explore.scss";
 import { useState } from "react";
 
 export default function Explore() {
-  const [editable, changeEditable] = useState(true);
-  const [addable, changeAddadble] = useState(true);
+  const [editable, changeEditable] = useState(false);
+  const [addable, changeAddadble] = useState(false);
   const people = [
     { profile: `${p1}`, name: "Mehmet" },
     { profile: `${p2}`, name: "John" },

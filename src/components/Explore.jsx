@@ -57,11 +57,14 @@ export default function Explore() {
             </div>
             <ul className={`${editable ? "portfolio__list portfolio__list--editable" : "portfolio__list"}`}>
               {portfolioList.map((each, i) => (
-                <li key={i}>{each}</li>
+                <li key={i}>
+                  <button className={`${editable ? "delete" : "none"}`}>X</button>
+                  {each}
+                </li>
               ))}
             </ul>
             <div className={`${editable ? "portfolio__btns" : "none"}`}>
-              <button className="save">Save</button>
+              <button className="save">Delete</button>
               <button className="cancel">Cancel</button>
             </div>
           </div>

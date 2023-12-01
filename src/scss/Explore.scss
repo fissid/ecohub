@@ -98,6 +98,14 @@
           &--editable {
             list-style-type: none;
           }
+          .delete {
+            border: none;
+            background: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-size: 12px;
+            margin: 0.1rem;
+          }
         }
         &__btns {
           display: flex;

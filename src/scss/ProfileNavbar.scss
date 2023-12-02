@@ -15,4 +15,23 @@
       border-top: 1px solid $color-primary-dark;
     }
   }
+
+  .first {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    .profile {
+      img {
+        height: 100%;
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+
+  .line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }

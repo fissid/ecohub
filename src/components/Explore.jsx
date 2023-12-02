@@ -6,25 +6,36 @@ import p3 from "../img/p3.jpg";
 import p4 from "../img/p4.jpeg";
 import "../scss/Explore.scss";
 import { useState } from "react";
+const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
+const people = [
+  { profile: `${p1}`, name: "Mehmet" },
+  { profile: `${p2}`, name: "John" },
+  { profile: `${p3}`, name: "Ana" },
+  { profile: `${p4}`, name: "Walter" },
+];
 
 export default function Explore() {
   const [editable, changeEditable] = useState(false);
   const [addable, changeAddadble] = useState(false);
-  const people = [
-    { profile: `${p1}`, name: "Mehmet" },
-    { profile: `${p2}`, name: "John" },
-    { profile: `${p3}`, name: "Ana" },
-    { profile: `${p4}`, name: "Walter" },
-  ];
-  const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
+  const [addedPortfolio, changeAddedPortfolio] = useState("");
+
   function editPortfolioHandler() {
-    // editing (delete btn) is not completed
+    // delete portfolio is not working
     changeAddadble(false);
     changeEditable((prev) => !prev);
   }
   function addPortfolioHandler() {
-    // adding is not completed
     changeEditable(false);
+    changeAddadble((prev) => !prev);
+  }
+  function addBtnHandler() {
+    if (!addedPortfolio) return;
+    portfolioList.push(addedPortfolio);
+    changeAddadble((prev) => !prev);
+    changeAddedPortfolio("");
+  }
+  function deleteHandler() {
+    // delete portfolio is not working
   }
   return (
     <div className="explore">
@@ -69,9 +80,22 @@ export default function Explore() {
                   {each}
                 </li>
               ))}
+              {addable && (
+                <li>
+                  <input type="text" className="portfolio__list--input" value={addedPortfolio} onChange={(e) => changeAddedPortfolio(e.target.value)}></input>
+                </li>
+              )}
             </ul>
-            <div className={`${editable ? "portfolio__btns" : "none"}`}>
-              <button className="save">Delete</button>
+            <div className={`${editable || addable ? "portfolio__btns" : "none"}`}>
+              {editable ? (
+                <button className="delete" onClick={deleteHandler}>
+                  Delete
+                </button>
+              ) : (
+                <button className="add" onClick={addBtnHandler}>
+                  Add
+                </button>
+              )}
               <button className="cancel" onClick={editPortfolioHandler}>
                 Cancel
               </button>

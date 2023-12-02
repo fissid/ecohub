@@ -90,6 +90,12 @@
           &--editable {
             list-style-type: none;
           }
+          &--input {
+            border: none;
+            background: rgba($color-white, 0.7);
+            border-radius: 4px;
+            padding: 0 0.3rem;
+          }
           .delete {
             margin: 0.1rem;
             margin-right: 0.4rem;
@@ -104,7 +110,8 @@
             padding: 0.2rem;
             font-size: 1.5rem;
           }
-          .save {
+          .delete,
+          .add {
             border-radius: 50px 0 0 50px;
             background: lightgreen;
           }

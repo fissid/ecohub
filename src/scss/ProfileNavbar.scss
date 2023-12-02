@@ -37,14 +37,15 @@
         border-radius: 500px;
         fill: $color-white;
       }
+    }
+    .info {
+      width: 100%;
+      display: flex;
+      flex-flow: column nowrap;
 
-      .info {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        .dep {
-          font-size: 2rem;
-        }
+      p {
+        font-size: 1.4rem;
+        text-align: center;
       }
     }
   }

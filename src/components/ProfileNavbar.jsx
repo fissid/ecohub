@@ -27,7 +27,7 @@ export default function ProfileNavbar() {
             <h4>{user.name}</h4>
             <Icon name="create"></Icon>
           </div>
-          <p className="dep">{user.dep}</p>
+          <p>{user.dep}</p>
         </div>
       </div>
       <div className="nav-item second">

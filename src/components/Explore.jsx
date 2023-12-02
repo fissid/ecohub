@@ -39,7 +39,7 @@ export default function Explore() {
       </div>
       <div className="explore__feed">
         <div className="skills left">
-          <h5>Skills & Endorsement</h5>
+          <h5 className="feed_title">Skills & Endorsement</h5>
           <Skills name="Python" people={people}></Skills>
           <Skills name="Data Structure" people={[...people].reverse()}></Skills>
           <Skills name="Algorithm" people={people}></Skills>
@@ -48,7 +48,7 @@ export default function Explore() {
         <div className="right">
           <div className="portfolio">
             <div className="portfolio__header">
-              <h5>Portfolio / Activities</h5>
+              <h5 className="feed_title">Portfolio / Activities</h5>
               <div>
                 <button className="edit" onClick={addPortfolioHandler}>
                   <svg className="icon">
@@ -77,7 +77,9 @@ export default function Explore() {
               </button>
             </div>
           </div>
-          <div className="quiz">QUIZ</div>
+          <div className="quiz">
+            <h5 className="feed_title">Quiz</h5>
+          </div>
         </div>
       </div>
       <div className="explore__suggestions"></div>

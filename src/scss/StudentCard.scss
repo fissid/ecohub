@@ -1,1 +1,9 @@
 @import "./variables";
+.card {
+  border-radius: 20px;
+  background: $color-primary-super-light;
+  padding: 1rem;
+
+  display: flex;
+  flex-flow: column nowrap;
+}

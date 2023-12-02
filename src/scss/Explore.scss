@@ -167,13 +167,44 @@
             background: $color-primary-dark;
             border-radius: 50px;
             transform: translateY(35px);
+            opacity: 80%;
+          }
+        }
+        &:hover {
+          .icon {
+            opacity: 100%;
+            background: $color-primary-light;
           }
         }
       }
     }
   }
-  &__suggestion {
+  &__suggestions {
     display: flex;
+    flex-flow: column nowrap;
+    &--head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0 1.5rem 0;
+      .allStudents {
+        border: none;
+        background: transparent;
+        font-size: 1.7rem;
+        color: $color-primary-dark;
+        text-decoration: underline;
+        font-weight: 600;
+        &:hover {
+          cursor: pointer;
+          color: $color-primary-light;
+        }
+      }
+    }
+    &--body {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
   }
 }
 .none {

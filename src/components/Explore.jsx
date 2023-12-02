@@ -4,6 +4,7 @@ import p1 from "../img/p1.jpeg";
 import p2 from "../img/p2.jpeg";
 import p3 from "../img/p3.jpg";
 import p4 from "../img/p4.jpeg";
+import quizImg from "../img/minim/quiz.png";
 import "../scss/Explore.scss";
 import { useState } from "react";
 const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
@@ -101,12 +102,23 @@ export default function Explore() {
               </button>
             </div>
           </div>
-          <div className="quiz">
-            <h5 className="feed_title">Quiz</h5>
-          </div>
+          <button className="quiz">
+            <div className="quiz__img">
+              <img src={quizImg} alt="" />
+            </div>
+            <div className="quiz__box">
+              <h2>Take the quiz to test your skills</h2>
+              <svg className="icon">
+                <use xlinkHref={`${icons}#icon-keyboard_arrow_right`}></use>
+              </svg>
+            </div>
+          </button>
         </div>
       </div>
-      <div className="explore__suggestions"></div>
+      <div className="explore__suggestions">
+        <div className="explore__suggestions--head"></div>
+        <div className="explore__suggestions--body"></div>
+      </div>
     </div>
   );
 }

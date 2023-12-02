@@ -52,7 +52,9 @@
       flex: 1 1 50%;
       display: flex;
       flex-flow: column nowrap;
+      align-items: stretch;
       gap: 1.5rem;
+      // background: #000;
 
       .portfolio {
         // height: 40%;
@@ -125,9 +127,53 @@
           }
         }
       }
+      .quiz {
+        display: flex;
+        // align-items: center;
+        border-radius: 20px;
+        background: $color-primary-super-light;
+        padding: 1rem 2rem;
+        border: none;
+        cursor: pointer;
+        height: 50%;
+        position: relative;
+        &__img {
+          height: 100%;
+          width: 50%;
+          display: block;
+          img {
+            height: 100%;
+            width: 100%;
+          }
+        }
+        &__box {
+          display: flex;
+          flex-flow: column nowrap;
+          align-items: center;
+          padding-top: 1rem;
+          h2 {
+            font-size: 3.5rem;
+            font-weight: 500;
+            text-align: center;
+            width: 90%;
+            margin: auto;
+          }
+          .icon {
+            position: absolute;
+            bottom: 0;
+            width: 85px;
+            height: 85px;
+            fill: $color-white;
+            background: $color-primary-dark;
+            border-radius: 50px;
+            transform: translateY(35px);
+          }
+        }
+      }
     }
   }
   &__suggestion {
+    display: flex;
   }
 }
 .none {

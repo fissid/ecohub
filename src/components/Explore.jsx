@@ -6,13 +6,14 @@ import p3 from "../img/p3.jpg";
 import p4 from "../img/p4.jpeg";
 import quizImg from "../img/minim/quiz.png";
 import "../scss/Explore.scss";
+import StudentCard from "./StudentCard";
 import { useState } from "react";
 const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
 const people = [
-  { profile: `${p1}`, name: "Mehmet" },
-  { profile: `${p2}`, name: "John" },
-  { profile: `${p3}`, name: "Ana" },
-  { profile: `${p4}`, name: "Walter" },
+  { profile: `${p1}`, name: "Mehmet", dep: "Computer Engineering", skills: portfolioList },
+  { profile: `${p2}`, name: "John", dep: "Mathematics", skills: portfolioList },
+  { profile: `${p3}`, name: "Ana", dep: "Electrical Engineering", skills: portfolioList },
+  { profile: `${p4}`, name: "Walter", dep: "Medicine", skills: portfolioList },
 ];
 
 export default function Explore() {
@@ -116,8 +117,15 @@ export default function Explore() {
         </div>
       </div>
       <div className="explore__suggestions">
-        <div className="explore__suggestions--head"></div>
-        <div className="explore__suggestions--body"></div>
+        <div className="explore__suggestions--head">
+          <h5 className="feed_title">Suggested Students</h5>
+          <button className="allStudents">See all</button>
+        </div>
+        <div className="explore__suggestions--body">
+          <StudentCard people={people[0]}></StudentCard>
+          <StudentCard people={people[1]}></StudentCard>
+          <StudentCard people={people[2]}></StudentCard>
+        </div>
       </div>
     </div>
   );

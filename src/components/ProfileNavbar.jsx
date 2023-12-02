@@ -31,46 +31,45 @@ export default function ProfileNavbar() {
         </div>
       </div>
       <div className="nav-item second">
-        <div className="uni">
+        <div className="uni line">
           <Icon name="school"></Icon>
-
           <p>{user.uni}</p>
           <Icon name="create"></Icon>
         </div>
 
-        <div className="skills">
+        <div className="skills line">
           <Icon name="book"></Icon>
           {user.skills.map((each) => (
-            <p>{each}</p>
+            <p key={each}>{each}</p>
           ))}
           <Icon name="create"></Icon>
         </div>
       </div>
-      <div className="nav-item third">
+      <div className="nav-item third line">
         <Icon name="message"></Icon>
         {user.bio}
         <Icon name="create"></Icon>
       </div>
       <div className="nav-item forth">
-        <div className="mail">
+        <div className="mail line">
           <Icon name="mail4"></Icon>
           {user.email}
           <Icon name="create"></Icon>
         </div>
 
-        <div className="site">
+        <div className="site line">
           <Icon name="sphere"></Icon>
           {user.site}
           <Icon name="create"></Icon>
         </div>
 
-        <div className="link">
+        <div className="link line">
           <Icon name="linkedin-square"></Icon>
           {user.link}
           <Icon name="create"></Icon>
         </div>
 
-        <div className="git">
+        <div className="git line">
           <Icon name="github-square"></Icon>
           {user.git}
           <Icon name="create"></Icon>

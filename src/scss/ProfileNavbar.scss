@@ -1,6 +1,18 @@
 @import "./variables";
-.icon {
-  width: 17px;
-  height: 17px;
-  //   fill: rgba($color-primary-grey, 0.5);
+.navbar {
+  display: flex;
+  flex-flow: column nowrap;
+  background: $color-primary-flash-white;
+  height: 90vh;
+  width: 25%;
+  border-radius: 20px;
+  padding: 1.3rem 0.7rem;
+  .nav-item {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 2rem;
+    &:not(:first-child) {
+      border-top: 1px solid $color-primary-dark;
+    }
+  }
 }

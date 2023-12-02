@@ -5,7 +5,8 @@
   flex-flow: column nowrap;
   gap: 1rem;
   padding: 1rem 2rem;
-  height: 65%;
+  padding-bottom: 0;
+  // height: 100%;
   &__search {
     display: flex;
     h4 {
@@ -182,11 +183,12 @@
   &__suggestions {
     display: flex;
     flex-flow: column nowrap;
+    height: 100%;
     &--head {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 1rem 0 1.5rem 0;
+      padding: 1rem 0;
       .allStudents {
         border: none;
         background: transparent;
@@ -204,6 +206,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 100%;
     }
   }
 }

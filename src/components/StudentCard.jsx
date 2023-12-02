@@ -9,7 +9,7 @@ export default function StudentCard({ people }) {
           <p>{people.skills[1]}</p>
         </div>
       </div>
-      <div className="card__bady">
+      <div className="card__body">
         <h6>{people.name}</h6>
         <p>{people.dep}</p>
       </div>

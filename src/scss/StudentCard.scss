@@ -9,10 +9,12 @@
 
   display: flex;
   flex-flow: column nowrap;
+  //   align-items: center;
+  justify-content: space-between;
   &__header {
     display: flex;
     align-items: start;
-    justify-content: space-around;
+
     &--img {
       height: 55px;
       width: 55px;
@@ -23,6 +25,8 @@
       flex-flow: column nowrap;
       align-items: center;
       justify-content: space-evenly;
+      flex: 1 1;
+      //   padding-left: 1rem;
       height: 100%;
       h6 {
         font-size: 1.7rem;
@@ -33,7 +37,24 @@
     }
   }
   &__body {
+    h6 {
+      font-size: 1.6rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
   }
   &__footer {
+    .connect {
+      background: $color-primary-dark;
+      border: none;
+      color: $color-white;
+      padding: 0.5rem 3rem;
+      border-radius: 30px;
+      &:hover {
+        cursor: pointer;
+        background: $color-primary-light;
+      }
+    }
   }
 }

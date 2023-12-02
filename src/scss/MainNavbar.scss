@@ -72,6 +72,10 @@
 
     display: flex;
     justify-content: space-evenly;
+    &:hover {
+      background: $color-primary-grey;
+      cursor: pointer;
+    }
     &--icon {
       height: 18px;
       width: 18px;

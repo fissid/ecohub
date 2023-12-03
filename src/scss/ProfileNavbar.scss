@@ -4,7 +4,7 @@
   flex-flow: column nowrap;
   background: $color-primary-flash-white;
   height: 90vh;
-  width: 25%;
+  width: 20%;
   border-radius: 20px;
   padding: 1.3rem 0.7rem;
   .nav-item {
@@ -58,8 +58,8 @@
   .line,
   .info__name {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    flex-flow: row nowrap;
   }
 
   .line {
@@ -67,7 +67,6 @@
       fill: $color-primary-dark;
     }
     p {
-      font-size: 1.7rem;
     }
   }
 }

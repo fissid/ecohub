@@ -8,7 +8,7 @@ const user = {
   dep: "Computer Engineering",
   uni: "Medipol University",
   skills: ["Html", "Css", "Js", "React", "Oop"],
-  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, officia. Quod aspernatur nostrum exercitationem et delectus unde quasi suscipit ea! Deleniti odio animi, nesciunt officiis nobis alias accusamus porro fuga?",
+  bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, officia. Quod aspernatur nostrum exercitationem et nesciunt officiis nobis",
   email: "salehisaeed30@outlook.com",
   link: "https://www.linkedin.com/in/saeed-salehi-06481a194/",
   git: "https://github.com/fissid",
@@ -30,11 +30,14 @@ export default function ProfileNavbar() {
           <p>{user.dep}</p>
         </div>
       </div>
+
       <div className="nav-item second">
         <div className="uni line">
-          <Icon name="school" className="line__icon" height={20} width={20}></Icon>
+          <div>
+            <Icon name="school" className="line__icon" height={20} width={20}></Icon>
+            <Icon name="create"></Icon>
+          </div>
           <p>{user.uni}</p>
-          <Icon name="create"></Icon>
         </div>
 
         <div className="skills line">
@@ -46,15 +49,16 @@ export default function ProfileNavbar() {
               </li>
             ))}
           </ul>
-
           <Icon name="create"></Icon>
         </div>
       </div>
+
       <div className="nav-item third line">
         <Icon name="message" className="line__icon" height={20} width={20}></Icon>
         <p>{user.bio}</p>
         <Icon name="create"></Icon>
       </div>
+
       <div className="nav-item forth">
         <div className="mail line">
           <Icon name="mail4" className="line__icon" height={20} width={20}></Icon>

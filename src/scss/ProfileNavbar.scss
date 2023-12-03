@@ -3,7 +3,7 @@
   display: flex;
   flex-flow: column nowrap;
   background: $color-primary-flash-white;
-  height: 90vh;
+  // height: 90vh;
   width: 20%;
   border-radius: 20px;
   padding: 1.3rem 0.7rem;
@@ -12,11 +12,18 @@
     flex-flow: column nowrap;
     margin: 1rem 2rem;
     justify-content: center;
+    position: relative;
     &:not(:last-child) {
       border-bottom: 1px solid $color-primary-dark;
       padding-bottom: 1.5rem;
     }
-    .icon {
+    // .icon {
+    //   fill: $color-primary-grey;
+    // }
+    .edit {
+      position: absolute;
+      top: 0;
+      right: 0;
       fill: $color-primary-grey;
     }
   }
@@ -25,48 +32,64 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    .profile {
-      position: relative;
 
+    .profile {
+      // position: relative;
       img {
-        height: 17rem;
-        width: 17rem;
+        height: 16rem;
+        width: 16rem;
         display: block;
         border-radius: 500px;
       }
-      .icon {
-        position: absolute;
-        bottom: 0;
-        right: 2rem;
-        background: $color-primary-light;
-        border-radius: 500px;
-        fill: $color-white;
-      }
+      // .icon {
+      //   position: absolute;
+      //   bottom: 0;
+      //   right: 2rem;
+      //   background: $color-primary-light;
+      //   border-radius: 500px;
+      //   fill: $color-white;
+      // }
     }
     .info {
       width: 100%;
       display: flex;
       flex-flow: column nowrap;
-
+      padding: 1rem 0;
       p {
         font-size: 1.4rem;
-        text-align: center;
       }
     }
   }
-
-  .line,
-  .info__name {
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row nowrap;
-  }
-
   .line {
+    position: relative;
+
+    p,
+    h4 {
+      padding: 0.1rem 0;
+      font-size: 1.3rem;
+      max-width: 75%;
+      margin-left: 2.5rem;
+      text-align: justify;
+    }
+    ul {
+      list-style: none;
+    }
     &__icon {
       fill: $color-primary-dark;
+      position: absolute;
+      top: 0;
+      left: 0;
     }
-    p {
+  }
+  .second,
+  .first {
+    .line {
+      padding: 0.1rem 0;
+    }
+  }
+  .forth {
+    .line {
+      padding: 0.3rem 0;
     }
   }
 }

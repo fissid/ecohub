@@ -21,23 +21,8 @@ export default function MainNavbar() {
       selected: false,
     },
     {
-      name: "Messages",
-      icon: `${icons}#icon-textsms`,
-      selected: false,
-    },
-    {
-      name: "Notifications",
-      icon: `${icons}#icon-notifications`,
-      selected: false,
-    },
-    {
       name: "Community",
       icon: `${icons}#icon-group`,
-      selected: false,
-    },
-    {
-      name: "Setting",
-      icon: `${icons}#icon-settings`,
       selected: false,
     },
   ];

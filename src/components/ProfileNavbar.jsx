@@ -21,7 +21,6 @@ export default function ProfileNavbar() {
         <Icon name="create" className="edit"></Icon>
         <div className="profile">
           <img src={user.profile} alt="" />
-          {/* <Icon name="add" height={30} width={30}></Icon> */}
         </div>
         <div className="info">
           <div className="info__name line">
@@ -31,7 +30,6 @@ export default function ProfileNavbar() {
           <div className="line">
             <Icon name="book1" className="line__icon" height={19} width={19}></Icon>
             <p>{user.dep}</p>
-            {/* <Icon name="create"></Icon> */}
           </div>
         </div>
       </div>

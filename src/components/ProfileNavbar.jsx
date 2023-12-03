@@ -53,7 +53,6 @@ export default function ProfileNavbar() {
               </li>
             ))}
           </ul>
-          {/* <Icon name="create"></Icon> */}
         </div>
       </div>
 

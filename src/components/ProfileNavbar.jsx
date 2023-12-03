@@ -50,8 +50,8 @@ export default function ProfileNavbar() {
           <Icon name="search" className="line__icon" height={20} width={20}></Icon>
           <ul>
             {user.skills.map((each) => (
-              <li>
-                <p key={each}>{each}</p>
+              <li key={each}>
+                <p>{each}</p>
               </li>
             ))}
           </ul>

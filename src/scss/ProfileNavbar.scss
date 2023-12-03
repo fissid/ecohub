@@ -10,9 +10,14 @@
   .nav-item {
     display: flex;
     flex-flow: column nowrap;
-    margin: 2rem;
-    &:not(:first-child) {
-      border-top: 1px solid $color-primary-dark;
+    margin: 1rem 2rem;
+    justify-content: center;
+    &:not(:last-child) {
+      border-bottom: 1px solid $color-primary-dark;
+      padding-bottom: 1.5rem;
+    }
+    .icon {
+      fill: $color-primary-grey;
     }
   }
 
@@ -55,5 +60,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+  }
+
+  .line {
+    &__icon {
+      fill: $color-primary-dark;
+    }
+    p {
+      font-size: 1.7rem;
+    }
   }
 }

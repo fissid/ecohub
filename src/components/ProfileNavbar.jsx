@@ -32,46 +32,51 @@ export default function ProfileNavbar() {
       </div>
       <div className="nav-item second">
         <div className="uni line">
-          <Icon name="school"></Icon>
+          <Icon name="school" className="line__icon" height={20} width={20}></Icon>
           <p>{user.uni}</p>
           <Icon name="create"></Icon>
         </div>
 
         <div className="skills line">
-          <Icon name="book"></Icon>
-          {user.skills.map((each) => (
-            <p key={each}>{each}</p>
-          ))}
+          <Icon name="book" className="line__icon" height={20} width={20}></Icon>
+          <ul>
+            {user.skills.map((each) => (
+              <li>
+                <p key={each}>{each}</p>
+              </li>
+            ))}
+          </ul>
+
           <Icon name="create"></Icon>
         </div>
       </div>
       <div className="nav-item third line">
-        <Icon name="message"></Icon>
-        {user.bio}
+        <Icon name="message" className="line__icon" height={20} width={20}></Icon>
+        <p>{user.bio}</p>
         <Icon name="create"></Icon>
       </div>
       <div className="nav-item forth">
         <div className="mail line">
-          <Icon name="mail4"></Icon>
-          {user.email}
+          <Icon name="mail4" className="line__icon" height={20} width={20}></Icon>
+          <p>{user.email}</p>
           <Icon name="create"></Icon>
         </div>
 
         <div className="site line">
-          <Icon name="sphere"></Icon>
-          {user.site}
+          <Icon name="sphere" className="line__icon" height={20} width={20}></Icon>
+          <p>{user.site}</p>
           <Icon name="create"></Icon>
         </div>
 
         <div className="link line">
-          <Icon name="linkedin-square"></Icon>
-          {user.link}
+          <Icon name="linkedin-square" className="line__icon" height={20} width={20}></Icon>
+          <p>{user.link}</p>
           <Icon name="create"></Icon>
         </div>
 
         <div className="git line">
-          <Icon name="github-square"></Icon>
-          {user.git}
+          <Icon name="github-square" className="line__icon" height={20} width={20}></Icon>
+          <p>{user.git}</p>
           <Icon name="create"></Icon>
         </div>
       </div>

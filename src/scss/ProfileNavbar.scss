@@ -24,6 +24,10 @@
       position: absolute;
       top: 0;
       right: 0;
+      fill: rgba($color-primary-grey, 0.5);
+      cursor: pointer;
+    }
+    .edit:hover {
       fill: $color-primary-grey;
     }
   }

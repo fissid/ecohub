@@ -71,7 +71,7 @@ export default function Explore() {
             <ul className={`${addable ? "portfolio__list portfolio__list--addable" : "portfolio__list"}`}>
               {portfolioList.map((each, i) => (
                 <li key={i}>
-                  <Icon name="add" data-toDelete={each} className={`${addable ? "delete" : "none"}`}></Icon>
+                  <Icon name="add" className={`${addable ? "delete" : "none"}`}></Icon>
                   {each}
                 </li>
               ))}

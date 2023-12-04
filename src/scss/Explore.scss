@@ -90,7 +90,7 @@
           // padding-left: 1.5rem;
           font-size: 1.3rem;
           line-height: 1.85rem;
-          &--editable {
+          &--addable {
             list-style-type: none;
           }
           &--input {
@@ -100,8 +100,11 @@
             padding: 0 0.3rem;
           }
           .delete {
-            margin: 0.1rem;
+            // margin: 0.1rem;
             margin-right: 0.4rem;
+            fill: red;
+            transform: rotate(45deg) scale(1.2);
+            cursor: pointer;
           }
         }
         &__btns {

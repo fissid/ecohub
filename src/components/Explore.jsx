@@ -18,17 +18,14 @@ const people = [
 ];
 
 export default function Explore() {
-  const [editable, changeEditable] = useState(false);
   const [addable, changeAddadble] = useState(false);
   const [addedPortfolio, changeAddedPortfolio] = useState("");
 
   function editPortfolioHandler() {
     // delete portfolio is not working
     changeAddadble(false);
-    changeEditable((prev) => !prev);
   }
   function addPortfolioHandler() {
-    changeEditable(false);
     changeAddadble((prev) => !prev);
   }
   function addBtnHandler() {
@@ -66,21 +63,15 @@ export default function Explore() {
               <div>
                 <button className="edit" onClick={addPortfolioHandler}>
                   <svg className="icon">
-                    <use xlinkHref={`${icons}#icon-add`}></use>
-                  </svg>
-                </button>
-                <button className="edit" onClick={editPortfolioHandler}>
-                  <svg className="icon">
                     <use xlinkHref={`${icons}#icon-create`}></use>
                   </svg>
                 </button>
               </div>
             </div>
-            <ul className={`${editable ? "portfolio__list portfolio__list--editable" : "portfolio__list"}`}>
+            <ul className={`${addable ? "portfolio__list portfolio__list--addable" : "portfolio__list"}`}>
               {portfolioList.map((each, i) => (
                 <li key={i}>
-                  <input type="checkbox" name={each} className={`${editable ? "delete" : "none"}`}></input>
-
+                  <Icon name="add" data-toDelete={each} className={`${addable ? "delete" : "none"}`}></Icon>
                   {each}
                 </li>
               ))}
@@ -90,16 +81,11 @@ export default function Explore() {
                 </li>
               )}
             </ul>
-            <div className={`${editable || addable ? "portfolio__btns" : "none"}`}>
-              {editable ? (
-                <button className="delete" onClick={deleteHandler}>
-                  Delete
-                </button>
-              ) : (
-                <button className="add" onClick={addBtnHandler}>
-                  Add
-                </button>
-              )}
+            <div className={`${addable ? "portfolio__btns" : "none"}`}>
+              <button className="add" onClick={addBtnHandler}>
+                Add
+              </button>
+
               <button className="cancel" onClick={editPortfolioHandler}>
                 Cancel
               </button>

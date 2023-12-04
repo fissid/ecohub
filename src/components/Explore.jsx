@@ -76,9 +76,17 @@ export default function Explore() {
                 </li>
               ))}
               {addable && (
-                <li>
-                  <input type="text" className="portfolio__list--input" value={addedPortfolio} onChange={(e) => changeAddedPortfolio(e.target.value)}></input>
-                </li>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    changeAddedPortfolio(e.target.querySelector(".portfolio__list--input").value);
+                    addBtnHandler();
+                  }}
+                >
+                  <li>
+                    <input type="text" className="portfolio__list--input" value={addedPortfolio} onChange={(e) => changeAddedPortfolio(e.target.value)}></input>
+                  </li>
+                </form>
               )}
             </ul>
             <div className={`${addable ? "portfolio__btns" : "none"}`}>

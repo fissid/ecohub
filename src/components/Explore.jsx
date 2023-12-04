@@ -8,6 +8,7 @@ import quizImg from "../img/minim/quiz.png";
 import "../scss/Explore.scss";
 import StudentCard from "./StudentCard";
 import { useState } from "react";
+import Icon from "./Icon";
 const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
 const people = [
   { profile: `${p1}`, name: "Mehmet", dep: "Computer Engineering", skills: portfolioList },
@@ -79,6 +80,7 @@ export default function Explore() {
               {portfolioList.map((each, i) => (
                 <li key={i}>
                   <input type="checkbox" name={each} className={`${editable ? "delete" : "none"}`}></input>
+
                   {each}
                 </li>
               ))}

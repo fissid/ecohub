@@ -16,35 +16,49 @@ const user = {
   site: "www.google.com",
 };
 export default function ProfileNavbar() {
-  const [editableMode, editEditableMode] = useState(false);
+  // const [editableMode, editEditableMode] = useState(false);
+  const [editableMode, editEditableMode] = useState({
+    first: false,
+    second: false,
+    third: false,
+    forth: false,
+  });
+
   const [userInfo, editUserInfo] = useState(user);
-  function edit(e) {
-    // here
+  function edit(e, element) {
     editUserInfo((prev) => {
       const updatedUserInfo = { ...prev };
-      updatedUserInfo.name = e.target.value;
+      updatedUserInfo[element] = e.target.value;
       return updatedUserInfo;
     });
   }
   return (
     <div className="navbar">
       <div className="nav-item first">
-        <Icon name="create" className="edit" onClick={() => editEditableMode((prev) => !prev)}></Icon>
+        <Icon
+          name="create"
+          className="edit"
+          onClick={() =>
+            editEditableMode((prev) => {
+              return { ...prev, first: !prev.first };
+            })
+          }
+        ></Icon>
         <div className="profile">
           <img src={userInfo.profile} alt="" />
-          <Icon name="add" height={30} width={30} className={editableMode ? "icon" : "none"}></Icon>
+          <Icon name="add" height={30} width={30} className={editableMode.first ? "icon" : "none"}></Icon>
         </div>
         <div className="info">
           <div className="info__name line">
             <Icon name="person" className="line__icon" height={20} width={20}></Icon>
-            {editableMode ? (
+            {editableMode.first ? (
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   editEditableMode(false);
                 }}
               >
-                <input type="text" value={userInfo.name} onChange={edit} />
+                <input type="text" value={userInfo.name} onChange={(e) => edit(e, "name")} />
               </form>
             ) : (
               <h4>{userInfo.name}</h4>
@@ -52,14 +66,14 @@ export default function ProfileNavbar() {
           </div>
           <div className="line">
             <Icon name="book1" className="line__icon" height={19} width={19}></Icon>
-            {editableMode ? (
+            {editableMode.first ? (
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
                   editEditableMode(false);
                 }}
               >
-                <input type="text" value={userInfo.dep} onChange={edit} />
+                <input type="text" value={userInfo.dep} onChange={(e) => edit(e, "dep")} />
               </form>
             ) : (
               <p>{userInfo.dep}</p>
@@ -69,18 +83,26 @@ export default function ProfileNavbar() {
       </div>
 
       <div className="nav-item second">
-        <Icon name="create" className="edit"></Icon>
+        <Icon
+          name="create"
+          className="edit"
+          onClick={() =>
+            editEditableMode((prev) => {
+              return { ...prev, second: !prev.second };
+            })
+          }
+        ></Icon>
 
         <div className="uni line">
           <Icon name="school" className="line__icon" height={20} width={20}></Icon>
-          {editableMode ? (
+          {editableMode.second ? (
             <form
               onSubmit={(e) => {
                 e.preventDefault();
                 editEditableMode(false);
               }}
             >
-              <input type="text" value={userInfo.uni} onChange={edit} />
+              <input type="text" value={userInfo.uni} onChange={(e) => edit(e, "uni")} />
             </form>
           ) : (
             <p>{userInfo.uni}</p>
@@ -100,16 +122,24 @@ export default function ProfileNavbar() {
       </div>
 
       <div className="nav-item third line">
-        <Icon name="create" className="edit"></Icon>
+        <Icon
+          name="create"
+          className="edit"
+          onClick={() =>
+            editEditableMode((prev) => {
+              return { ...prev, third: !prev.third };
+            })
+          }
+        ></Icon>
         <Icon name="notebook-text" className="line__icon" height={21} width={22}></Icon>
-        {editableMode ? (
+        {editableMode.third ? (
           <form
             onSubmit={(e) => {
               e.preventDefault();
               editEditableMode(false);
             }}
           >
-            <textarea value={userInfo.bio} onChange={edit} cols="25" rows="6" />
+            <textarea value={userInfo.bio} onChange={(e) => edit(e, "bio")} cols="25" rows="6" />
           </form>
         ) : (
           <p>{userInfo.bio}</p>
@@ -117,26 +147,78 @@ export default function ProfileNavbar() {
       </div>
 
       <div className="nav-item forth">
-        <Icon name="create" className="edit"></Icon>
+        <Icon
+          name="create"
+          className="edit"
+          onClick={() =>
+            editEditableMode((prev) => {
+              return { ...prev, forth: !prev.forth };
+            })
+          }
+        ></Icon>
 
         <div className="mail line">
           <Icon name="alternate_email" className="line__icon" height={20} width={20}></Icon>
-          <p>{userInfo.email}</p>
+          {editableMode.forth ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                editEditableMode(false);
+              }}
+            >
+              <input type="text" value={userInfo.email} onChange={(e) => edit(e, "email")} />
+            </form>
+          ) : (
+            <p>{userInfo.email}</p>
+          )}
         </div>
 
         <div className="site line">
           <Icon name="globe" className="line__icon" height={20} width={20}></Icon>
-          <p>{userInfo.site}</p>
+          {editableMode ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                editEditableMode(false);
+              }}
+            >
+              <input type="text" value={userInfo.site} onChange={(e) => edit(e, "site")} />
+            </form>
+          ) : (
+            <p>{userInfo.site}</p>
+          )}
         </div>
 
         <div className="link line">
           <Icon name="linkedin-with-circle" className="line__icon" height={20} width={20}></Icon>
-          <p>{userInfo.link}</p>
+          {editableMode ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                editEditableMode(false);
+              }}
+            >
+              <input type="text" value={userInfo.link} onChange={(e) => edit(e, "link")} />
+            </form>
+          ) : (
+            <p>{userInfo.link}</p>
+          )}
         </div>
 
         <div className="git line">
           <Icon name="github" className="line__icon" height={20} width={20}></Icon>
-          <p>{userInfo.git}</p>
+          {editableMode ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                editEditableMode(false);
+              }}
+            >
+              <input type="text" value={userInfo.git} onChange={(e) => edit(e, "git")} />
+            </form>
+          ) : (
+            <p>{userInfo.git}</p>
+          )}
         </div>
       </div>
     </div>

@@ -33,15 +33,6 @@ export default function ProfileNavbar() {
   return (
     <div className="navbar">
       <div className="nav-item first">
-        {/* <Icon
-          name="create"
-          className="edit"
-          onClick={() =>
-            editEditableMode((prev) => {
-              return { ...prev, first: !prev.first };
-            })
-          }
-        ></Icon> */}
         <Icon
           name="create"
           className="edit"

@@ -34,7 +34,7 @@ export default function ProfileNavbar() {
     <div className="navbar">
       <div className="nav-item first">
         <Icon
-          name="create"
+          name={editableMode.first ? "checkmark" : "create"}
           className="edit"
           onClick={() =>
             editEditableMode((prev) => {

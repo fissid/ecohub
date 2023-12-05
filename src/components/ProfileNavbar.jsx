@@ -16,14 +16,12 @@ const user = {
   site: "www.google.com",
 };
 export default function ProfileNavbar() {
-  // const [editableMode, editEditableMode] = useState(false);
   const [editableMode, editEditableMode] = useState({
     first: false,
     second: false,
     third: false,
     forth: false,
   });
-
   const [userInfo, editUserInfo] = useState(user);
   function edit(e, element) {
     editUserInfo((prev) => {
@@ -35,6 +33,15 @@ export default function ProfileNavbar() {
   return (
     <div className="navbar">
       <div className="nav-item first">
+        {/* <Icon
+          name="create"
+          className="edit"
+          onClick={() =>
+            editEditableMode((prev) => {
+              return { ...prev, first: !prev.first };
+            })
+          }
+        ></Icon> */}
         <Icon
           name="create"
           className="edit"

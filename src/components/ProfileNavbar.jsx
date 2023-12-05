@@ -55,7 +55,9 @@ export default function ProfileNavbar() {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  editEditableMode(false);
+                  editEditableMode((prev) => {
+                    return { ...prev, first: !prev.first };
+                  });
                 }}
               >
                 <input type="text" value={userInfo.name} onChange={(e) => edit(e, "name")} />
@@ -70,7 +72,9 @@ export default function ProfileNavbar() {
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  editEditableMode(false);
+                  editEditableMode((prev) => {
+                    return { ...prev, first: !prev.first };
+                  });
                 }}
               >
                 <input type="text" value={userInfo.dep} onChange={(e) => edit(e, "dep")} />
@@ -99,7 +103,9 @@ export default function ProfileNavbar() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                editEditableMode(false);
+                editEditableMode((prev) => {
+                  return { ...prev, second: !prev.second };
+                });
               }}
             >
               <input type="text" value={userInfo.uni} onChange={(e) => edit(e, "uni")} />
@@ -136,7 +142,9 @@ export default function ProfileNavbar() {
           <form
             onSubmit={(e) => {
               e.preventDefault();
-              editEditableMode(false);
+              editEditableMode((prev) => {
+                return { ...prev, third: !prev.third };
+              });
             }}
           >
             <textarea value={userInfo.bio} onChange={(e) => edit(e, "bio")} cols="25" rows="6" />
@@ -163,7 +171,9 @@ export default function ProfileNavbar() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                editEditableMode(false);
+                editEditableMode((prev) => {
+                  return { ...prev, forth: !prev.forth };
+                });
               }}
             >
               <input type="text" value={userInfo.email} onChange={(e) => edit(e, "email")} />
@@ -175,11 +185,13 @@ export default function ProfileNavbar() {
 
         <div className="site line">
           <Icon name="globe" className="line__icon" height={20} width={20}></Icon>
-          {editableMode ? (
+          {editableMode.forth ? (
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                editEditableMode(false);
+                editEditableMode((prev) => {
+                  return { ...prev, forth: !prev.forth };
+                });
               }}
             >
               <input type="text" value={userInfo.site} onChange={(e) => edit(e, "site")} />
@@ -191,11 +203,13 @@ export default function ProfileNavbar() {
 
         <div className="link line">
           <Icon name="linkedin-with-circle" className="line__icon" height={20} width={20}></Icon>
-          {editableMode ? (
+          {editableMode.forth ? (
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                editEditableMode(false);
+                editEditableMode((prev) => {
+                  return { ...prev, forth: !prev.forth };
+                });
               }}
             >
               <input type="text" value={userInfo.link} onChange={(e) => edit(e, "link")} />
@@ -207,11 +221,13 @@ export default function ProfileNavbar() {
 
         <div className="git line">
           <Icon name="github" className="line__icon" height={20} width={20}></Icon>
-          {editableMode ? (
+          {editableMode.forth ? (
             <form
               onSubmit={(e) => {
                 e.preventDefault();
-                editEditableMode(false);
+                editEditableMode((prev) => {
+                  return { ...prev, forth: !prev.forth };
+                });
               }}
             >
               <input type="text" value={userInfo.git} onChange={(e) => edit(e, "git")} />

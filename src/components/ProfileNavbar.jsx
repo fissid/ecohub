@@ -35,7 +35,7 @@ export default function ProfileNavbar() {
       <div className="nav-item first">
         <Icon
           name={editableMode.first ? "clipboard" : "create"}
-          className={editableMode.first ? "done" : "edit"}
+          className="edit"
           onClick={() =>
             editEditableMode((prev) => {
               return { ...prev, first: !prev.first };
@@ -86,7 +86,7 @@ export default function ProfileNavbar() {
 
       <div className="nav-item second">
         <Icon
-          name="create"
+          name={editableMode.second ? "clipboard" : "create"}
           className="edit"
           onClick={() =>
             editEditableMode((prev) => {
@@ -127,7 +127,7 @@ export default function ProfileNavbar() {
 
       <div className="nav-item third line">
         <Icon
-          name="create"
+          name={editableMode.third ? "clipboard" : "create"}
           className="edit"
           onClick={() =>
             editEditableMode((prev) => {
@@ -154,7 +154,7 @@ export default function ProfileNavbar() {
 
       <div className="nav-item forth">
         <Icon
-          name="create"
+          name={editableMode.forth ? "clipboard" : "create"}
           className="edit"
           onClick={() =>
             editEditableMode((prev) => {

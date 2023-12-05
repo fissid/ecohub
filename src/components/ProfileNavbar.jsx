@@ -225,6 +225,7 @@ export default function ProfileNavbar() {
             <form
               onSubmit={(e) => {
                 e.preventDefault();
+
                 editEditableMode((prev) => {
                   return { ...prev, forth: !prev.forth };
                 });

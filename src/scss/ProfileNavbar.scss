@@ -72,10 +72,10 @@
   }
   .line {
     position: relative;
-
     p,
     h4,
-    input {
+    input,
+    textarea {
       padding: 0.1rem 0;
       font-size: 1.3rem;
       max-width: 75%;
@@ -86,11 +86,16 @@
       list-style: none;
       text-transform: capitalize;
     }
-    input {
+    input,
+    textarea {
       border: none;
       background: rgba($color-white, 0.7);
       border-radius: 4px;
-      padding: 0 0.3rem;
+      padding: 0.1rem 0.3rem;
+      margin-top: 0;
+    }
+    form {
+      display: flex;
     }
     &__icon {
       fill: $color-primary-dark;

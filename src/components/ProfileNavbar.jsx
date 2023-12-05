@@ -28,22 +28,41 @@ export default function ProfileNavbar() {
   return (
     <div className="navbar">
       <div className="nav-item first">
-        <Icon name="create" className="edit"></Icon>
+        <Icon name="create" className="edit" onClick={() => editEditableMode((prev) => !prev)}></Icon>
         <div className="profile">
           <img src={userInfo.profile} alt="" />
-          <Icon name="add" height={30} width={30} className="none"></Icon>
+          <Icon name="add" height={30} width={30} className={editableMode ? "icon" : "none"}></Icon>
         </div>
         <div className="info">
           <div className="info__name line">
             <Icon name="person" className="line__icon" height={20} width={20}></Icon>
-            {/* <h4>{userInfo.name}</h4> */}
-            <form onSubmit={() => editEditableMode(true)}>
-              <input type="text" value={userInfo.name} onChange={edit} />
-            </form>
+            {editableMode ? (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  editEditableMode(false);
+                }}
+              >
+                <input type="text" value={userInfo.name} onChange={edit} />
+              </form>
+            ) : (
+              <h4>{userInfo.name}</h4>
+            )}
           </div>
           <div className="line">
             <Icon name="book1" className="line__icon" height={19} width={19}></Icon>
-            <p>{userInfo.dep}</p>
+            {editableMode ? (
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  editEditableMode(false);
+                }}
+              >
+                <input type="text" value={userInfo.dep} onChange={edit} />
+              </form>
+            ) : (
+              <p>{userInfo.dep}</p>
+            )}
           </div>
         </div>
       </div>
@@ -52,10 +71,19 @@ export default function ProfileNavbar() {
         <Icon name="create" className="edit"></Icon>
 
         <div className="uni line">
-          <div>
-            <Icon name="school" className="line__icon" height={20} width={20}></Icon>
-          </div>
-          <p>{userInfo.uni}</p>
+          <Icon name="school" className="line__icon" height={20} width={20}></Icon>
+          {editableMode ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                editEditableMode(false);
+              }}
+            >
+              <input type="text" value={userInfo.uni} onChange={edit} />
+            </form>
+          ) : (
+            <p>{userInfo.uni}</p>
+          )}
         </div>
 
         <div className="skills line">
@@ -73,7 +101,18 @@ export default function ProfileNavbar() {
       <div className="nav-item third line">
         <Icon name="create" className="edit"></Icon>
         <Icon name="notebook-text" className="line__icon" height={21} width={22}></Icon>
-        <p>{userInfo.bio}</p>
+        {editableMode ? (
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              editEditableMode(false);
+            }}
+          >
+            <textarea value={userInfo.bio} onChange={edit} cols="25" rows="6" />
+          </form>
+        ) : (
+          <p>{userInfo.bio}</p>
+        )}
       </div>
 
       <div className="nav-item forth">

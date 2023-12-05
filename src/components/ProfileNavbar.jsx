@@ -49,7 +49,7 @@ export default function ProfileNavbar() {
           <ul>
             {user.skills.map((each) => (
               <li key={each}>
-                <p>{each} </p>
+                <p>{each}</p>
               </li>
             ))}
           </ul>

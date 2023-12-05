@@ -21,32 +21,29 @@ export default function Explore() {
   const [addable, changeAddadble] = useState(false);
   const [addedPortfolio, changeAddedPortfolio] = useState("");
 
-  function editPortfolioHandler() {
+  function cancelPortfolioHandler() {
     // delete portfolio is not working
     changeAddadble(false);
   }
-  function addPortfolioHandler() {
-    changeAddadble((prev) => !prev);
-  }
+
   function addBtnHandler() {
-    if (!addedPortfolio) return;
-    portfolioList.push(addedPortfolio);
-    changeAddadble((prev) => !prev);
-    changeAddedPortfolio("");
+    if (!addedPortfolio) {
+      changeAddadble((prev) => !prev);
+    } else {
+      portfolioList.push(addedPortfolio);
+      changeAddadble((prev) => !prev);
+      changeAddedPortfolio("");
+    }
   }
-  function deleteHandler() {
+  function deleteHandler(e) {
     // delete portfolio is not working
+    portfolioList.splice(e.target.closest("li").dataset.id, 1);
+    changeAddadble(false);
   }
   return (
     <div className="explore">
-      <div className="explore__search">
+      <div className="explore__welcome">
         <h4>Welcome back Saeed!</h4>
-        <div className="explore__search--box">
-          <input type="text" name="search" id="" className="box" placeholder="Search" />
-          <svg className="icon">
-            <use xlinkHref={`${icons}#icon-search`}></use>
-          </svg>
-        </div>
       </div>
       <div className="explore__feed">
         <div className="skills left">
@@ -61,7 +58,7 @@ export default function Explore() {
             <div className="portfolio__header">
               <h5 className="feed_title">Portfolio / Activities</h5>
               <div>
-                <button className="edit" onClick={addPortfolioHandler}>
+                <button className="edit" onClick={addBtnHandler}>
                   <svg className="icon">
                     <use xlinkHref={`${icons}#icon-create`}></use>
                   </svg>
@@ -70,8 +67,8 @@ export default function Explore() {
             </div>
             <ul className={`${addable ? "portfolio__list portfolio__list--addable" : "portfolio__list"}`}>
               {portfolioList.map((each, i) => (
-                <li key={i}>
-                  <Icon name="add" className={`${addable ? "delete" : "none"}`} height={14} width={14}></Icon>
+                <li key={i} data-id={i}>
+                  <Icon name="add" className={`${addable ? "delete" : "none"}`} height={14} width={14} onClick={deleteHandler}></Icon>
                   {each}
                 </li>
               ))}
@@ -94,7 +91,7 @@ export default function Explore() {
                 Add
               </button>
 
-              <button className="cancel" onClick={editPortfolioHandler}>
+              <button className="cancel" onClick={cancelPortfolioHandler}>
                 Cancel
               </button>
             </div>

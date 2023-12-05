@@ -43,10 +43,12 @@
     &--name {
       font-size: 1.6rem;
       padding: 0.3rem 0;
+      text-transform: uppercase;
     }
     &--dep {
       font-size: 1.2rem;
       text-wrap: nowrap;
+      text-transform: capitalize;
     }
   }
   &__menu {

@@ -26,9 +26,10 @@
       right: 0;
       fill: rgba($color-primary-grey, 0.5);
       cursor: pointer;
-    }
-    .edit:hover {
-      fill: $color-primary-grey;
+      // background: #000;
+      &:hover {
+        fill: $color-primary-grey;
+      }
     }
   }
 
@@ -59,8 +60,12 @@
       display: flex;
       flex-flow: column nowrap;
       padding: 1rem 0;
+      &__name {
+        text-transform: capitalize;
+      }
       p {
         font-size: 1.4rem;
+        text-transform: capitalize;
       }
     }
   }
@@ -77,6 +82,7 @@
     }
     ul {
       list-style: none;
+      text-transform: capitalize;
     }
     &__icon {
       fill: $color-primary-dark;

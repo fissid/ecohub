@@ -26,6 +26,7 @@
       right: 0;
       fill: rgba($color-primary-grey, 0.5);
       cursor: pointer;
+      z-index: 1;
       // background: #000;
       &:hover {
         fill: $color-primary-grey;
@@ -39,21 +40,21 @@
     align-items: center;
 
     .profile {
-      // position: relative;
+      position: relative;
       img {
         height: 16rem;
         width: 16rem;
         display: block;
         border-radius: 500px;
       }
-      // .icon {
-      //   position: absolute;
-      //   bottom: 0;
-      //   right: 2rem;
-      //   background: $color-primary-light;
-      //   border-radius: 500px;
-      //   fill: $color-white;
-      // }
+      .icon {
+        position: absolute;
+        bottom: 0;
+        right: 2rem;
+        background: $color-primary-light;
+        border-radius: 500px;
+        fill: $color-white;
+      }
     }
     .info {
       width: 100%;
@@ -73,7 +74,8 @@
     position: relative;
 
     p,
-    h4 {
+    h4,
+    input {
       padding: 0.1rem 0;
       font-size: 1.3rem;
       max-width: 75%;
@@ -83,6 +85,12 @@
     ul {
       list-style: none;
       text-transform: capitalize;
+    }
+    input {
+      border: none;
+      background: rgba($color-white, 0.7);
+      border-radius: 4px;
+      padding: 0 0.3rem;
     }
     &__icon {
       fill: $color-primary-dark;
@@ -102,4 +110,7 @@
       padding: 0.3rem 0;
     }
   }
+}
+.none {
+  display: none;
 }

@@ -19,6 +19,7 @@ export default function ProfileNavbar() {
   const [editableMode, editEditableMode] = useState(false);
   const [userInfo, editUserInfo] = useState(user);
   function edit(e) {
+    // here
     editUserInfo((prev) => {
       const updatedUserInfo = { ...prev };
       updatedUserInfo.name = e.target.value;

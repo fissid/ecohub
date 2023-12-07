@@ -34,6 +34,7 @@ export default function ProfileNavbar() {
   }
 
   function editSkills(val, element = "skills") {
+    if (!val) return;
     editUserInfo((prev) => {
       const updatedUserInfo = { ...prev };
       updatedUserInfo[element].push(val);
@@ -42,9 +43,10 @@ export default function ProfileNavbar() {
   }
 
   function deleteHandler(e) {
-    userInfo.skills.splice(e.target.closest("li").dataset.id, 1);
-    editEditableMode((prev) => {
-      return { ...prev, second: !prev.second };
+    editUserInfo((prev) => {
+      const updatedUserInfo = { ...prev };
+      updatedUserInfo.skills.splice(e.target.closest("li").dataset.id, 1);
+      return updatedUserInfo;
     });
   }
 
@@ -145,20 +147,17 @@ export default function ProfileNavbar() {
                 className="skills__list"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  editEditableMode((prev) => {
-                    return { ...prev, second: !prev.second };
-                  });
+                  // editEditableMode((prev) => {
+                  //   return { ...prev, second: !prev.second };
+                  // });
                   editSkills(e.target.querySelector(".portfolio__list--input").value);
                 }}
               >
                 {userInfo.skills.map((each, i) => (
-                  <li key={i} data-id={i}>
+                  <li key={i} data-id={i} style={editableMode && { marginLeft: "2.5rem" }}>
                     <Icon name="add" className={`${editableMode ? "delete" : "none"}`} height={14} width={14} onClick={deleteHandler}></Icon>
-                    <p>{each}</p>
+                    {each}
                   </li>
-                  // <li key={i}>
-                  //   <p>{each}</p>
-                  // </li>
                 ))}
                 <li>
                   <input type="text" className="portfolio__list--input"></input>

@@ -22,7 +22,9 @@ export default function ProfileNavbar() {
     third: false,
     forth: false,
   });
+
   const [userInfo, editUserInfo] = useState(user);
+
   function edit(e, element) {
     editUserInfo((prev) => {
       const updatedUserInfo = { ...prev };
@@ -30,6 +32,15 @@ export default function ProfileNavbar() {
       return updatedUserInfo;
     });
   }
+
+  function editSkills(val, element = "skills") {
+    editUserInfo((prev) => {
+      const updatedUserInfo = { ...prev };
+      updatedUserInfo[element].push(val);
+      return updatedUserInfo;
+    });
+  }
+
   return (
     <div className="navbar">
       <div className="nav-item first">
@@ -116,11 +127,33 @@ export default function ProfileNavbar() {
         <div className="skills line">
           <Icon name="search" className="line__icon" height={20} width={20}></Icon>
           <ul>
-            {userInfo.skills.map((each) => (
-              <li key={each}>
-                <p>{each}</p>
-              </li>
-            ))}
+            {!editableMode.second ? (
+              userInfo.skills.map((each) => (
+                <li key={each}>
+                  <p>{each}</p>
+                </li>
+              ))
+            ) : (
+              <form
+                className="skills__list"
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  editEditableMode((prev) => {
+                    return { ...prev, second: !prev.second };
+                  });
+                  editSkills(e.target.querySelector(".portfolio__list--input").value);
+                }}
+              >
+                {userInfo.skills.map((each, i) => (
+                  <li key={i}>
+                    <p>{each}</p>
+                  </li>
+                ))}
+                <li>
+                  <input type="text" className="portfolio__list--input"></input>
+                </li>
+              </form>
+            )}
           </ul>
         </div>
       </div>

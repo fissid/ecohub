@@ -117,6 +117,14 @@
     }
   }
 }
+
+.skills {
+  &__list {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+}
+
 .none {
   display: none;
 }

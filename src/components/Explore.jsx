@@ -31,7 +31,6 @@ export default function Explore() {
     }
   }
   function deleteHandler(e) {
-    // delete portfolio is not working
     portfolioList.splice(e.target.closest("li").dataset.id, 1);
     changeAddadble(false);
   }

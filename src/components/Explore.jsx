@@ -21,11 +21,6 @@ export default function Explore() {
   const [addable, changeAddadble] = useState(false);
   const [addedPortfolio, changeAddedPortfolio] = useState("");
 
-  function cancelPortfolioHandler() {
-    // delete portfolio is not working
-    changeAddadble(false);
-  }
-
   function addBtnHandler() {
     if (!addedPortfolio) {
       changeAddadble((prev) => !prev);

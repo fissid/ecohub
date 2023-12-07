@@ -41,6 +41,13 @@ export default function ProfileNavbar() {
     });
   }
 
+  function deleteHandler(e) {
+    userInfo.skills.splice(e.target.closest("li").dataset.id, 1);
+    editEditableMode((prev) => {
+      return { ...prev, second: !prev.second };
+    });
+  }
+
   return (
     <div className="navbar">
       <div className="nav-item first">
@@ -145,9 +152,13 @@ export default function ProfileNavbar() {
                 }}
               >
                 {userInfo.skills.map((each, i) => (
-                  <li key={i}>
+                  <li key={i} data-id={i}>
+                    <Icon name="add" className={`${editableMode ? "delete" : "none"}`} height={14} width={14} onClick={deleteHandler}></Icon>
                     <p>{each}</p>
                   </li>
+                  // <li key={i}>
+                  //   <p>{each}</p>
+                  // </li>
                 ))}
                 <li>
                   <input type="text" className="portfolio__list--input"></input>

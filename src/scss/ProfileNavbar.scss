@@ -82,10 +82,7 @@
       margin-left: 2.5rem;
       text-align: justify;
     }
-    ul {
-      list-style: none;
-      text-transform: capitalize;
-    }
+
     input,
     textarea {
       border: none;
@@ -122,6 +119,17 @@
   &__list {
     display: flex;
     flex-flow: column nowrap;
+  }
+  .delete {
+    margin-right: 0.4rem;
+    fill: red;
+    transform: rotate(45deg) scale(1.2);
+    cursor: pointer;
+  }
+  ul {
+    list-style: none;
+    text-transform: capitalize;
+    font-size: 1.3rem;
   }
 }
 

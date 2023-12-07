@@ -148,7 +148,7 @@ export default function ProfileNavbar() {
             <textarea value={userInfo.bio} onChange={(e) => edit(e, "bio")} cols="25" rows="6" />
           </form>
         ) : (
-          <p>{userInfo.bio}</p>
+          <p>{userInfo.bio} </p>
         )}
       </div>
 

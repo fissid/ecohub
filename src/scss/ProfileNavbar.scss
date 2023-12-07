@@ -130,6 +130,11 @@
     list-style: none;
     text-transform: capitalize;
     font-size: 1.3rem;
+    li {
+      display: flex;
+      flex-flow: row nowrap;
+      padding: 0.1rem 0;
+    }
   }
 }
 

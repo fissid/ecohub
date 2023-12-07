@@ -54,7 +54,7 @@ export default function Explore() {
               <div>
                 <button className="edit" onClick={addBtnHandler}>
                   <Icon
-                    name={addable.second ? "clipboard" : "create"}
+                    name={addable ? "clipboard" : "create"}
                     className="icon"
                     onClick={() => {
                       changeAddadble((prev) => !prev);

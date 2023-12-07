@@ -147,10 +147,11 @@ export default function ProfileNavbar() {
                 className="skills__list"
                 onSubmit={(e) => {
                   e.preventDefault();
-                  // editEditableMode((prev) => {
-                  //   return { ...prev, second: !prev.second };
-                  // });
                   editSkills(e.target.querySelector(".portfolio__list--input").value);
+
+                  editEditableMode((prev) => {
+                    return { ...prev, second: !prev.second };
+                  });
                 }}
               >
                 {userInfo.skills.map((each, i) => (

@@ -80,7 +80,7 @@ export default function Explore() {
                   }}
                 >
                   <li>
-                    <input type="text" className="portfolio__list--input" value={addedPortfolio} onChange={(e) => changeAddedPortfolio(e.target.value)}></input>
+                    <input type="text" className="portfolio__list--input" value={addedPortfolio} onChange={(e) => changeAddedPortfolio(e.target.value)} placeholder="New Portfolio / Activity"></input>
                   </li>
                 </form>
               )}

@@ -48,6 +48,9 @@ export default function ProfileNavbar() {
       updatedUserInfo.skills.splice(e.target.closest("li").dataset.id, 1);
       return updatedUserInfo;
     });
+    editEditableMode((prev) => {
+      return { ...prev, second: !prev.second };
+    });
   }
 
   return (
@@ -148,7 +151,6 @@ export default function ProfileNavbar() {
                 onSubmit={(e) => {
                   e.preventDefault();
                   editSkills(e.target.querySelector(".portfolio__list--input").value);
-
                   editEditableMode((prev) => {
                     return { ...prev, second: !prev.second };
                   });
@@ -161,7 +163,7 @@ export default function ProfileNavbar() {
                   </li>
                 ))}
                 <li>
-                  <input type="text" className="portfolio__list--input"></input>
+                  <input type="text" className="portfolio__list--input" placeholder="New Skill"></input>
                 </li>
               </form>
             )}

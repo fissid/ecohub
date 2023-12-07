@@ -59,9 +59,14 @@ export default function Explore() {
               <h5 className="feed_title">Portfolio / Activities</h5>
               <div>
                 <button className="edit" onClick={addBtnHandler}>
-                  <svg className="icon">
-                    <use xlinkHref={`${icons}#icon-create`}></use>
-                  </svg>
+                  <Icon
+                    name={addable.second ? "clipboard" : "create"}
+                    className="icon"
+                    onClick={() => {
+                      changeAddadble((prev) => !prev);
+                      addBtnHandler();
+                    }}
+                  ></Icon>
                 </button>
               </div>
             </div>
@@ -86,7 +91,7 @@ export default function Explore() {
                 </form>
               )}
             </ul>
-            <div className={`${addable ? "portfolio__btns" : "none"}`}>
+            {/* <div className={`${addable ? "portfolio__btns" : "none"}`}>
               <button className="add" onClick={addBtnHandler}>
                 Add
               </button>
@@ -94,7 +99,7 @@ export default function Explore() {
               <button className="cancel" onClick={cancelPortfolioHandler}>
                 Cancel
               </button>
-            </div>
+            </div> */}
           </div>
           <button className="quiz">
             <div className="quiz__img">

@@ -67,7 +67,9 @@ export default function ProfileNavbar() {
         ></Icon>
         <div className="profile">
           <img src={userInfo.profile} alt="" />
-          <Icon name="add" height={30} width={30} className={editableMode.first ? "icon" : "none"}></Icon>
+          <button className="profile__edit">
+            <Icon name="add" height={30} width={30} className={editableMode.first ? "icon" : "none"}></Icon>
+          </button>
         </div>
         <div className="info">
           <div className="info__name line">

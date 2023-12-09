@@ -17,7 +17,7 @@ const people = [
   { profile: `${p4}`, name: "Walter", dep: "Medicine", skills: portfolioList },
 ];
 
-export default function Explore() {
+export default function Explore(props) {
   const [addable, changeAddadble] = useState(false);
   const [addedPortfolio, changeAddedPortfolio] = useState("");
 
@@ -35,7 +35,7 @@ export default function Explore() {
     changeAddadble(false);
   }
   return (
-    <div className="explore">
+    <div className={`${props.className} explore`}>
       <div className="explore__welcome">
         <h4>Welcome back Saeed!</h4>
       </div>

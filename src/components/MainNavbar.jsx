@@ -3,22 +3,8 @@ import MenuBtn from "./MenuBtn";
 import profile from "../img/pro.PNG";
 import logoWhite from "../img/logoWhite.PNG";
 import icons from "../icons/sprite.svg";
-import { useState } from "react";
-export default function MainNavbar({ menu }) {
-  const [sideMenu, editSideMenu] = useState(menu);
-
-  function menuClickHandler(e) {
-    const clickedId = e.target.closest("button").dataset.id;
-    editSideMenu((prev) => {
-      return prev.map((each) => {
-        if (each.id === +clickedId) {
-          return { ...each, selected: true };
-        } else {
-          return { ...each, selected: false };
-        }
-      });
-    });
-  }
+export default function MainNavbar({ menu, onClick }) {
+  // pass the click handler of the menu buttons to App.js
   return (
     <div className="nav">
       <div className="nav__logo">
@@ -30,8 +16,8 @@ export default function MainNavbar({ menu }) {
         <p className="nav__card--dep">Computer engineering</p>
       </div>
       <div className="nav__menu">
-        {sideMenu.map((each) => (
-          <MenuBtn data={each} onClick={menuClickHandler} key={each.id} />
+        {menu.map((each) => (
+          <MenuBtn data={each} onClick={onClick} key={each.id} />
         ))}
       </div>
       <button className="nav__logout">

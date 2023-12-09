@@ -2,6 +2,7 @@ import "../scss/App.scss";
 import MainNavbar from "./MainNavbar";
 import Explore from "./Explore";
 import ProfileNavbar from "./ProfileNavbar";
+import { useState } from "react";
 const menuBtns = [
   {
     id: 0,
@@ -33,14 +34,26 @@ const menuBtns = [
   },
 ];
 function App() {
+  const [sideMenu, editSideMenu] = useState(menuBtns);
+  function menuClickHandler(e) {
+    const clickedId = e.target.closest("button").dataset.id;
+    editSideMenu((prev) => {
+      return prev.map((each) => {
+        if (each.id === +clickedId) {
+          return { ...each, selected: true };
+        } else {
+          return { ...each, selected: false };
+        }
+      });
+    });
+  }
   return (
     <main className="app">
       <section className="top">
-        <MainNavbar menu={menuBtns}></MainNavbar>
-        <Explore></Explore>
+        <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
+        <Explore className="none"></Explore>
         <ProfileNavbar></ProfileNavbar>
       </section>
-      <section className="bottom"></section>
     </main>
   );
 }

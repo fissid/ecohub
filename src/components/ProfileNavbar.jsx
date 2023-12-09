@@ -15,7 +15,7 @@ const user = {
   git: "https://github.com/fissid",
   site: "www.google.com",
 };
-export default function ProfileNavbar() {
+export default function ProfileNavbar(props) {
   const [editableMode, editEditableMode] = useState({
     first: false,
     second: false,
@@ -54,7 +54,7 @@ export default function ProfileNavbar() {
   }
 
   return (
-    <div className="navbar">
+    <div className={`${props.className} navbar`}>
       <div className="nav-item first">
         <Icon
           name={editableMode.first ? "clipboard" : "create"}

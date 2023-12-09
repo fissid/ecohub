@@ -2,6 +2,7 @@ import "../scss/App.scss";
 import MainNavbar from "./MainNavbar";
 import Explore from "./Explore";
 import ProfileNavbar from "./ProfileNavbar";
+import Quiz from "./Quiz";
 import { useState } from "react";
 const menuBtns = [
   {
@@ -52,7 +53,7 @@ function App() {
       <section className="top">
         <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
         <Explore className="none"></Explore>
-        <ProfileNavbar></ProfileNavbar>
+        <ProfileNavbar className="none"></ProfileNavbar>
       </section>
     </main>
   );

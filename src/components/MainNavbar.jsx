@@ -8,12 +8,16 @@ export default function MainNavbar({ menu }) {
   const [sideMenu, editSideMenu] = useState(menu);
   // console.log(sideMenu);
   function menuClickHandler(e) {
+    const clickedId = e.target.closest("button").dataset.id;
     editSideMenu((prev) => {
-      prev[e.target.closest("button").dataset.id] = { ...prev[e.target.closest("button").dataset.id], selected: true };
-      console.log(prev);
-      return prev;
+      return prev.map((each) => {
+        if (each.id === +clickedId) {
+          return { ...each, selected: true };
+        } else {
+          return { ...each, selected: false };
+        }
+      });
     });
-    // console.log(sideMenu[e.target.closest("button").dataset.id]);
   }
   return (
     <div className="nav">

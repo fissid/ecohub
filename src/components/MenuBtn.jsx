@@ -1,8 +1,6 @@
-import { useState } from "react";
 import "../scss/MenuBtn.scss";
 import Icon from "./Icon";
 export default function MenuBtn({ data, ...props }) {
-  // console.log(data);
   return (
     <button className={`menu-btn ${data.selected ? "selected" : ""}`} {...props} data-id={data.id}>
       <a href={`#${data.page}`}>

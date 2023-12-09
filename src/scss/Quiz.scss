@@ -1,0 +1,39 @@
+@import "./variables";
+.quiz {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border: 1px solid black;
+  background: url("../img/minim/img1.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  &__explanation {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1rem;
+    background: rgba($color-primary-super-light, 0.85);
+    border-radius: 15px;
+    padding: 2.5rem;
+    ul {
+      width: 100%;
+      list-style: none;
+      display: flex;
+      justify-content: space-around;
+      li {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+      }
+    }
+    .acc {
+    }
+    .nacc {
+      transform: rotate(45deg);
+    }
+    .undone {
+    }
+  }
+}

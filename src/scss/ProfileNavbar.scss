@@ -48,12 +48,17 @@
         border-radius: 500px;
       }
       .icon {
-        position: absolute;
-        bottom: 0;
-        right: 2rem;
         background: $color-primary-light;
         border-radius: 500px;
         fill: $color-white;
+      }
+      &__edit {
+        input[type="file"] {
+          display: none;
+        }
+        position: absolute;
+        bottom: 0;
+        right: 2rem;
       }
     }
     .info {

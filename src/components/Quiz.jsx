@@ -17,7 +17,7 @@ export default function Quiz(props) {
           </li>
           <li>
             <Icon name="spinner7" height={22} width={22} className="undone"></Icon>
-            <p>undone</p>
+            <p>undoone</p>
           </li>
         </ul>
       </div>

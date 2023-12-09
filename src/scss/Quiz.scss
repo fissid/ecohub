@@ -43,6 +43,16 @@
       transform: rotate(45deg);
     }
     .undone {
+      animation: rotation 2.5s ease-in-out 0s infinite;
+      animation-fill-mode: forwards;
     }
+  }
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(-360deg);
+  }
+  50% {
+    opacity: 70%;
   }
 }

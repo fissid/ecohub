@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../scss/MenuBtn.scss";
 import Icon from "./Icon";
 export default function MenuBtn({ data, ...props }) {

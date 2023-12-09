@@ -6,11 +6,11 @@ import icons from "../icons/sprite.svg";
 import { useState } from "react";
 export default function MainNavbar({ menu }) {
   const [sideMenu, editSideMenu] = useState(menu);
-  console.log(sideMenu);
+  // console.log(sideMenu);
   function menuClickHandler(e) {
     editSideMenu((prev) => {
-      prev[e.target.closest("button").dataset.id] = { ...prev[e.target.closest("button").dataset.id], selected: false };
-      // console.log(prev);
+      prev[e.target.closest("button").dataset.id] = { ...prev[e.target.closest("button").dataset.id], selected: true };
+      console.log(prev);
       return prev;
     });
     // console.log(sideMenu[e.target.closest("button").dataset.id]);

@@ -9,7 +9,7 @@ export default function Skills({ name, people }) {
       </div>
       <div className="people">
         {people.map((each, i) => {
-          if (i >= 3) return;
+          if (i >= 3) return null;
           return <img src={each.profile} alt="" className={`people__img people__img--${i}`} key={each.name} />;
         })}
         <p className="people__text">

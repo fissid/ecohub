@@ -6,7 +6,7 @@ import icons from "../icons/sprite.svg";
 import { useState } from "react";
 export default function MainNavbar({ menu }) {
   const [sideMenu, editSideMenu] = useState(menu);
-  // console.log(sideMenu);
+
   function menuClickHandler(e) {
     const clickedId = e.target.closest("button").dataset.id;
     editSideMenu((prev) => {

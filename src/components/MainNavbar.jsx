@@ -3,29 +3,18 @@ import MenuBtn from "./MenuBtn";
 import profile from "../img/pro.PNG";
 import logoWhite from "../img/logoWhite.PNG";
 import icons from "../icons/sprite.svg";
-export default function MainNavbar() {
-  const menuBtns = [
-    {
-      name: "Dashboard",
-      icon: `${icons}#icon-dashboard`,
-      selected: true,
-    },
-    {
-      name: "Profile",
-      icon: `${icons}#icon-person`,
-      selected: false,
-    },
-    {
-      name: "My Projects",
-      icon: `${icons}#icon-fact_check`,
-      selected: false,
-    },
-    {
-      name: "Community",
-      icon: `${icons}#icon-group`,
-      selected: false,
-    },
-  ];
+import { useState } from "react";
+export default function MainNavbar({ menu }) {
+  const [sideMenu, editSideMenu] = useState(menu);
+  console.log(sideMenu);
+  function menuClickHandler(e) {
+    editSideMenu((prev) => {
+      prev[e.target.closest("button").dataset.id] = { ...prev[e.target.closest("button").dataset.id], selected: false };
+      // console.log(prev);
+      return prev;
+    });
+    // console.log(sideMenu[e.target.closest("button").dataset.id]);
+  }
   return (
     <div className="nav">
       <div className="nav__logo">
@@ -37,8 +26,8 @@ export default function MainNavbar() {
         <p className="nav__card--dep">Computer engineering</p>
       </div>
       <div className="nav__menu">
-        {menuBtns.map((each) => (
-          <MenuBtn name={each.name} icon={each.icon} key={each.name} selected={each.selected} />
+        {sideMenu.map((each) => (
+          <MenuBtn data={each} onClick={menuClickHandler} key={each.id} />
         ))}
       </div>
       <button className="nav__logout">

@@ -1,12 +1,13 @@
 import "../scss/MenuBtn.scss";
-export default function MenuBtn({ icon, name, notif, selected }) {
+import Icon from "./Icon";
+export default function MenuBtn({ data, ...props }) {
+  // console.log(data);
   return (
-    <button className={`menu-btn ${selected && "selected"}`}>
-      <svg className="menu-btn__icon">
-        <use xlinkHref={icon}></use>
-      </svg>
-      <span className="menu-btn__name">{name}</span>
-      <span className="menu-btn__notif">{notif}</span>
+    <button className={`menu-btn ${data.selected ? "selected" : ""}`} {...props} data-id={data.id}>
+      <a href={`#${data.page}`}>
+        <Icon name={data.icon} className="menu-btn__icon"></Icon>
+        <span className="menu-btn__name">{data.name}</span>
+      </a>
     </button>
   );
 }

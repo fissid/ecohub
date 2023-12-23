@@ -153,6 +153,7 @@
         align-items: center;
         gap: 0.5rem;
         font-weight: 600;
+        user-select: none;
         .icon {
           fill: $color-primary-dark;
         }
@@ -186,7 +187,6 @@
       }
       .answers {
         user-select: none;
-
         margin: 1rem 0;
         display: flex;
         flex-flow: column nowrap;

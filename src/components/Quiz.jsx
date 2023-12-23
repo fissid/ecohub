@@ -52,7 +52,7 @@ export default function Quiz(props) {
   }
   return (
     <div className={`${props.className} quiz`}>
-      {quizMode && <Modal>Data Structure</Modal>}
+      {quizMode && <Modal onClose={setQuizMode}>Data Structure</Modal>}
       <div className="quiz__explanation">
         <p>This quiz is to verify the skills you have mentioned in your profile. If you want to be shown in your skill categories, you must take the quiz for each skill. First, specify the skill so that the exam questions related to it will be given.</p>
         <p>Each quiz has 10 multiple choice questions that you have to answer in a certain time.</p>
@@ -101,7 +101,7 @@ export default function Quiz(props) {
   );
 }
 
-function Modal({ children }) {
+function Modal({ children, onClose }) {
   const percentage = 50;
   return (
     <div className="modal">
@@ -112,7 +112,7 @@ function Modal({ children }) {
             <Icon name="timer" height={25} width={25}></Icon>
           </div>
           <h3>{children}</h3>
-          <Icon name="cross" className="close"></Icon>
+          <Icon name="cross" className="close" onClick={() => onClose(false)}></Icon>
         </div>
         <div className="body">
           <div className="bar-container">

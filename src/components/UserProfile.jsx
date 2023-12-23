@@ -4,6 +4,7 @@ import p1 from "../img/p1.jpeg";
 import p2 from "../img/p2.jpeg";
 import p3 from "../img/p3.jpg";
 import p4 from "../img/p4.jpeg";
+import requestImg from "../img/minim/request.png";
 const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
 const people = [
   { profile: `${p1}`, name: "Mehmet", dep: "Computer Engineering", skills: portfolioList },
@@ -14,6 +15,9 @@ const people = [
 export default function UserProfile(props) {
   return (
     <div className={`${props.className} pr`}>
+      <div className="sggs__welcome">
+        <h4>Mehmet Memetian</h4>
+      </div>
       <div className="explore__feed">
         <div className="left">
           <h5 className="feed_title">Skills & Endorsement</h5>
@@ -29,7 +33,37 @@ export default function UserProfile(props) {
             </button>
           </div>
         </div>
-        <div className="right"></div>
+        <div className="right">
+          <div className="portfolio">
+            <div className="portfolio__header">
+              <h5 className="feed_title">Portfolio / Activities</h5>
+            </div>
+            <ul className={"portfolio__list"}>
+              {portfolioList.map((each, i) => (
+                <li key={i} data-id={i}>
+                  {each}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="quiz">
+            <div className="portfolio__header">
+              <h5 className="feed_title">Request</h5>
+            </div>
+
+            <div className="quiz__middle">
+              <h5>Programming</h5>
+              <h5>Artifitial Inteligence</h5>
+            </div>
+            <div className="quiz__text">
+              <p>I have an AI project that is half done. Currently, I encountered an error that cannot be solved Please experts contact me</p>
+            </div>
+            <div className="quiz__img">
+              <img src={requestImg} alt="" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );

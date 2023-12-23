@@ -121,7 +121,7 @@
   cursor: default;
 }
 
-.modal-overlay {
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -133,13 +133,92 @@
   align-items: center;
   z-index: 5; /* Ensure the modal is on top of everything else */
   backdrop-filter: blur(4px);
-}
+  &-content {
+    width: 50%;
+    height: 50%;
+    background: $color-primary-super-light;
+    padding: 2.5rem 4rem;
+    border-radius: 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    .header {
+      color: $color-primary-dark;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .time {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 600;
+        .icon {
+          fill: $color-primary-dark;
+        }
+      }
+      .close {
+        fill: $color-primary-dark;
+        &:hover {
+          fill: red;
+          cursor: pointer;
+        }
+      }
+    }
+    .body {
+      flex: 0 0 65%;
+      .question {
+        .count {
+          color: $color-primary-light;
+          span {
+            color: $color-primary-dark;
+            font-size: 4rem;
+          }
+        }
+        .text {
+          font-size: 2.5rem;
+          background: $color-white;
+          padding: 1rem 2rem;
+          border-radius: 20px;
+        }
+      }
+      .answers {
+        margin: 1rem 0;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+        list-style-position: inside;
+        list-style-type: lower-alpha;
+        li {
+          font-size: 2.5rem;
+          background: $color-white;
+          padding: 1rem 2rem;
+          border-radius: 20px;
+          gap: 1rem;
+          cursor: pointer;
+          &:hover {
+            background: rgba($color-primary-light, 0.5);
+          }
+        }
+      }
+    }
+    .footer {
+    }
+    .bar-container {
+      margin: 0.5rem 0;
+      width: 100%;
+      height: 8px;
+      background-color: $color-white;
+      border-radius: 5px;
+      overflow: hidden;
+    }
 
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    .bar {
+      height: 100%;
+      background-color: $color-primary-light;
+      transition: width 0.3s ease;
+    }
+  }
 }
 
 .quiz-mode {

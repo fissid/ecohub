@@ -52,7 +52,7 @@ export default function Quiz(props) {
   }
   return (
     <div className={`${props.className} quiz`}>
-      {quizMode && <Modal></Modal>}
+      {quizMode && <Modal>Data Structure</Modal>}
       <div className="quiz__explanation">
         <p>This quiz is to verify the skills you have mentioned in your profile. If you want to be shown in your skill categories, you must take the quiz for each skill. First, specify the skill so that the exam questions related to it will be given.</p>
         <p>Each quiz has 10 multiple choice questions that you have to answer in a certain time.</p>
@@ -101,12 +101,56 @@ export default function Quiz(props) {
   );
 }
 
-function Modal() {
+function Modal({ children }) {
+  const percentage = 50;
   return (
-    <div className="modal-overlay">
+    <div className="modal">
       <div className="modal-content">
-        {/* Your modal content goes here */}
-        <p>This is the modal content</p>
+        <div className="header">
+          <div className="time">
+            <span>15:00</span>
+            <Icon name="timer" height={25} width={25}></Icon>
+          </div>
+          <h3>{children}</h3>
+          <Icon name="cross" className="close"></Icon>
+        </div>
+        <div className="body">
+          <div className="bar-container">
+            <div className="bar" style={{ width: `${percentage}%` }}></div>
+          </div>
+          <div className="question">
+            <p className="count">
+              <span>4</span>/10
+            </p>
+            <p className="text">Which data structure is needed to convert infix notation to postfix notation?</p>
+          </div>
+          <ul className="answers">
+            <li>
+              <span>Tree</span>
+            </li>
+            <li>
+              <span>Branch</span>
+            </li>
+            <li>
+              <span>Stack</span>
+            </li>
+            <li>
+              <span>Queue</span>
+            </li>
+          </ul>
+        </div>
+        <div className="footer">
+          <button className="nav__logout">
+            <span className="mav__lagout--text">
+              <Icon name="arrow-left2"></Icon>
+            </span>
+          </button>
+          <button className="nav__logout">
+            <span className="mav__lagout--text">
+              <Icon name="arrow-right2"></Icon>
+            </span>
+          </button>
+        </div>
       </div>
     </div>
   );

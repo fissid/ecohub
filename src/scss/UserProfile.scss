@@ -3,7 +3,7 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
-  padding: 1rem 7rem;
+  padding: 1rem 2rem;
   // border: 1px solid black;
 
   &__welcome {
@@ -18,6 +18,8 @@
   .left {
     display: flex;
     flex-flow: column nowrap;
+    // background: #000;
+    height: 90%;
     .body {
       flex: 1 1;
     }
@@ -31,20 +33,20 @@
     }
   }
   .right {
-    height: 100%;
+    // height: 100%;
 
     .quiz {
       font-size: 2.2rem;
       display: flex;
       // justify-content: space-between;
-      height: 100%;
+      // height: 100%;
       // align-items: center;
       border-radius: 20px;
       background: $color-primary-super-light;
       padding: 1rem 2rem;
       border: none;
       cursor: default;
-      height: 70%;
+      // height: 70%;
       position: relative;
       gap: 5rem;
       &__img {

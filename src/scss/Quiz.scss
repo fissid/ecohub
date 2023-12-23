@@ -47,6 +47,9 @@
       animation-fill-mode: forwards;
     }
   }
+  &__skills {
+    flex: 1 1;
+  }
 }
 @keyframes rotation {
   0% {

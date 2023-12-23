@@ -21,7 +21,17 @@ export default function Quiz(props) {
           </li>
         </ul>
       </div>
-      <div className="skills"></div>
+      <div className="quiz__skills">
+        <div className="quiz__skills-box">
+          <div className="box__header">
+            <h4>Select Skill</h4>
+          </div>
+          <ul className="box__body">
+            <li></li>
+          </ul>
+          <div className="box__footer"></div>
+        </div>
+      </div>
     </div>
   );
 }

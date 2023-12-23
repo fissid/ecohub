@@ -4,6 +4,7 @@ import Explore from "./Explore";
 import ProfileNavbar from "./ProfileNavbar";
 import Quiz from "./Quiz";
 import { useState } from "react";
+import Suggestion from "./Suggestions";
 const menuBtns = [
   {
     id: 0,
@@ -54,7 +55,8 @@ function App() {
         <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
         <Explore className="none middle"></Explore>
         <Quiz className="none middle"></Quiz>
-        <ProfileNavbar className="none"></ProfileNavbar>
+        <Suggestion className="middle"></Suggestion>
+        <ProfileNavbar className=""></ProfileNavbar>
       </section>
     </main>
   );

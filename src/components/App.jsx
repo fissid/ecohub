@@ -38,6 +38,7 @@ const menuBtns = [
 ];
 function App() {
   const [sideMenu, editSideMenu] = useState(menuBtns);
+
   function menuClickHandler(e) {
     const clickedId = e.target.closest("button").dataset.id;
     editSideMenu((prev) => {
@@ -55,13 +56,13 @@ function App() {
       <section className="top">
         <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
         <Explore className="none middle"></Explore>
-        <Quiz className="none middle"></Quiz>
+        <Quiz className="middle"></Quiz>
         <Suggestion className="none middle"></Suggestion>
-        <UserProfile className="middle"></UserProfile>
+        <UserProfile className="none middle"></UserProfile>
         {/* without who is for user */}
         <ProfileNavbar className=""></ProfileNavbar>
         {/* with who is for me */}
-        {/* <ProfileNavbar className="" who="me"></ProfileNavbar> */}
+        <ProfileNavbar className="none" who="me"></ProfileNavbar>
       </section>
     </main>
   );

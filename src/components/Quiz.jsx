@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../scss/Quiz.scss";
 import Icon from "./Icon";
 const acceptedSVG = (
@@ -30,58 +31,83 @@ const unDoneSVG = (
   </svg>
 );
 
+// const skills = ["Python", "Data structure", "Algorithm", "Numerical Analysis", "Linear Algebra", "Artifitial inteligence"];
+const skills = [
+  { id: 0, name: "python", situation: 1 },
+  { id: 1, name: "Data structure", situation: 0 },
+  { id: 2, name: "Algorithm", situation: 1 },
+  { id: 3, name: "Numerical Analysis", situation: 0 },
+  { id: 4, name: "Linear Algebra", situation: 0 },
+  { id: 5, name: "Artifitial inteligence", situation: 3 },
+];
+
 export default function Quiz(props) {
+  const [selectedSkill, setSelectedSkill] = useState();
+  const [quizMode, setQuizMode] = useState(false);
+  function clickedSkill(skillId) {
+    setSelectedSkill(skillId);
+  }
+  function startQuiz(id) {
+    props.onQuizMode((prev) => !prev);
+  }
   return (
-    <div className={`${props.className} quiz`}>
-      <div className="quiz__explanation">
-        <p>This quiz is to verify the skills you have mentioned in your profile. If you want to be shown in your skill categories, you must take the quiz for each skill. First, specify the skill so that the exam questions related to it will be given.</p>
-        <p>Each quiz has 10 multiple choice questions that you have to answer in a certain time.</p>
-        <ul>
-          <li>
-            {acceptedSVG}
-            <p>accepted</p>
-          </li>
-          <li>
-            {notAcceptedSVG}
-            <p>not accepted</p>
-          </li>
-          <li>
-            {unDoneSVG}
-            <p>undone</p>
-          </li>
-        </ul>
-      </div>
-      <div className="quiz__skills">
-        <div className="quiz__skills-box">
-          <div className="box__header">
-            <h4>Select Skill</h4>
-          </div>
-          <ul className="box__body">
+    <>
+      <div className={`${props.className} quiz`}>
+        <div className="quiz__explanation">
+          <p>This quiz is to verify the skills you have mentioned in your profile. If you want to be shown in your skill categories, you must take the quiz for each skill. First, specify the skill so that the exam questions related to it will be given.</p>
+          <p>Each quiz has 10 multiple choice questions that you have to answer in a certain time.</p>
+          <ul>
             <li>
-              <span>Python</span> {acceptedSVG}
+              {acceptedSVG}
+              <p>accepted</p>
             </li>
             <li>
-              <span>Data Structure</span> {unDoneSVG}
+              {notAcceptedSVG}
+              <p>not accepted</p>
             </li>
             <li>
-              <span>Algorithm</span> {acceptedSVG}
-            </li>
-            <li>
-              <span>Numerical Analysis</span> {unDoneSVG}
-            </li>
-            <li>
-              <span>Linear algebra</span> {unDoneSVG}
-            </li>
-            <li>
-              <span>Artificial inteligence</span> {notAcceptedSVG}
+              {unDoneSVG}
+              <p>undone</p>
             </li>
           </ul>
-          <div className="box__footer">
-            <button className="nav__logout">
-              <span className="mav__lagout--text">Start</span>
-            </button>
+        </div>
+        <div className="quiz__skills">
+          <div className="quiz__skills-box">
+            <div className="box__header">
+              <h4>Select Skill</h4>
+            </div>
+            <ul className="box__body">
+              {skills.map((each) => {
+                let skillSituation;
+                if (each.situation === 0) skillSituation = notAcceptedSVG;
+                else if (each.situation === 1) skillSituation = acceptedSVG;
+                else skillSituation = unDoneSVG;
+
+                return (
+                  <li key={each.id} onClick={() => clickedSkill(each.id)}>
+                    <span className={each.id === selectedSkill ? "selected" : ""}>{each.name}</span> {skillSituation}
+                  </li>
+                );
+              })}
+            </ul>
+            <div className="box__footer">
+              <button className="nav__logout" onClick={() => startQuiz(selectedSkill)}>
+                <span className="mav__lagout--text">Start</span>
+              </button>
+            </div>
           </div>
         </div>
+      </div>
+    </>
+  );
+}
+
+function Modal() {
+  return (
+    <div className="modal-overlay">
+      <div className="modal-content">
+        {/* Your modal content goes here */}
+        <p>This is the modal content</p>
       </div>
     </div>
   );

@@ -4,7 +4,7 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
-  padding: 1rem 7rem;
+  padding: 1rem 5rem;
   // border: 1px solid black;
   background: url("../img/minim/quizBack.png");
   background-position: center;
@@ -35,8 +35,8 @@
     }
     p {
       text-align: center;
-      padding: 0 2rem;
-      font-size: 2.3rem;
+      padding: 0 1.5rem;
+      font-size: 1.8rem;
       font-weight: 600;
       line-height: 3rem;
     }
@@ -56,12 +56,12 @@
     align-items: center;
     justify-content: flex-end;
     &-box {
-      height: 80%;
+      // height: 90%;
       width: 23vw;
       border-radius: 15px;
       background: rgba($color-primary-super-light, 0.95);
       margin-right: 10rem;
-      padding: 2.5rem;
+      padding: 2.5rem 0;
       display: flex;
       flex-flow: column nowrap;
       gap: 1rem;
@@ -135,7 +135,7 @@
   backdrop-filter: blur(4px);
   &-content {
     width: 50%;
-    height: 50%;
+    // height: 50%;
     background: $color-primary-super-light;
     padding: 2.5rem 4rem;
     border-radius: 30px;

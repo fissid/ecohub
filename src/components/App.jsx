@@ -38,6 +38,7 @@ const menuBtns = [
 ];
 function App() {
   const [sideMenu, editSideMenu] = useState(menuBtns);
+  const [selectedMenuBtn, setSelectedMenuBtn] = useState(0);
 
   function menuClickHandler(e) {
     const clickedId = e.target.closest("button").dataset.id;
@@ -56,13 +57,14 @@ function App() {
       <section className="top">
         <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
         <Explore className="none middle"></Explore>
-        <Quiz className="middle"></Quiz>
+        {/* whne quiz is shown, profileNavbar is invisible */}
+        <Quiz className="none middle"></Quiz>
         <Suggestion className="none middle"></Suggestion>
-        <UserProfile className="none middle"></UserProfile>
+        <UserProfile className="middle"></UserProfile>
         {/* without who is for user */}
-        <ProfileNavbar className=""></ProfileNavbar>
+        <ProfileNavbar className="none"></ProfileNavbar>
         {/* with who is for me */}
-        <ProfileNavbar className="none" who="me"></ProfileNavbar>
+        <ProfileNavbar className="" who="me"></ProfileNavbar>
       </section>
     </main>
   );

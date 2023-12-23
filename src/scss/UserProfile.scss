@@ -4,7 +4,16 @@
   flex-flow: column nowrap;
   gap: 1rem;
   padding: 1rem 7rem;
-  border: 1px solid black;
+  // border: 1px solid black;
+
+  &__welcome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button {
+      padding: 0.5rem 2.5rem;
+    }
+  }
 
   .left {
     display: flex;
@@ -41,9 +50,9 @@
       &__img {
         position: absolute;
         right: 0;
-        bottom: -13rem;
-        height: 50%;
-        width: 50%;
+        bottom: -11rem;
+        height: 60%;
+        width: 60%;
         display: block;
         img {
           height: 100%;

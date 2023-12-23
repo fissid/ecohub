@@ -15,8 +15,11 @@ const people = [
 export default function UserProfile(props) {
   return (
     <div className={`${props.className} pr`}>
-      <div className="sggs__welcome">
+      <div className="pr__welcome">
         <h4>Mehmet Memetian</h4>
+        <button className="nav__logout">
+          <span className="mav__lagout--text">Connect</span>
+        </button>
       </div>
       <div className="explore__feed">
         <div className="left">

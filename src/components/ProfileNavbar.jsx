@@ -56,15 +56,17 @@ export default function ProfileNavbar(props) {
   return (
     <div className={`${props.className} navbar`}>
       <div className="nav-item first">
-        <Icon
-          name={editableMode.first ? "clipboard" : "create"}
-          className="edit"
-          onClick={() =>
-            editEditableMode((prev) => {
-              return { ...prev, first: !prev.first };
-            })
-          }
-        ></Icon>
+        {props.who && (
+          <Icon
+            name={editableMode.first ? "clipboard" : "create"}
+            className="edit"
+            onClick={() =>
+              editEditableMode((prev) => {
+                return { ...prev, first: !prev.first };
+              })
+            }
+          ></Icon>
+        )}
         <div className="profile">
           <img src={userInfo.profile} alt="" />
           {/* <button className="profile__edit">
@@ -114,15 +116,17 @@ export default function ProfileNavbar(props) {
       </div>
 
       <div className="nav-item second">
-        <Icon
-          name={editableMode.second ? "clipboard" : "create"}
-          className="edit"
-          onClick={() =>
-            editEditableMode((prev) => {
-              return { ...prev, second: !prev.second };
-            })
-          }
-        ></Icon>
+        {props.who && (
+          <Icon
+            name={editableMode.second ? "clipboard" : "create"}
+            className="edit"
+            onClick={() =>
+              editEditableMode((prev) => {
+                return { ...prev, second: !prev.second };
+              })
+            }
+          ></Icon>
+        )}
 
         <div className="uni line">
           <Icon name="school" className="line__icon" height={20} width={20}></Icon>
@@ -178,15 +182,17 @@ export default function ProfileNavbar(props) {
       </div>
 
       <div className="nav-item third line">
-        <Icon
-          name={editableMode.third ? "clipboard" : "create"}
-          className="edit"
-          onClick={() =>
-            editEditableMode((prev) => {
-              return { ...prev, third: !prev.third };
-            })
-          }
-        ></Icon>
+        {props.who && (
+          <Icon
+            name={editableMode.third ? "clipboard" : "create"}
+            className="edit"
+            onClick={() =>
+              editEditableMode((prev) => {
+                return { ...prev, third: !prev.third };
+              })
+            }
+          ></Icon>
+        )}
         <Icon name="notebook-text" className="line__icon" height={21} width={22}></Icon>
         {editableMode.third ? (
           <form
@@ -205,15 +211,17 @@ export default function ProfileNavbar(props) {
       </div>
 
       <div className="nav-item forth">
-        <Icon
-          name={editableMode.forth ? "clipboard" : "create"}
-          className="edit"
-          onClick={() =>
-            editEditableMode((prev) => {
-              return { ...prev, forth: !prev.forth };
-            })
-          }
-        ></Icon>
+        {props.who && (
+          <Icon
+            name={editableMode.forth ? "clipboard" : "create"}
+            className="edit"
+            onClick={() =>
+              editEditableMode((prev) => {
+                return { ...prev, forth: !prev.forth };
+              })
+            }
+          ></Icon>
+        )}
 
         <div className="mail line">
           <Icon name="alternate_email" className="line__icon" height={20} width={20}></Icon>

@@ -58,7 +58,10 @@ function App() {
         <Quiz className="none middle"></Quiz>
         <Suggestion className="none middle"></Suggestion>
         <UserProfile className="middle"></UserProfile>
+        {/* without who is for user */}
         <ProfileNavbar className=""></ProfileNavbar>
+        {/* with who is for me */}
+        {/* <ProfileNavbar className="" who="me"></ProfileNavbar> */}
       </section>
     </main>
   );

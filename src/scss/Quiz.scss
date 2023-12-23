@@ -59,9 +59,9 @@
       // height: 90%;
       width: 23vw;
       border-radius: 15px;
-      background: rgba($color-primary-super-light, 0.95);
+      background: rgba($color-primary-super-light, 0.7);
       margin-right: 10rem;
-      padding: 2.5rem 0;
+      padding: 1.5rem 0;
       display: flex;
       flex-flow: column nowrap;
       gap: 1rem;
@@ -81,6 +81,7 @@
         flex-flow: column nowrap;
         justify-content: space-evenly;
         li {
+          margin: 0.2rem 0;
           display: flex;
           justify-content: space-between;
           align-items: center;

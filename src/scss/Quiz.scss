@@ -176,6 +176,8 @@
           }
         }
         .text {
+          cursor: default;
+          user-select: none;
           font-size: 2.5rem;
           background: $color-white;
           padding: 1rem 2rem;
@@ -183,6 +185,8 @@
         }
       }
       .answers {
+        user-select: none;
+
         margin: 1rem 0;
         display: flex;
         flex-flow: column nowrap;
@@ -203,6 +207,15 @@
       }
     }
     .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      button {
+        width: 500px;
+      }
+      .icon {
+        fill: $color-white;
+      }
     }
     .bar-container {
       margin: 0.5rem 0;

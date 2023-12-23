@@ -142,12 +142,12 @@ function Modal({ children }) {
         <div className="footer">
           <button className="nav__logout">
             <span className="mav__lagout--text">
-              <Icon name="arrow-left2"></Icon>
+              <Icon name="arrow-left2" height={25} width={25}></Icon>
             </span>
           </button>
           <button className="nav__logout">
             <span className="mav__lagout--text">
-              <Icon name="arrow-right2"></Icon>
+              <Icon name="arrow-right2" height={25} width={25}></Icon>
             </span>
           </button>
         </div>

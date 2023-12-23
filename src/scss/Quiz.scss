@@ -3,9 +3,9 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
-  padding: 1rem 2rem;
-  border: 1px solid black;
-  background: url("../img/minim/img1.png");
+  padding: 1rem 7rem;
+  // border: 1px solid black;
+  background: url("../img/minim/quizBack.png");
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -34,8 +34,9 @@
     p {
       text-align: center;
       padding: 0 2rem;
-      font-size: 1.8rem;
+      font-size: 2.3rem;
       font-weight: 600;
+      line-height: 3rem;
     }
     .acc {
     }
@@ -49,6 +50,66 @@
   }
   &__skills {
     flex: 1 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    &-box {
+      height: 80%;
+      width: 23vw;
+      border-radius: 15px;
+      background: rgba($color-primary-super-light, 0.95);
+      margin-right: 10rem;
+      padding: 2.5rem;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1rem;
+      // align-items: center;
+      .box__header {
+        text-align: center;
+        h4 {
+          font-size: 2.8rem;
+        }
+      }
+      .box__body {
+        // align-self: center;
+        list-style: none;
+        padding: 0 5rem;
+        flex: 1 1;
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        li {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          gap: 1rem;
+          cursor: default;
+          span {
+            border: 1px solid $color-primary-grey;
+            width: 100%;
+            padding: 0.7rem 0;
+            border-radius: 50px 0 0 50px;
+            text-align: center;
+            background: $color-white;
+          }
+          &:hover {
+            span {
+              background: $color-primary-light;
+              color: white;
+            }
+          }
+        }
+      }
+      .box__footer {
+        // align-self: center;
+        display: flex;
+        justify-content: center;
+        button {
+          text-transform: uppercase;
+          width: 60%;
+        }
+      }
+    }
   }
 }
 @keyframes rotation {

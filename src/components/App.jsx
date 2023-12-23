@@ -53,7 +53,7 @@ function App() {
       <section className="top">
         <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
         <Explore className="none middle"></Explore>
-        <Quiz className="middle"></Quiz>
+        <Quiz className="none middle"></Quiz>
         <ProfileNavbar className="none"></ProfileNavbar>
       </section>
     </main>

@@ -1,0 +1,23 @@
+@import "./variables";
+.pr {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  padding: 1rem 7rem;
+  border: 1px solid black;
+  .left {
+    display: flex;
+    flex-flow: column nowrap;
+    .body {
+      flex: 1 1;
+    }
+    .footer {
+      display: flex;
+      justify-content: center;
+      button {
+        width: 30%;
+        background: $color-primary-dark;
+      }
+    }
+  }
+}

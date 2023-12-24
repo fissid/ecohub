@@ -5,73 +5,76 @@
   gap: 1rem;
   padding: 1rem 2rem;
   // border: 1px solid black;
-
   &__welcome {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    h4 {
+      font-size: 3rem;
+    }
     button {
+      background: $color-primary-dark;
       padding: 0.5rem 2.5rem;
     }
   }
-
-  .left {
-    display: flex;
-    flex-flow: column nowrap;
+  .explore__feed {
     // background: #000;
-    height: 90%;
-    .body {
-      flex: 1 1;
-    }
-    .footer {
+    display: flex;
+    flex: 1 1;
+    .left {
       display: flex;
-      justify-content: center;
-      button {
-        width: 30%;
-        background: $color-primary-dark;
+      flex-flow: column nowrap;
+      // background: #000;
+      height: 95%;
+      .body {
+        flex: 1 1;
       }
-    }
-  }
-  .right {
-    // height: 100%;
-
-    .quiz {
-      font-size: 2.2rem;
-      display: flex;
-      // justify-content: space-between;
-      // height: 100%;
-      // align-items: center;
-      border-radius: 20px;
-      background: $color-primary-super-light;
-      padding: 1rem 2rem;
-      border: none;
-      cursor: default;
-      // height: 70%;
-      position: relative;
-      gap: 5rem;
-      &__img {
-        position: absolute;
-        right: 0;
-        bottom: -11rem;
-        height: 60%;
-        width: 60%;
-        display: block;
-        img {
-          height: 100%;
-          width: 100%;
+      .footer {
+        display: flex;
+        justify-content: center;
+        button {
+          width: 30%;
+          background: $color-primary-dark;
         }
       }
-      &__box {
+    }
+    .right {
+      // background: #000;
+      height: 100%;
+      position: relative;
+
+      .req {
+        height: 50%;
+        font-size: 2.2rem;
         display: flex;
         flex-flow: column nowrap;
-        align-items: center;
-        padding-top: 1rem;
-        h2 {
-          font-size: 3.5rem;
-          font-weight: 500;
-          text-align: center;
-          width: 90%;
-          margin: auto;
+        gap: 2rem !important;
+
+        border-radius: 20px;
+        background: $color-primary-super-light;
+        padding: 1rem 2rem;
+        border: none;
+        cursor: default;
+        // height: 70%;
+        gap: 5rem;
+        &__middle {
+          // color: $color-primary-dark;
+        }
+        &__text {
+          text-align: justify;
+        }
+        &__img {
+          height: 40%;
+          width: 60%;
+          position: absolute;
+          bottom: 0rem;
+          right: 0;
+          // background: #000;
+          img {
+            height: 100%;
+            width: 100%;
+            display: block;
+          }
         }
       }
     }

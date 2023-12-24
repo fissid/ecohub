@@ -50,19 +50,19 @@ export default function UserProfile(props) {
             </ul>
           </div>
 
-          <div className="quiz">
-            <div className="portfolio__header">
+          <div className="req">
+            <div className="req__header">
               <h5 className="feed_title">Request</h5>
             </div>
 
-            <div className="quiz__middle">
+            <div className="req__middle">
               <h5>Programming</h5>
               <h5>Artifitial Inteligence</h5>
             </div>
-            <div className="quiz__text">
+            <div className="req__text">
               <p>I have an AI project that is half done. Currently, I encountered an error that cannot be solved Please experts contact me</p>
             </div>
-            <div className="quiz__img">
+            <div className="req__img">
               <img src={requestImg} alt="" />
             </div>
           </div>

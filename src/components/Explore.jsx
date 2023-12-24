@@ -98,9 +98,9 @@ export default function Explore(props) {
           <button className="quiz">
             <div className="quiz__img">
               <img src={quizImg} alt="" />
+              <h2>Take the quiz to test your skills</h2>
             </div>
             <div className="quiz__box">
-              <h2>Take the quiz to test your skills</h2>
               <svg className="icon">
                 <use xlinkHref={`${icons}#icon-keyboard_arrow_right`}></use>
               </svg>

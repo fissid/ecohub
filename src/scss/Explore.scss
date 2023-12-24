@@ -5,8 +5,9 @@
   gap: 1rem;
   padding: 1rem 2rem;
   padding-bottom: 0;
-  // height: 93vh;
+  height: 93vh;
   &__feed {
+    flex: 1 1 80%;
     display: flex;
     gap: 1rem;
     // height: 100%;
@@ -16,6 +17,7 @@
       border-radius: 20px;
       background: $color-primary-super-light;
       padding: 1rem 2rem;
+      overflow-y: auto;
     }
     .right {
       flex: 1 1 50%;
@@ -102,35 +104,41 @@
       }
       .quiz {
         display: flex;
+        flex-flow: column nowrap;
         // align-items: center;
+        // justify-content: space-between;
         border-radius: 20px;
         background: $color-primary-super-light;
         padding: 1rem 2rem;
         border: none;
         cursor: pointer;
-        height: 50%;
+        // height: 50%;
         position: relative;
         &__img {
           height: 100%;
-          width: 50%;
-          display: block;
+          // width: 50%;
+          flex: 0 0 50%;
+          display: flex;
+          h2 {
+            flex: 1 1;
+            font-size: 3.2rem;
+            font-weight: 500;
+            text-align: center;
+            // width: 90%;
+            margin: auto;
+            // background: #000;
+          }
+
           img {
             height: 100%;
-            width: 100%;
+            width: 40%;
+            display: block;
+            // background: #000;
           }
         }
         &__box {
-          display: flex;
-          flex-flow: column nowrap;
-          align-items: center;
+          flex: 0 0 50%;
           padding-top: 1rem;
-          h2 {
-            font-size: 3.5rem;
-            font-weight: 500;
-            text-align: center;
-            width: 90%;
-            margin: auto;
-          }
           .icon {
             position: absolute;
             bottom: 0;
@@ -145,6 +153,9 @@
           }
         }
         &:hover {
+          // outline: 1px solid $color-primary-light;
+          box-shadow: 0 0 5px $color-primary-light;
+
           .icon {
             opacity: 100%;
             background: $color-primary-light;
@@ -154,9 +165,11 @@
     }
   }
   &__suggestions {
+    flex: 1 1 20%;
+
     display: flex;
     flex-flow: column nowrap;
-    height: 100%;
+    // height: 100%;
     // background: #000;
     &--head {
       display: flex;

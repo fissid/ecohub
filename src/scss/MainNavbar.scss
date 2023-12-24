@@ -3,7 +3,7 @@
   display: flex;
   flex-flow: column nowrap;
   background: $color-primary-dark;
-  min-height: 90vh;
+  height: 93vh;
   width: 15%;
   border-radius: 20px;
   padding: 1.3rem 0.7rem;
@@ -44,11 +44,13 @@
       font-size: 1.6rem;
       padding: 0.3rem 0;
       text-transform: uppercase;
+      text-shadow: 2px 2px 5px $color-black;
     }
     &--dep {
       font-size: 1.2rem;
       text-wrap: nowrap;
       text-transform: capitalize;
+      text-shadow: 1px 1px 5px $color-black;
     }
   }
   &__menu {

@@ -3,16 +3,17 @@
   display: flex;
   flex-flow: column nowrap;
   background: $color-primary-flash-white;
-  // height: 90vh;
+  height: 93vh;
   width: 20%;
   border-radius: 20px;
   padding: 1.3rem 0.7rem;
-  // background: #000;
+  background: #0005;
+  overflow-y: auto;
 
   .nav-item {
     display: flex;
     flex-flow: column nowrap;
-    margin: 1rem 2rem;
+    margin: 4px 2rem;
     justify-content: center;
     position: relative;
     &:not(:last-child) {

@@ -56,15 +56,15 @@ function App() {
     <main className="app">
       <section className="top">
         <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
-        <Explore className="none middle"></Explore>
+        <Explore className="middle"></Explore>
         {/* whne quiz is shown, profileNavbar is invisible */}
-        <Quiz className=" middle"></Quiz>
+        <Quiz className="none middle"></Quiz>
         <Suggestion className="none middle"></Suggestion>
         <UserProfile className="none middle"></UserProfile>
         {/* without who is for user */}
         <ProfileNavbar className="none"></ProfileNavbar>
         {/* with who is for me */}
-        <ProfileNavbar className="none" who="me"></ProfileNavbar>
+        <ProfileNavbar className="" who="me"></ProfileNavbar>
       </section>
     </main>
   );

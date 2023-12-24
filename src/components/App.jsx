@@ -64,7 +64,9 @@ function App() {
         {/* without who is for user */}
         <ProfileNavbar className="none"></ProfileNavbar>
         {/* with who is for me */}
-        <ProfileNavbar className="none" who="me"></ProfileNavbar>
+        <ProfileNavbar className="none" who="me">
+          {" "}
+        </ProfileNavbar>
       </section>
     </main>
   );

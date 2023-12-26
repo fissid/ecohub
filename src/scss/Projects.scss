@@ -1,0 +1,67 @@
+@import "./variables";
+.projects {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  //   padding-bottom: 0;
+  height: 93vh;
+  &__sec {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1.5rem;
+    .list {
+      font-size: 1.8rem;
+
+      list-style: none;
+      flex: 1 1;
+      // height: 100%;
+      border-radius: 15px;
+      background: $color-primary-super-light;
+      padding: 1rem 2rem;
+      overflow-y: auto;
+      li {
+        .sit-svg {
+          width: 25px;
+          height: 25px;
+        }
+        padding: 0.8rem 0;
+        display: flex;
+        align-items: center;
+        span {
+          flex: 1 1;
+          padding-left: 2rem;
+        }
+        button {
+          background: none;
+          border: 0;
+          cursor: pointer;
+          .icon {
+            fill: $color-primary-grey;
+          }
+          :hover {
+            .icon {
+              fill: $color-primary-dark !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__req {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem !important;
+    border-radius: 15px;
+    background: $color-primary-super-light;
+    padding: 1rem 2rem;
+    cursor: default;
+    &__middle {
+      // color: $color-primary-dark;
+    }
+    &__text {
+      text-align: justify;
+    }
+  }
+}

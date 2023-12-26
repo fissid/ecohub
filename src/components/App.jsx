@@ -99,11 +99,7 @@ function App() {
       <section className="top">
         <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
         {tag}
-        {/* <Explore className={`middle ${!sideMenu[0].selected && "none"}`}></Explore> */}
         {/* whne quiz is shown, profileNavbar is invisible */}
-        {/* <Quiz className={`middle ${!sideMenu[3].selected && "none"}`}></Quiz> */}
-        {/* <Suggestion className={`middle ${!sideMenu[2].selected && "none"}`}></Suggestion> */}
-
         <UserProfile className="none middle"></UserProfile>
         {profileNav}
         {/* without who is for user */}

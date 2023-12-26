@@ -11,10 +11,10 @@ import { useState } from "react";
 import Icon from "./Icon";
 const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
 const people = [
-  { profile: `${p1}`, name: "Mehmet", dep: "Computer Engineering", skills: portfolioList },
-  { profile: `${p2}`, name: "John", dep: "Mathematics", skills: portfolioList },
-  { profile: `${p3}`, name: "Ana", dep: "Electrical Engineering", skills: portfolioList },
-  { profile: `${p4}`, name: "Walter", dep: "Medicine", skills: portfolioList },
+  { id: 0, profile: `${p1}`, name: "Mehmet", dep: "Computer Engineering", skills: portfolioList },
+  { id: 1, profile: `${p2}`, name: "John", dep: "Mathematics", skills: portfolioList },
+  { id: 2, profile: `${p3}`, name: "Ana", dep: "Electrical Engineering", skills: portfolioList },
+  { id: 3, profile: `${p4}`, name: "Walter", dep: "Medicine", skills: portfolioList },
 ];
 
 export default function Explore(props) {
@@ -95,7 +95,7 @@ export default function Explore(props) {
               </button>
             </div> */}
           </div>
-          <button className="quiz">
+          <button className="quiz" onClick={props.onQuiz}>
             <div className="quiz__img">
               <img src={quizImg} alt="" />
               <h2>Take the quiz to test your skills</h2>
@@ -111,7 +111,9 @@ export default function Explore(props) {
       <div className="explore__suggestions">
         <div className="explore__suggestions--head">
           <h5 className="feed_title">Suggested Students</h5>
-          <button className="allStudents">See all</button>
+          <button className="allStudents" onClick={props.onCommunity}>
+            See all
+          </button>
         </div>
         <div className="explore__suggestions--body">
           <StudentCard people={people[0]}></StudentCard>

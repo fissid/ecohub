@@ -39,6 +39,7 @@ const menuBtns = [
 ];
 function App() {
   const [sideMenu, editSideMenu] = useState(menuBtns);
+  const [viewUserProfile, setViewUserProfile] = useState(false);
 
   // const [selectedMenuBtn, setSelectedMenuBtn] = useState(0);
   useEffect(
@@ -74,7 +75,33 @@ function App() {
     if (each.selected) {
       switch (each.id) {
         case 0:
-          tag = <Explore className="middle"></Explore>;
+          tag = (
+            <Explore
+              className="middle"
+              onCommunity={() => {
+                editSideMenu((prev) => {
+                  return prev.map((each) => {
+                    if (each.id === 2) {
+                      return { ...each, selected: true };
+                    } else {
+                      return { ...each, selected: false };
+                    }
+                  });
+                });
+              }}
+              onQuiz={() => {
+                editSideMenu((prev) => {
+                  return prev.map((each) => {
+                    if (each.id === 3) {
+                      return { ...each, selected: true };
+                    } else {
+                      return { ...each, selected: false };
+                    }
+                  });
+                });
+              }}
+            ></Explore>
+          );
           profileNav = <ProfileNavbar who="me"></ProfileNavbar>;
           break;
         case 1:

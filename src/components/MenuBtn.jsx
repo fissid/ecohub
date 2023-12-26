@@ -3,10 +3,10 @@ import Icon from "./Icon";
 export default function MenuBtn({ data, ...props }) {
   return (
     <button className={`menu-btn ${data.selected ? "selected" : ""}`} {...props} data-id={data.id}>
-      <a href={`#${data.page}`}>
+      <div className="each">
         <Icon name={data.icon} className="menu-btn__icon"></Icon>
         <span className="menu-btn__name">{data.name}</span>
-      </a>
+      </div>
     </button>
   );
 }

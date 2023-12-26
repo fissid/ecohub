@@ -3,7 +3,7 @@ import MainNavbar from "./MainNavbar";
 import Explore from "./Explore";
 import ProfileNavbar from "./ProfileNavbar";
 import Quiz from "./Quiz";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Suggestion from "./Suggestions";
 import UserProfile from "./UserProfile";
 const menuBtns = [
@@ -38,7 +38,21 @@ const menuBtns = [
 ];
 function App() {
   const [sideMenu, editSideMenu] = useState(menuBtns);
-  const [selectedMenuBtn, setSelectedMenuBtn] = useState(0);
+
+  // const [selectedMenuBtn, setSelectedMenuBtn] = useState(0);
+  useEffect(
+    function () {
+      sideMenu.forEach((each) => {
+        if (each.selected) {
+          document.title = `Ecohub | ${each.name}`;
+        }
+      });
+      return function () {
+        document.title = "Ecohub";
+      };
+    },
+    [sideMenu]
+  );
 
   function menuClickHandler(e) {
     const clickedId = e.target.closest("button").dataset.id;
@@ -52,19 +66,20 @@ function App() {
       });
     });
   }
+
   return (
     <main className="app">
       <section className="top">
         <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
-        <Explore className="none middle"></Explore>
+        <Explore className={`middle ${!sideMenu[0].selected && "none"}`}></Explore>
         {/* whne quiz is shown, profileNavbar is invisible */}
-        <Quiz className="none middle"></Quiz>
-        <Suggestion className="none middle"></Suggestion>
-        <UserProfile className="middle"></UserProfile>
+        <Quiz className={`middle ${!sideMenu[3].selected && "none"}`}></Quiz>
+        <Suggestion className={`middle ${!sideMenu[2].selected && "none"}`}></Suggestion>
+        <UserProfile className="none middle"></UserProfile>
         {/* without who is for user */}
-        <ProfileNavbar className=""></ProfileNavbar>
+        <ProfileNavbar className={`${sideMenu[3].selected ? "none" : !sideMenu[0].selected ? "" : "none"}`}></ProfileNavbar>
         {/* with who is for me */}
-        {/* <ProfileNavbar className="" who="me"></ProfileNavbar> */}
+        <ProfileNavbar className={`${sideMenu[3].selected ? "none" : sideMenu[0].selected ? "" : "none"}`} who="me"></ProfileNavbar>
       </section>
     </main>
   );

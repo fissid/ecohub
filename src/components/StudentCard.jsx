@@ -14,7 +14,7 @@ export default function StudentCard({ people }) {
         <p>{people.dep}</p>
       </div>
       <div className="card__footer">
-        <button className="connect">Connect</button>
+        <button className="connect">View Profile</button>
       </div>
     </div>
   );

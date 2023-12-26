@@ -18,7 +18,7 @@ export default function UserProfile(props) {
       <div className="pr__welcome">
         <h4>Mehmet Memetian</h4>
         <button className="nav__logout">
-          <span className="mav__lagout--text">Connect</span>
+          <span className="mav__lagout--text">Contact</span>
         </button>
       </div>
       <div className="explore__feed">

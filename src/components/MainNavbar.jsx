@@ -4,7 +4,6 @@ import profile from "../img/pro.PNG";
 import logoWhite from "../img/logoWhite.PNG";
 import icons from "../icons/sprite.svg";
 export default function MainNavbar({ menu, onClick }) {
-  // pass the click handler of the menu buttons to App.js
   return (
     <div className="nav">
       <div className="nav__logo">

@@ -7,10 +7,7 @@
   border: none;
   padding: 0.8rem;
   border-radius: 50px;
-  a,
-  a:link,
-  a:active,
-  a:visited {
+  .each {
     display: flex;
     flex-flow: row nowrap;
     align-items: center;

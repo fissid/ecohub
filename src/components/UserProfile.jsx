@@ -7,16 +7,16 @@ import p4 from "../img/p4.jpeg";
 import requestImg from "../img/minim/request.png";
 const portfolioList = ["Teaching Assistant", "Freelance programmer", "Reasearch", "Student projects"];
 const people = [
-  { profile: `${p1}`, name: "Mehmet", dep: "Computer Engineering", skills: portfolioList },
-  { profile: `${p2}`, name: "John", dep: "Mathematics", skills: portfolioList },
-  { profile: `${p3}`, name: "Ana", dep: "Electrical Engineering", skills: portfolioList },
-  { profile: `${p4}`, name: "Walter", dep: "Medicine", skills: portfolioList },
+  { id: 0, profile: `${p1}`, name: "Mehmet", dep: "Computer Engineering", skills: portfolioList },
+  { id: 1, profile: `${p2}`, name: "John", dep: "Mathematics", skills: portfolioList },
+  { id: 2, profile: `${p3}`, name: "Ana", dep: "Electrical Engineering", skills: portfolioList },
+  { id: 3, profile: `${p4}`, name: "Walter", dep: "Medicine", skills: portfolioList },
 ];
 export default function UserProfile(props) {
   return (
     <div className={`${props.className} pr`}>
       <div className="pr__welcome">
-        <h4>Mehmet Memetian</h4>
+        <h4>Kambiz</h4>
         <button className="nav__logout">
           <span className="mav__lagout--text">Contact</span>
         </button>

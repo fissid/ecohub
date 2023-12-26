@@ -39,9 +39,7 @@ const menuBtns = [
 ];
 function App() {
   const [sideMenu, editSideMenu] = useState(menuBtns);
-  const [viewUserProfile, setViewUserProfile] = useState();
 
-  // const [selectedMenuBtn, setSelectedMenuBtn] = useState(0);
   useEffect(
     function () {
       sideMenu.forEach((each) => {
@@ -71,9 +69,6 @@ function App() {
 
   let tag;
   let profileNav;
-  if (viewUserProfile) {
-    console.log("user selected", viewUserProfile);
-  }
 
   sideMenu.forEach((each) => {
     if (each.selected) {
@@ -104,7 +99,6 @@ function App() {
                   });
                 });
               }}
-              onUserProfileVisit={setViewUserProfile}
             ></Explore>
           );
           profileNav = <ProfileNavbar who="me"></ProfileNavbar>;

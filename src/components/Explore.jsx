@@ -36,7 +36,7 @@ export default function Explore(props) {
   }
 
   function visitUserProfileHandler(id) {
-    props.onUserProfileVisit(id);
+    props.onUserProfileVisit((prev) => (prev = id));
   }
   return (
     <div className={`${props.className} explore`}>
@@ -120,9 +120,9 @@ export default function Explore(props) {
           </button>
         </div>
         <div className="explore__suggestions--body">
-          <StudentCard people={people[0]} visitProfile={() => visitUserProfileHandler(people[0].id)}></StudentCard>
           <StudentCard people={people[1]} visitProfile={() => visitUserProfileHandler(people[1].id)}></StudentCard>
           <StudentCard people={people[2]} visitProfile={() => visitUserProfileHandler(people[2].id)}></StudentCard>
+          <StudentCard people={people[3]} visitProfile={() => visitUserProfileHandler(people[3].id)}></StudentCard>
         </div>
       </div>
     </div>

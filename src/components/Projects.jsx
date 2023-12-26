@@ -74,46 +74,42 @@ export default function Projects(props) {
       <div className="projects__sec">
         <h4>In Progress</h4>
         <ul className="list">
-          {projectsData.map((each) => {
-            if (!each.completed) {
-              return (
-                <li key={each.id}>
-                  {unDoneSVG}
-                  <span>
-                    {each.name} / {each.cat}
-                  </span>
-                  <button>
-                    <a href="https://github.com/fissid" target="_blank" rel="noreferrer">
-                      <Icon name="arrow-up-right2"></Icon>
-                    </a>
-                  </button>
-                </li>
-              );
-            }
-          })}
+          {projectsData
+            .filter((each) => !each.completed)
+            .map((each) => (
+              <li key={each.id}>
+                {unDoneSVG}
+                <span>
+                  {each.name} / {each.cat}
+                </span>
+                <button>
+                  <a href="https://github.com/fissid" target="_blank" rel="noreferrer">
+                    <Icon name="arrow-up-right2"></Icon>
+                  </a>
+                </button>
+              </li>
+            ))}
         </ul>
       </div>
 
       <div className="projects__sec">
         <h4>Completed</h4>
         <ul className="list">
-          {projectsData.map((each) => {
-            if (each.completed) {
-              return (
-                <li key={each.id}>
-                  {acceptedSVG}
-                  <span>
-                    {each.name} / {each.cat}
-                  </span>
-                  <button>
-                    <a href="https://github.com/fissid" target="_blank" rel="noreferrer">
-                      <Icon name="arrow-up-right2"></Icon>
-                    </a>
-                  </button>
-                </li>
-              );
-            }
-          })}
+          {projectsData
+            .filter((each) => each.completed)
+            .map((each) => (
+              <li key={each.id}>
+                {acceptedSVG}
+                <span>
+                  {each.name} / {each.cat}
+                </span>
+                <button>
+                  <a href="https://github.com/fissid" target="_blank" rel="noreferrer">
+                    <Icon name="arrow-up-right2"></Icon>
+                  </a>
+                </button>
+              </li>
+            ))}
         </ul>
       </div>
 

@@ -1,5 +1,5 @@
 import "../scss/StudentCard.scss";
-export default function StudentCard({ people }) {
+export default function StudentCard({ people, visitProfile }) {
   return (
     <div className="card">
       <div className="card__header">
@@ -14,7 +14,9 @@ export default function StudentCard({ people }) {
         <p>{people.dep}</p>
       </div>
       <div className="card__footer">
-        <button className="connect">View Profile</button>
+        <button className="connect" onClick={visitProfile}>
+          View Profile
+        </button>
       </div>
     </div>
   );

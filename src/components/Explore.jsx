@@ -34,6 +34,10 @@ export default function Explore(props) {
     portfolioList.splice(e.target.closest("li").dataset.id, 1);
     changeAddadble(false);
   }
+
+  function visitUserProfileHandler(id) {
+    props.onUserProfileVisit(id);
+  }
   return (
     <div className={`${props.className} explore`}>
       <div className="explore__welcome">
@@ -116,9 +120,9 @@ export default function Explore(props) {
           </button>
         </div>
         <div className="explore__suggestions--body">
-          <StudentCard people={people[0]}></StudentCard>
-          <StudentCard people={people[1]}></StudentCard>
-          <StudentCard people={people[2]}></StudentCard>
+          <StudentCard people={people[0]} visitProfile={() => visitUserProfileHandler(people[0].id)}></StudentCard>
+          <StudentCard people={people[1]} visitProfile={() => visitUserProfileHandler(people[1].id)}></StudentCard>
+          <StudentCard people={people[2]} visitProfile={() => visitUserProfileHandler(people[2].id)}></StudentCard>
         </div>
       </div>
     </div>

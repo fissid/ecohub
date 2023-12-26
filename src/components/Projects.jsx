@@ -39,8 +39,36 @@ const request = {
 
 export default function Projects(props) {
   const [editMode, setEditMode] = useState(false);
-  const [requestItem, setRequestItem] = useState(projectsData);
-  function edit(e) {}
+  const [requestItem, setRequestItem] = useState(request);
+  function edit(e, where) {
+    switch (where) {
+      case "cat":
+        setRequestItem((prev) => {
+          return {
+            ...prev,
+            cat: e.target.value,
+          };
+        });
+        break;
+      case "name":
+        setRequestItem((prev) => {
+          return {
+            ...prev,
+            name: e.target.value,
+          };
+        });
+        break;
+      case "text":
+        setRequestItem((prev) => {
+          return {
+            ...prev,
+            text: e.target.value,
+          };
+        });
+        break;
+      default:
+    }
+  }
   return (
     <div className={`${props.className} projects`}>
       <div className="projects__sec">
@@ -55,7 +83,9 @@ export default function Projects(props) {
                     {each.name} / {each.cat}
                   </span>
                   <button>
-                    <Icon name="arrow-up-right2"></Icon>
+                    <a href="https://github.com/fissid" target="_blank" rel="noreferrer">
+                      <Icon name="arrow-up-right2"></Icon>
+                    </a>
                   </button>
                 </li>
               );
@@ -76,7 +106,9 @@ export default function Projects(props) {
                     {each.name} / {each.cat}
                   </span>
                   <button>
-                    <Icon name="arrow-up-right2"></Icon>
+                    <a href="https://github.com/fissid" target="_blank" rel="noreferrer">
+                      <Icon name="arrow-up-right2"></Icon>
+                    </a>
                   </button>
                 </li>
               );
@@ -99,10 +131,10 @@ export default function Projects(props) {
                 setEditMode((prev) => !prev);
               }}
             >
-              <input type="text" value="Programming" onChange={(e) => edit(e)} />
+              <input type="text" value={requestItem.cat} onChange={(e) => edit(e, "cat")} />
             </form>
           ) : (
-            <h5>Programming</h5>
+            <h5>{requestItem.cat}</h5>
           )}
           {editMode ? (
             <form
@@ -111,10 +143,10 @@ export default function Projects(props) {
                 setEditMode((prev) => !prev);
               }}
             >
-              <input type="text" value="Artifitial Inteligence" onChange={(e) => edit(e)} />
+              <input type="text" value={requestItem.name} onChange={(e) => edit(e, "name")} />
             </form>
           ) : (
-            <h5>Artifitial Inteligence</h5>
+            <h5>{requestItem.name}</h5>
           )}
         </div>
         <div className="projects__req-text">
@@ -125,10 +157,10 @@ export default function Projects(props) {
                 setEditMode((prev) => !prev);
               }}
             >
-              <textarea value="I have an AI project that is half done. Currently, I encountered an error that cannot be solved Please experts contact me" onChange={(e) => edit(e)} cols="120" rows="3" />
+              <textarea value={requestItem.text} onChange={(e) => edit(e, "text")} cols="120" rows="3" />
             </form>
           ) : (
-            <p>I have an AI project that is half done. Currently, I encountered an error that cannot be solved Please experts contact me</p>
+            <p>{requestItem.text}</p>
           )}
         </div>
       </div>

@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 @import "./variables";
-
+@import "./mixins";
 * {
   margin: 0;
   padding: 0;
@@ -11,6 +11,9 @@
 html {
   font-size: 62.5%;
   overflow: hidden;
+  @include respond(smallScreen) {
+    font-size: 50%;
+  }
 }
 
 body {

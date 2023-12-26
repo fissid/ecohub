@@ -122,6 +122,9 @@ function App() {
 
   return (
     <main className="app">
+      <section className="not-ok">
+        <h4>Regrettably, this application is currently not accessible on mobile and tablet devices ;(</h4>
+      </section>
       <section className="top">
         <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
         {tag}

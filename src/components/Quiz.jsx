@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "../scss/Quiz.scss";
 import Icon from "./Icon";
 const acceptedSVG = (

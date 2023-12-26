@@ -6,6 +6,11 @@
   padding: 1rem 2rem;
   height: 93vh;
   // border: 1px solid black;
+
+  background: url("../img/minim/community.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   &__feed {
     flex: 1 1;
     display: flex;

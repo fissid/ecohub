@@ -6,6 +6,12 @@
   padding: 1rem 2rem;
   padding-bottom: 0;
   height: 93vh;
+
+  background: url("../img/minim/dashboard.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
   &__feed {
     flex: 1 1 80%;
     display: flex;
@@ -15,7 +21,7 @@
       flex: 0 1 50%;
       // height: 100%;
       border-radius: 20px;
-      background: $color-primary-super-light;
+      background: rgba($color-primary-super-light, 0.9);
       padding: 1rem 2rem;
       overflow-y: auto;
     }
@@ -30,7 +36,8 @@
       .portfolio {
         // height: 40%;
         border-radius: 20px;
-        background: $color-primary-super-light;
+        background: rgba($color-primary-super-light, 0.9);
+
         padding: 1rem 2rem;
         // padding-bottom: 2rem;
         &__header {
@@ -108,7 +115,8 @@
         // align-items: center;
         // justify-content: space-between;
         border-radius: 20px;
-        background: $color-primary-super-light;
+        background: rgba($color-primary-super-light, 0.9);
+
         padding: 1rem 2rem;
         border: none;
         cursor: pointer;

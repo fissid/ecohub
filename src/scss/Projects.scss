@@ -6,18 +6,21 @@
   padding: 1rem 2rem;
   //   padding-bottom: 0;
   height: 93vh;
+  background: url("../img/minim/projects.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   &__sec {
     display: flex;
     flex-flow: column nowrap;
     gap: 1.5rem;
     .list {
       font-size: 1.8rem;
-
       list-style: none;
       flex: 1 1;
       // height: 100%;
       border-radius: 15px;
-      background: $color-primary-super-light;
+      background: rgba($color-primary-super-light, 0.85);
       padding: 1rem 2rem;
       overflow-y: auto;
       li {
@@ -31,22 +34,20 @@
         span {
           flex: 1 1;
           padding-left: 2rem;
+          text-transform: capitalize;
         }
         button {
           background: none;
           border: 0;
           cursor: pointer;
-          .icon {
-            fill: $color-primary-grey;
-          }
-          :hover {
-            .icon {
-              fill: $color-primary-dark !important;
-            }
-          }
         }
       }
     }
+  }
+
+  .icon {
+    fill: $color-primary-grey;
+    cursor: pointer;
   }
 
   &__req {
@@ -54,13 +55,38 @@
     flex-flow: column nowrap;
     gap: 2rem !important;
     border-radius: 15px;
-    background: $color-primary-super-light;
+    background: rgba($color-primary-super-light, 0.85);
     padding: 1rem 2rem;
     cursor: default;
-    &__middle {
+
+    input,
+    textarea {
+      border: none;
+      background: rgba($color-white, 0.7);
+      border-radius: 4px;
+      padding: 0.1rem 0.5rem;
+      //   margin-top: 0;
+      width: 100%;
+    }
+
+    input {
+      margin: 0.2rem 0;
+      font-size: 1.6rem;
+    }
+
+    textarea {
+      font-size: 1.8rem;
+    }
+
+    &-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    &-middle {
       // color: $color-primary-dark;
     }
-    &__text {
+    &-text {
       text-align: justify;
     }
   }

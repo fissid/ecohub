@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "../scss/Projects.scss";
 import Icon from "./Icon";
 
@@ -13,99 +14,122 @@ const acceptedSVG = (
     />
   </svg>
 );
-const notAcceptedSVG = (
-  <svg className="sit-svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M22.686 7.31395C22.5467 7.17456 22.3813 7.06398 22.1992 6.98854C22.0172 6.9131 21.8221 6.87427 21.625 6.87427C21.4279 6.87427 21.2328 6.9131 21.0507 6.98854C20.8687 7.06398 20.7033 7.17456 20.564 7.31395L15 12.8799L9.43599 7.31495C9.1546 7.03355 8.77294 6.87547 8.37499 6.87547C7.97704 6.87547 7.59539 7.03355 7.31399 7.31495C7.0326 7.59634 6.87451 7.978 6.87451 8.37595C6.87451 8.7739 7.0326 9.15555 7.31399 9.43695L12.88 14.9999L7.31499 20.5639C7.17566 20.7033 7.06514 20.8687 6.98973 21.0507C6.91432 21.2328 6.87551 21.4279 6.87551 21.6249C6.87551 22.0229 7.0336 22.4046 7.31499 22.6859C7.59639 22.9673 7.97804 23.1254 8.37599 23.1254C8.77394 23.1254 9.1556 22.9673 9.43699 22.6859L15 17.1199L20.564 22.6849C20.8454 22.9663 21.227 23.1244 21.625 23.1244C22.0229 23.1244 22.4046 22.9663 22.686 22.6849C22.9674 22.4036 23.1255 22.0219 23.1255 21.6239C23.1255 21.226 22.9674 20.8443 22.686 20.5629L17.12 14.9999L22.685 9.43595C22.8244 9.29665 22.935 9.13125 23.0104 8.94919C23.0858 8.76714 23.1247 8.57201 23.1247 8.37495C23.1247 8.17788 23.0858 7.98275 23.0104 7.8007C22.935 7.61865 22.8244 7.45325 22.685 7.31395H22.686Z"
-      fill="#112D4E"
-    />
-    <path
-      d="M5 0C4.34339 0 3.69321 0.129329 3.08658 0.380602C2.47995 0.631876 1.92876 1.00017 1.46447 1.46447C0.526784 2.40215 0 3.67392 0 5V25C0 26.3261 0.526784 27.5979 1.46447 28.5355C1.92876 28.9998 2.47995 29.3681 3.08658 29.6194C3.69321 29.8707 4.34339 30 5 30H25C26.3261 30 27.5979 29.4732 28.5355 28.5355C29.4732 27.5979 30 26.3261 30 25V5C30 4.34339 29.8707 3.69321 29.6194 3.08658C29.3681 2.47995 28.9998 1.92876 28.5355 1.46447C28.0712 1.00017 27.52 0.631876 26.9134 0.380602C26.3068 0.129329 25.6566 0 25 0H5ZM2 5C2 4.20435 2.31607 3.44129 2.87868 2.87868C3.44129 2.31607 4.20435 2 5 2H25C25.7956 2 26.5587 2.31607 27.1213 2.87868C27.6839 3.44129 28 4.20435 28 5V25C28 25.7956 27.6839 26.5587 27.1213 27.1213C26.5587 27.6839 25.7956 28 25 28H5C4.20435 28 3.44129 27.6839 2.87868 27.1213C2.31607 26.5587 2 25.7956 2 25V5Z"
-      fill="#112D4E"
-    />
-  </svg>
-);
+
 const unDoneSVG = (
   <svg className="sit-svg" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M4 6.66667C4 5.95942 4.28095 5.28115 4.78105 4.78105C5.28115 4.28095 5.95942 4 6.66667 4H25.3333C26.0406 4 26.7189 4.28095 27.219 4.78105C27.719 5.28115 28 5.95942 28 6.66667V25.3333C28 26.0406 27.719 26.7189 27.219 27.219C26.7189 27.719 26.0406 28 25.3333 28H6.66667C5.95942 28 5.28115 27.719 4.78105 27.219C4.28095 26.7189 4 26.0406 4 25.3333V6.66667Z" stroke="#112D4E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
   </svg>
 );
 
+const projectsData = [
+  { id: 0, name: "Phyton", cat: "programming", completed: false },
+  { id: 1, name: "linear algebra", cat: "Mathematics", completed: true },
+  { id: 2, name: "machine learning", cat: "programming", completed: false },
+  { id: 3, name: "algorithm", cat: "programming", completed: true },
+  { id: 4, name: "artifitial inteligence", cat: "programming", completed: true },
+  { id: 5, name: "database", cat: "programming", completed: true },
+  { id: 6, name: "java", cat: "programming", completed: true },
+];
+
+const request = {
+  cat: "programming",
+  name: "artifitial inteligence",
+  text: "I have an AI project that is half done. Currently, I encountered an error that cannot be solved Please experts contact me",
+};
+
 export default function Projects(props) {
+  const [editMode, setEditMode] = useState(false);
+  const [requestItem, setRequestItem] = useState(projectsData);
+  function edit(e) {}
   return (
     <div className={`${props.className} projects`}>
       <div className="projects__sec">
         <h4>In Progress</h4>
         <ul className="list">
-          <li>
-            {unDoneSVG}
-            <span>Phyton / Programming</span>{" "}
-            <button>
-              <Icon name="arrow-up-right2"></Icon>
-            </button>
-          </li>
-          <li>
-            {unDoneSVG}
-            <span>Machine Learning / Programming</span>{" "}
-            <button>
-              <Icon name="arrow-up-right2"></Icon>
-            </button>
-          </li>
+          {projectsData.map((each) => {
+            if (!each.completed) {
+              return (
+                <li key={each.id}>
+                  {unDoneSVG}
+                  <span>
+                    {each.name} / {each.cat}
+                  </span>
+                  <button>
+                    <Icon name="arrow-up-right2"></Icon>
+                  </button>
+                </li>
+              );
+            }
+          })}
         </ul>
       </div>
 
       <div className="projects__sec">
         <h4>Completed</h4>
         <ul className="list">
-          <li>
-            {acceptedSVG}
-            <span>Algorithm / Programming</span>{" "}
-            <button>
-              <Icon name="arrow-up-right2"></Icon>
-            </button>
-          </li>
-          <li>
-            {acceptedSVG}
-            <span>Linear Algebra / Mathematics</span>{" "}
-            <button>
-              <Icon name="arrow-up-right2"></Icon>
-            </button>
-          </li>
-          <li>
-            {acceptedSVG}
-            <span>Artifitial Inteligence / Programming</span>{" "}
-            <button>
-              <Icon name="arrow-up-right2"></Icon>
-            </button>
-          </li>
-          <li>
-            {acceptedSVG}
-            <span>Database / Programming</span>{" "}
-            <button>
-              <Icon name="arrow-up-right2"></Icon>
-            </button>
-          </li>
-          <li>
-            {acceptedSVG}
-            <span>Java / Programming</span>{" "}
-            <button>
-              <Icon name="arrow-up-right2"></Icon>
-            </button>
-          </li>
+          {projectsData.map((each) => {
+            if (each.completed) {
+              return (
+                <li key={each.id}>
+                  {acceptedSVG}
+                  <span>
+                    {each.name} / {each.cat}
+                  </span>
+                  <button>
+                    <Icon name="arrow-up-right2"></Icon>
+                  </button>
+                </li>
+              );
+            }
+          })}
         </ul>
       </div>
 
       <div className="projects__req">
-        <div className="req__header">
+        <div className="projects__req-header">
           <h5 className="feed_title">Request</h5>
+          <Icon name={editMode ? "clipboard" : "create"} onClick={() => setEditMode((prev) => !prev)}></Icon>
         </div>
 
-        <div className="req__middle">
-          <h5>Programming</h5>
-          <h5>Artifitial Inteligence</h5>
+        <div className="projects__req-middle">
+          {editMode ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setEditMode((prev) => !prev);
+              }}
+            >
+              <input type="text" value="Programming" onChange={(e) => edit(e)} />
+            </form>
+          ) : (
+            <h5>Programming</h5>
+          )}
+          {editMode ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setEditMode((prev) => !prev);
+              }}
+            >
+              <input type="text" value="Artifitial Inteligence" onChange={(e) => edit(e)} />
+            </form>
+          ) : (
+            <h5>Artifitial Inteligence</h5>
+          )}
         </div>
-        <div className="req__text">
-          <p>I have an AI project that is half done. Currently, I encountered an error that cannot be solved Please experts contact me</p>
+        <div className="projects__req-text">
+          {editMode ? (
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                setEditMode((prev) => !prev);
+              }}
+            >
+              <textarea value="I have an AI project that is half done. Currently, I encountered an error that cannot be solved Please experts contact me" onChange={(e) => edit(e)} cols="120" rows="3" />
+            </form>
+          ) : (
+            <p>I have an AI project that is half done. Currently, I encountered an error that cannot be solved Please experts contact me</p>
+          )}
         </div>
       </div>
     </div>

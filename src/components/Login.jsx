@@ -10,7 +10,7 @@ export default function Login() {
         <form>
           <div className="header">
             <h3>Login</h3>
-            <p>
+            <p
               Doesn't have an account yet? <button>Sign Up</button>
             </p>
           </div>

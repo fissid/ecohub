@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Suggestion from "./Suggestions";
 import UserProfile from "./UserProfile";
 import Projects from "./Projects";
+import Login from "./Login";
 const menuBtns = [
   {
     id: 0,
@@ -69,7 +70,9 @@ function App() {
 
   let tag;
   let profileNav;
-
+  /* without who is for user */
+  /* with who is for me */
+  /* whne quiz is shown, profileNavbar is invisible */
   sideMenu.forEach((each) => {
     if (each.selected) {
       switch (each.id) {
@@ -126,15 +129,11 @@ function App() {
         <h4>Regrettably, this application is currently not accessible on mobile and tablet devices ;(</h4>
       </section>
       <section className="top">
-        <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
-        {tag}
-        {/* whne quiz is shown, profileNavbar is invisible */}
-        <UserProfile className="none middle"></UserProfile>
-        {profileNav}
-        {/* without who is for user */}
-        {/* <ProfileNavbar className={`${sideMenu[3].selected ? "none" : !sideMenu[0].selected ? "" : "none"}`}></ProfileNavbar> */}
-        {/* with who is for me */}
-        {/* <ProfileNavbar className={`${sideMenu[3].selected ? "none" : sideMenu[0].selected ? "" : "none"}`} who="me"></ProfileNavbar> */}
+        <Login></Login>
+        {/* <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar> */}
+        {/* {tag} */}
+        {/* <UserProfile className="none middle"></UserProfile> */}
+        {/* {profileNav} */}
       </section>
     </main>
   );

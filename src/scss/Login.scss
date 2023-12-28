@@ -1,0 +1,105 @@
+@import "./variables";
+
+.login {
+  display: block;
+  height: 93vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .box {
+    background: $color-primary-super-light;
+    height: 80vh;
+    width: 70%;
+    border-radius: 10px;
+    padding: 3rem 4rem;
+    box-shadow: 0 0 20px rgba($color-primary-grey, 0.8);
+    display: flex;
+    form {
+      padding: 1.5rem 3rem;
+      flex: 1 1 25%;
+      background: rgba(#fff, 0.5);
+      box-shadow: 0 0 5px #fff;
+      display: flex;
+      flex-flow: column nowrap;
+      color: $color-primary-dark;
+      button {
+        border: none;
+        background: none;
+      }
+      div {
+        padding: 1rem;
+      }
+      .header {
+        h3 {
+          letter-spacing: 1px;
+          font-size: 2.7rem;
+          padding-bottom: 0.5rem;
+        }
+        p {
+          font-size: 1.6rem;
+          word-spacing: 2px;
+          button {
+            color: $color-primary-light;
+            text-decoration: underline;
+            font-size: 1.7rem;
+            cursor: pointer;
+          }
+        }
+      }
+      .email,
+      .pass {
+        flex: 0 0 20%;
+        display: flex;
+        flex-flow: column nowrap;
+        label {
+          font-size: 1.5rem;
+          font-weight: 600;
+          padding-bottom: 0.5rem;
+        }
+        input {
+          border: 1px solid $color-primary-dark;
+          outline: none;
+          //   height: 3rem;
+          padding: 1rem;
+          border-radius: 5px;
+        }
+      }
+      .email {
+        padding-top: 1.5rem;
+      }
+
+      .footer,
+      .footer-foot {
+        // padding: 1.5rem;
+        button {
+          border: 2px solid $color-primary-dark;
+          display: block;
+          width: 100%;
+          padding: 1rem;
+          font-size: 1.5rem;
+          font-weight: 600;
+          letter-spacing: 0.3px;
+          border-radius: 5px;
+          cursor: pointer;
+        }
+      }
+      .footer {
+        button {
+          padding: 1.2rem;
+          background: rgba($color-primary-dark, 0.9);
+          color: $color-white;
+        }
+      }
+      .footer-foot button {
+        color: $color-primary-dark;
+      }
+      .footer-line {
+        text-align: center;
+      }
+    }
+    img {
+      display: block;
+    }
+  }
+}

@@ -68,6 +68,10 @@ function App() {
     });
   }
 
+  function userLoginHandler(email, pass) {
+    console.log(email, pass);
+  }
+
   let tag;
   let profileNav;
   /* without who is for user */
@@ -129,7 +133,7 @@ function App() {
         <h4>Regrettably, this application is currently not accessible on mobile and tablet devices ;(</h4>
       </section>
       <section className="top">
-        <Login></Login>
+        <Login userLoginHandler={userLoginHandler}></Login>
         {/* <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar> */}
         {/* {tag} */}
         {/* <UserProfile className="none middle"></UserProfile> */}

@@ -6,11 +6,12 @@ export default function Login({ userLoginHandler }) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [approved, setApproved] = useState(false);
+  const [showPass, setShowPass] = useState(false);
   // saeed.salehi@std.medipol.edu.tr
   function loginSubmit(e) {
     e.preventDefault();
     setApproved((prev) => !prev);
-    userLoginHandler();
+    userLoginHandler(email, pass);
   }
   function signUpBtnHandler() {}
   return (
@@ -37,7 +38,8 @@ export default function Login({ userLoginHandler }) {
             <label htmlFor="password" className={`${!approved && "warn"}`}>
               Password:
             </label>
-            <input className={`${!approved && "not-approved"}`} id="password" name="password" type="text" value={pass} onChange={(e) => setPass(e.target.value)} required />
+            <input className={`${!approved && "not-approved"}`} id="password" name="password" type={`${showPass ? "text" : "password"}`} value={pass} onChange={(e) => setPass(e.target.value)} required />
+            <span className="show-pass">Show Password</span>
           </div>
 
           <div className="footer">

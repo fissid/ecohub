@@ -56,7 +56,8 @@ export default function Login({ userLoginHandler, signUpPageHandler }) {
           <div className="footer-line">{approved ? <p>OR</p> : <p className="warn">Email or password is incorrect</p>}</div>
           <div className="footer-foot">
             <button>
-              <p>Login With MEBİS</p> <img src={mebis} alt="" />
+              <img src={mebis} alt="" />
+              <p>Continue with MEBİS</p>
             </button>
           </div>
         </form>

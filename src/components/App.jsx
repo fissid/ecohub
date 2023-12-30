@@ -136,8 +136,8 @@ function App() {
         <h4>Regrettably, this application is currently not accessible on mobile and tablet devices ;(</h4>
       </section>
       <section className="top">
-        {/* <Login userLoginHandler={userLoginHandler} signUpPageHandler={signUpPageHandler}></Login> */}
-        <SignUp></SignUp>
+        <Login userLoginHandler={userLoginHandler} signUpPageHandler={signUpPageHandler}></Login>
+        {/* <SignUp></SignUp> */}
         {/* <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar> */}
         {/* {tag} */}
         {/* <UserProfile className="none middle"></UserProfile> */}

@@ -34,6 +34,7 @@ export default function Login() {
             <button>Login With Mebis</button>
           </div>
         </form>
+
         <img src={image} alt="" />
       </div>
     </div>

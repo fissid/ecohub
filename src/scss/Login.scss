@@ -39,11 +39,12 @@
         p {
           font-size: 1.6rem;
           word-spacing: 2px;
-          button {
+          input {
             color: $color-primary-light;
             text-decoration: underline;
             font-size: 1.7rem;
             cursor: pointer;
+            border: 0;
           }
         }
       }
@@ -66,6 +67,29 @@
         }
       }
       .email {
+        &__container {
+          padding: 0;
+          display: flex;
+          width: 100%;
+          border: 1px solid $color-primary-dark;
+          outline: none;
+          //   height: 3rem;
+          // padding: 1rem;
+          border-radius: 5px;
+          padding-left: 0.3rem;
+          #email {
+            flex: 1 1;
+          }
+          .unavaialbe {
+            text-align: center;
+            padding: 0;
+            cursor: not-allowed;
+          }
+          input {
+            border: 0;
+            border-radius: 0;
+          }
+        }
         padding-top: 1.5rem;
       }
 
@@ -118,7 +142,13 @@
 
     .minimal {
       display: block;
-      transform: rotate(-25deg) translateY(2rem);
+      transform: rotate(-25deg) translateY(2rem) scale(1.15);
     }
   }
+}
+.not-approved {
+  border-color: rgb(202, 10, 10) !important;
+}
+.warn {
+  color: rgb(202, 10, 10) !important;
 }

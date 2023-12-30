@@ -8,6 +8,7 @@ import Suggestion from "./Suggestions";
 import UserProfile from "./UserProfile";
 import Projects from "./Projects";
 import Login from "./Login";
+import SignUp from "./SignUp";
 const menuBtns = [
   {
     id: 0,
@@ -135,7 +136,8 @@ function App() {
         <h4>Regrettably, this application is currently not accessible on mobile and tablet devices ;(</h4>
       </section>
       <section className="top">
-        <Login userLoginHandler={userLoginHandler} signUpPageHandler={signUpPageHandler}></Login>
+        {/* <Login userLoginHandler={userLoginHandler} signUpPageHandler={signUpPageHandler}></Login> */}
+        <SignUp></SignUp>
         {/* <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar> */}
         {/* {tag} */}
         {/* <UserProfile className="none middle"></UserProfile> */}

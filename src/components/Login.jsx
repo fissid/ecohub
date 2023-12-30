@@ -1,6 +1,9 @@
 import { useState } from "react";
 import "../scss/Login.scss";
 import image from "../img/minim/dashboard.png";
+import mebis from "../img/minim/Mebis.png";
+import logoWhite from "../img/logoWhite.PNG";
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
@@ -31,11 +34,12 @@ export default function Login() {
             <p>OR</p>
           </div>
           <div className="footer-foot">
-            <button>Login With Mebis</button>
+            <button>
+              <p>Login With MEBİS</p> <img src={mebis} alt="" />
+            </button>
           </div>
         </form>
-
-        <img src={image} alt="" />
+        <img className="minimal" src={image} alt="" />
       </div>
     </div>
   );

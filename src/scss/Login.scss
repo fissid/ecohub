@@ -89,17 +89,36 @@
           padding: 1.2rem;
           background: rgba($color-primary-dark, 0.9);
           color: $color-white;
+          letter-spacing: 1.4px;
+        }
+      }
+      .footer-foot {
+        :hover {
+          background: rgba($color-primary-dark, 0.9);
+          color: $color-primary-super-light;
         }
       }
       .footer-foot button {
         color: $color-primary-dark;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        img {
+          height: 2.5rem;
+          width: 2.5rem;
+        }
+        :hover {
+          background: none;
+        }
       }
       .footer-line {
         text-align: center;
       }
     }
-    img {
+
+    .minimal {
       display: block;
+      transform: rotate(-25deg) translateY(2rem);
     }
   }
 }

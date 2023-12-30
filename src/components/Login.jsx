@@ -2,18 +2,24 @@ import { useState } from "react";
 import "../scss/Login.scss";
 import image from "../img/minim/dashboard.png";
 import mebis from "../img/minim/Mebis.png";
-export default function Login({ userLoginHandler }) {
+export default function Login({ userLoginHandler, signUpPageHandler }) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const [approved, setApproved] = useState(false);
+  const [approved, setApproved] = useState(true);
   const [showPass, setShowPass] = useState(false);
   // saeed.salehi@std.medipol.edu.tr
   function loginSubmit(e) {
     e.preventDefault();
-    setApproved((prev) => !prev);
+    setApproved(true);
+    if (email.includes("@")) {
+      setApproved(false);
+      return;
+    }
     userLoginHandler(email, pass);
   }
-  function signUpBtnHandler() {}
+  function signUpBtnHandler() {
+    signUpPageHandler();
+  }
   return (
     <div className="login">
       <div className="box">
@@ -39,7 +45,9 @@ export default function Login({ userLoginHandler }) {
               Password:
             </label>
             <input className={`${!approved && "not-approved"}`} id="password" name="password" type={`${showPass ? "text" : "password"}`} value={pass} onChange={(e) => setPass(e.target.value)} required />
-            <span className="show-pass">Show Password</span>
+            <span className="show-pass" onClick={() => setShowPass((prev) => !prev)}>
+              {showPass ? "hide" : "show"} password
+            </span>
           </div>
 
           <div className="footer">

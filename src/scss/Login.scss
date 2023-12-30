@@ -92,6 +92,15 @@
         }
         padding-top: 1.5rem;
       }
+      .show-pass {
+        color: rgba($color-primary-light, 0.8);
+        font-size: 1.4rem;
+        cursor: pointer;
+        text-align: right;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
 
       .footer,
       .footer-foot {

@@ -147,7 +147,7 @@ function App() {
       </section>
       {displaySignup ? (
         <section className="top">
-          <SignUp></SignUp>
+          <SignUp loginPageHandler={loginPageHandler}></SignUp>
         </section>
       ) : displayLogin ? (
         <section className="top">

@@ -27,8 +27,13 @@ export default function SignUp({ userLoginHandler, loginPageHandler }) {
           <div className="header">
             <h3>Sign Up</h3>
             <p>
-              Do you have an account? <input type="button" value="Login" onClick={loginBtnHandler} />
+              Already have an account? <input type="button" value="Login" onClick={loginBtnHandler} />
             </p>
+          </div>
+
+          <div className="name form-box">
+            <label htmlFor="name">Full Name:</label>
+            <input id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
           </div>
 
           <div className="email form-box">
@@ -47,7 +52,7 @@ export default function SignUp({ userLoginHandler, loginPageHandler }) {
             </span>
           </div>
 
-          <div className="footer ">
+          <div className="footer">
             <button type="submit">Submit</button>
           </div>
         </form>

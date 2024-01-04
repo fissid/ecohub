@@ -44,19 +44,19 @@ function App() {
   const [displayLogin, setDisplayLogin] = useState(false);
   const [displaySignup, setDisplaySignup] = useState(true);
 
-  useEffect(
-    function () {
-      sideMenu.forEach((each) => {
-        if (each.selected) {
-          document.title = `Ecohub | ${each.name}`;
-        }
-      });
-      return function () {
-        document.title = "Ecohub";
-      };
-    },
-    [sideMenu]
-  );
+  // useEffect(
+  //   function () {
+  //     sideMenu.forEach((each) => {
+  //       if (each.selected) {
+  //         document.title = `Ecohub | ${each.name}`;
+  //       }
+  //     });
+  //     return function () {
+  //       document.title = "Ecohub";
+  //     };
+  //   },
+  //   [sideMenu]
+  // );
 
   function menuClickHandler(e) {
     const clickedId = e.target.closest("button").dataset.id;

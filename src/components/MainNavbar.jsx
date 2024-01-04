@@ -3,7 +3,7 @@ import MenuBtn from "./MenuBtn";
 import profile from "../img/pro.PNG";
 import logoWhite from "../img/logoWhite.PNG";
 import icons from "../icons/sprite.svg";
-export default function MainNavbar({ menu, onClick }) {
+export default function MainNavbar({ menu, onClick, logoutHandler }) {
   return (
     <div className="nav">
       <div className="nav__logo">
@@ -23,7 +23,9 @@ export default function MainNavbar({ menu, onClick }) {
         <svg className="nav__logout--icon">
           <use xlinkHref={`${icons}#icon-logout`}></use>
         </svg>
-        <span className="mav__lagout--text">Log Out</span>
+        <span className="mav__lagout--text" onClick={logoutHandler}>
+          Log Out
+        </span>
       </button>
     </div>
   );

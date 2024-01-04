@@ -39,10 +39,11 @@ const menuBtns = [
     page: "quiz",
   },
 ];
+
 function App() {
   const [sideMenu, editSideMenu] = useState(menuBtns);
-  const [displayLogin, setDisplayLogin] = useState(false);
-  const [displaySignup, setDisplaySignup] = useState(true);
+  const [displayLogin, setDisplayLogin] = useState(true);
+  const [displaySignup, setDisplaySignup] = useState(false);
 
   // useEffect(
   //   function () {
@@ -75,14 +76,20 @@ function App() {
     console.log(email, pass);
   }
 
+  function userSignUpHandler(email, pass) {
+    setDisplayLogin(false);
+    setDisplaySignup(false);
+    console.log(email, pass);
+  }
+
   function loginPageHandler() {
-    setDisplayLogin((prev) => !prev);
-    setDisplaySignup((prev) => !prev);
+    setDisplayLogin(true);
+    setDisplaySignup(false);
   }
 
   function signUpPageHandler() {
-    setDisplaySignup((prev) => !prev);
-    setDisplayLogin((prev) => !prev);
+    setDisplaySignup(true);
+    setDisplayLogin(false);
   }
 
   let tag;
@@ -147,7 +154,7 @@ function App() {
       </section>
       {displaySignup ? (
         <section className="top">
-          <SignUp loginPageHandler={loginPageHandler}></SignUp>
+          <SignUp loginPageHandler={loginPageHandler} userSignUpHandler={userSignUpHandler}></SignUp>
         </section>
       ) : displayLogin ? (
         <section className="top">
@@ -155,7 +162,7 @@ function App() {
         </section>
       ) : (
         <section className="top">
-          <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
+          <MainNavbar menu={sideMenu} onClick={menuClickHandler} logoutHandler={loginPageHandler}></MainNavbar>
           {tag}
           <UserProfile className="none middle"></UserProfile>
           {profileNav}

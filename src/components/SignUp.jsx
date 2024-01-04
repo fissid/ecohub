@@ -1,29 +1,26 @@
 import Icon from "./Icon";
 import "../scss/SignUp.scss";
 import { useState } from "react";
-export default function SignUp({ userLoginHandler, loginPageHandler }) {
+export default function SignUp({ userSignUpHandler, loginPageHandler }) {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  const [approved, setApproved] = useState(true);
   const [showPass, setShowPass] = useState(false);
   const [name, setName] = useState("");
+  const [major, setMajor] = useState("");
   // saeed.salehi@std.medipol.edu.tr
-  function loginSubmit(e) {
+  function submitHandler(e) {
     e.preventDefault();
-    setApproved(true);
-    if (email.includes("@")) {
-      setApproved(false);
-      return;
-    }
-    userLoginHandler(email, pass);
+    userSignUpHandler(email, pass);
   }
+
   function loginBtnHandler() {
     loginPageHandler();
   }
+
   return (
     <div className="sign-up">
       <div className="box">
-        <form onSubmit={(e) => loginSubmit(e)}>
+        <form onSubmit={(e) => submitHandler(e)}>
           <div className="header">
             <h3>Sign Up</h3>
             <p>
@@ -33,6 +30,21 @@ export default function SignUp({ userLoginHandler, loginPageHandler }) {
 
           <div className="name form-box">
             <label htmlFor="name">Full Name:</label>
+            <input id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
+          </div>
+
+          <div className="major form-box">
+            <label htmlFor="major">Major:</label>
+            <input id="major" name="major" value={major} onChange={(e) => setMajor(e.target.value)} required />
+          </div>
+
+          <div className="name form-box">
+            <label htmlFor="name">Temp:</label>
+            <input id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
+          </div>
+
+          <div className="name form-box">
+            <label htmlFor="name">Temp:</label>
             <input id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
           </div>
 

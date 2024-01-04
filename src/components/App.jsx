@@ -3,7 +3,7 @@ import MainNavbar from "./MainNavbar";
 import Explore from "./Explore";
 import ProfileNavbar from "./ProfileNavbar";
 import Quiz from "./Quiz";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Suggestion from "./Suggestions";
 import UserProfile from "./UserProfile";
 import Projects from "./Projects";

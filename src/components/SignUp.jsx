@@ -1,4 +1,3 @@
-import Icon from "./Icon";
 import "../scss/SignUp.scss";
 import { useState } from "react";
 export default function SignUp({ userSignUpHandler, loginPageHandler }) {

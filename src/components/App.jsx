@@ -41,6 +41,8 @@ const menuBtns = [
 ];
 function App() {
   const [sideMenu, editSideMenu] = useState(menuBtns);
+  const [displayLogin, setDisplayLogin] = useState(false);
+  const [displaySignup, setDisplaySignup] = useState(true);
 
   useEffect(
     function () {
@@ -73,7 +75,15 @@ function App() {
     console.log(email, pass);
   }
 
-  function signUpPageHandler() {}
+  function loginPageHandler() {
+    setDisplayLogin((prev) => !prev);
+    setDisplaySignup((prev) => !prev);
+  }
+
+  function signUpPageHandler() {
+    setDisplaySignup((prev) => !prev);
+    setDisplayLogin((prev) => !prev);
+  }
 
   let tag;
   let profileNav;
@@ -135,14 +145,22 @@ function App() {
       <section className="not-ok">
         <h4>Regrettably, this application is currently not accessible on mobile and tablet devices ;(</h4>
       </section>
-      <section className="top">
-        <Login userLoginHandler={userLoginHandler} signUpPageHandler={signUpPageHandler}></Login>
-        {/* <SignUp></SignUp> */}
-        {/* <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar> */}
-        {/* {tag} */}
-        {/* <UserProfile className="none middle"></UserProfile> */}
-        {/* {profileNav} */}
-      </section>
+      {displaySignup ? (
+        <section className="top">
+          <SignUp></SignUp>
+        </section>
+      ) : displayLogin ? (
+        <section className="top">
+          <Login userLoginHandler={userLoginHandler} signUpPageHandler={signUpPageHandler}></Login>
+        </section>
+      ) : (
+        <section className="top">
+          <MainNavbar menu={sideMenu} onClick={menuClickHandler}></MainNavbar>
+          {tag}
+          <UserProfile className="none middle"></UserProfile>
+          {profileNav}
+        </section>
+      )}
     </main>
   );
 }

@@ -1,16 +1,16 @@
 @mixin respond($breackpoint) {
   @if $breackpoint == smallScreen {
-    @media only screen and (max-width: 75em) {
-      @content;
-    }
-  }
-  @if $breackpoint == notOk {
     @media only screen and (max-width: 70em) {
       @content;
     }
   }
+  @if $breackpoint == notOk {
+    @media only screen and (max-width: 75em) {
+      @content;
+    }
+  }
   @if $breackpoint == notOkAndGreater {
-    @media only screen and (min-width: 70em) {
+    @media only screen and (min-width: 75em) {
       @content;
     }
   }

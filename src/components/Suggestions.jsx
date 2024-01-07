@@ -19,17 +19,17 @@ export default function Suggestion(props) {
         <h4>Suggested Students</h4>
       </div>
       <div className="sggs__feed">
-        <StudentCard people={people[0]}></StudentCard>
-        <StudentCard people={people[1]}></StudentCard>
-        <StudentCard people={people[2]}></StudentCard>
+        <StudentCard people={people[0]} visitProfile={props.visitProfile}></StudentCard>
+        <StudentCard people={people[1]} visitProfile={props.visitProfile}></StudentCard>
+        <StudentCard people={people[2]} visitProfile={props.visitProfile}></StudentCard>
 
-        <StudentCard people={people[0]}></StudentCard>
-        <StudentCard people={people[1]}></StudentCard>
-        <StudentCard people={people[2]}></StudentCard>
+        <StudentCard people={people[0]} visitProfile={props.visitProfile}></StudentCard>
+        <StudentCard people={people[1]} visitProfile={props.visitProfile}></StudentCard>
+        <StudentCard people={people[2]} visitProfile={props.visitProfile}></StudentCard>
 
-        <StudentCard people={people[0]}></StudentCard>
-        <StudentCard people={people[1]}></StudentCard>
-        <StudentCard people={people[2]}></StudentCard>
+        <StudentCard people={people[0]} visitProfile={props.visitProfile}></StudentCard>
+        <StudentCard people={people[1]} visitProfile={props.visitProfile}></StudentCard>
+        <StudentCard people={people[2]} visitProfile={props.visitProfile}></StudentCard>
       </div>
       <div className="sggs__footer">
         <button className="nav__logout">

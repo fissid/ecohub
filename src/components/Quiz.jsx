@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "../scss/Quiz.scss";
 import Icon from "./Icon";
+import QuizModal from "./QuizModal";
 const acceptedSVG = (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
@@ -34,11 +35,11 @@ const unDoneSVG = (
 // const skills = ["Python", "Data structure", "Algorithm", "Numerical Analysis", "Linear Algebra", "Artifitial inteligence"];
 const skills = [
   { id: 0, name: "python", situation: 1 },
-  { id: 1, name: "Data structure", situation: 0 },
+  { id: 1, name: "Data Structure", situation: 0 },
   { id: 2, name: "Algorithm", situation: 1 },
   { id: 3, name: "Numerical Analysis", situation: 0 },
   { id: 4, name: "Linear Algebra", situation: 0 },
-  { id: 5, name: "Artifitial inteligence", situation: 3 },
+  { id: 5, name: "Artifitial Inteligence", situation: 3 },
 ];
 
 export default function Quiz(props) {
@@ -47,12 +48,12 @@ export default function Quiz(props) {
   function clickedSkill(skillId) {
     setSelectedSkill(skillId);
   }
-  function startQuiz(id) {
+  function startQuiz() {
     setQuizMode(true);
   }
   return (
     <div className={`${props.className} quiz`}>
-      {quizMode && <Modal onClose={setQuizMode}>Data Structure</Modal>}
+      {quizMode && <QuizModal onClose={setQuizMode} selectedSkill={skills[selectedSkill].name}></QuizModal>}
       <div className="quiz__explanation">
         <p>This quiz is to verify the skills you have mentioned in your profile. If you want to be shown in your skill categories, you must take the quiz for each skill. First, specify the skill so that the exam questions related to it will be given.</p>
         <p>Each quiz has 10 multiple choice questions that you have to answer in a certain time.</p>
@@ -95,61 +96,6 @@ export default function Quiz(props) {
               <span className="mav__lagout--text">Start</span>
             </button>
           </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-function Modal({ children, onClose }) {
-  const percentage = 50;
-  return (
-    <div className="modal">
-      <div className="modal-content">
-        <div className="header">
-          <div className="time">
-            <span>15:00</span>
-            <Icon name="timer" height={25} width={25}></Icon>
-          </div>
-          <h3>{children}</h3>
-          <Icon name="cross" className="close" onClick={() => onClose(false)}></Icon>
-        </div>
-        <div className="body">
-          <div className="bar-container">
-            <div className="bar" style={{ width: `${percentage}%` }}></div>
-          </div>
-          <div className="question">
-            <p className="count">
-              <span>4</span>/10
-            </p>
-            <p className="text">Which data structure is needed to convert infix notation to postfix notation?</p>
-          </div>
-          <ul className="answers">
-            <li>
-              <span>Tree</span>
-            </li>
-            <li>
-              <span>Branch</span>
-            </li>
-            <li>
-              <span>Stack</span>
-            </li>
-            <li>
-              <span>Queue</span>
-            </li>
-          </ul>
-        </div>
-        <div className="footer">
-          <button className="nav__logout">
-            <span className="mav__lagout--text">
-              <Icon name="arrow-left2" height={25} width={25}></Icon>
-            </span>
-          </button>
-          <button className="nav__logout">
-            <span className="mav__lagout--text">
-              <Icon name="arrow-right2" height={25} width={25}></Icon>
-            </span>
-          </button>
         </div>
       </div>
     </div>

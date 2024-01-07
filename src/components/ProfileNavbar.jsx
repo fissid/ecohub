@@ -1,5 +1,6 @@
 import "../scss/ProfileNavbar.scss";
-import pro from "../img/p4.jpeg";
+import proUser from "../img/p4.jpeg";
+import pro from "../img/pro.PNG";
 import Icon from "./Icon";
 import { useState } from "react";
 
@@ -10,10 +11,10 @@ const user = {
   uni: "Medipol University",
   skills: ["Html", "Css", "Js", "React", "Oop"],
   bio: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, officia. Quod dvdv aspernatur nostrum exercitationem et nesciunt officiis nobis",
-  email: "salehisaeed30@outlook.com",
+  email: "saeed.salehi@std.medipol.edu.tr",
   link: "https://www.linkedin.com/in/saeed-salehi-06481a194/",
   git: "https://github.com/fissid",
-  site: "www.google.com",
+  site: "www.fissid.com",
 };
 export default function ProfileNavbar(props) {
   const [editableMode, editEditableMode] = useState({
@@ -68,8 +69,8 @@ export default function ProfileNavbar(props) {
           ></Icon>
         )}
         <div className="profile">
-          <img src={userInfo.profile} alt="" />
-          {/* <button className="profile__edit">
+          {props.who ? <img src={userInfo.profile} alt="" /> : <img src={proUser} alt="" />}
+          {/* <button className="profile__edit">}
             <Icon name="add" height={30} width={30} className={editableMode.first ? "icon" : "none"}></Icon>
           </button> */}
           <label className="profile__edit">
@@ -91,6 +92,8 @@ export default function ProfileNavbar(props) {
               >
                 <input type="text" value={userInfo.name} onChange={(e) => edit(e, "name")} />
               </form>
+            ) : !props.who ? (
+              <h4>Ali Zare</h4>
             ) : (
               <h4>{userInfo.name}</h4>
             )}
@@ -236,6 +239,8 @@ export default function ProfileNavbar(props) {
             >
               <input type="text" value={userInfo.email} onChange={(e) => edit(e, "email")} />
             </form>
+          ) : !props.who ? (
+            <p>ali.zareh@std.medipol.edu.tr</p>
           ) : (
             <p>{userInfo.email}</p>
           )}
@@ -272,6 +277,8 @@ export default function ProfileNavbar(props) {
             >
               <input type="text" value={userInfo.link} onChange={(e) => edit(e, "link")} />
             </form>
+          ) : !props.who ? (
+            <p>https://www.linkedin.com/in/ali-zareh</p>
           ) : (
             <p>{userInfo.link}</p>
           )}
@@ -290,6 +297,8 @@ export default function ProfileNavbar(props) {
             >
               <input type="text" value={userInfo.git} onChange={(e) => edit(e, "git")} />
             </form>
+          ) : !props.who ? (
+            <p>https://github.com/alizare</p>
           ) : (
             <p>{userInfo.git}</p>
           )}

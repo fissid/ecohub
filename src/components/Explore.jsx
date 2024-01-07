@@ -117,9 +117,9 @@ export default function Explore(props) {
           </button>
         </div>
         <div className="explore__suggestions--body">
-          <StudentCard people={people[1]}></StudentCard>
-          <StudentCard people={people[2]}></StudentCard>
-          <StudentCard people={people[3]}></StudentCard>
+          <StudentCard people={people[1]} visitProfile={props.visitProfile}></StudentCard>
+          <StudentCard people={people[2]} visitProfile={props.visitProfile}></StudentCard>
+          <StudentCard people={people[3]} visitProfile={props.visitProfile}></StudentCard>
         </div>
       </div>
     </div>

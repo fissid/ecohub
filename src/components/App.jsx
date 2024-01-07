@@ -43,8 +43,9 @@ const menuBtns = [
 
 function App() {
   const [sideMenu, editSideMenu] = useState(menuBtns);
-  const [displayLogin, setDisplayLogin] = useState(true);
+  const [displayLogin, setDisplayLogin] = useState(false);
   const [displaySignup, setDisplaySignup] = useState(false);
+  const [diplayUserInfo, setDisplayUserInfo] = useState(true);
 
   // useEffect(
   //   function () {
@@ -61,6 +62,7 @@ function App() {
   // );
 
   function menuClickHandler(e) {
+    setDisplayUserInfo(false);
     const clickedId = e.target.closest("button").dataset.id;
     editSideMenu((prev) => {
       return prev.map((each) => {
@@ -91,6 +93,12 @@ function App() {
   function signUpPageHandler() {
     setDisplaySignup(true);
     setDisplayLogin(false);
+  }
+
+  function visitProfile() {
+    setDisplayUserInfo(true);
+    setDisplayLogin(false);
+    setDisplaySignup(false);
   }
 
   let tag;
@@ -127,6 +135,7 @@ function App() {
                   });
                 });
               }}
+              visitProfile={visitProfile}
             ></Explore>
           );
           profileNav = <ProfileNavbar who="me"></ProfileNavbar>;
@@ -136,7 +145,7 @@ function App() {
           profileNav = <ProfileNavbar who="me"></ProfileNavbar>;
           break;
         case 2:
-          tag = <Suggestion className="middle"></Suggestion>;
+          tag = <Suggestion className="middle" visitProfile={visitProfile}></Suggestion>;
           profileNav = <ProfileNavbar who="me"></ProfileNavbar>;
           break;
         case 3:
@@ -161,13 +170,17 @@ function App() {
         <section className="top">
           <Login userLoginHandler={userLoginHandler} signUpPageHandler={signUpPageHandler}></Login>
         </section>
+      ) : diplayUserInfo ? (
+        <section className="top">
+          <MainNavbar menu={sideMenu} onClick={menuClickHandler} logoutHandler={loginPageHandler}></MainNavbar>
+          <UserProfile className="middle"></UserProfile>
+          <ProfileNavbar></ProfileNavbar>
+        </section>
       ) : (
         <section className="top">
           <MainNavbar menu={sideMenu} onClick={menuClickHandler} logoutHandler={loginPageHandler}></MainNavbar>
-          {/* {tag} */}
-          <UserProfile className="middle"></UserProfile>
-          <ProfileNavbar></ProfileNavbar>
-          {/* {profileNav} */}
+          {tag}
+          {profileNav}
         </section>
       )}
     </main>

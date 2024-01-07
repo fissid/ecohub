@@ -16,9 +16,11 @@ export default function UserProfile(props) {
   return (
     <div className={`${props.className} pr`}>
       <div className="pr__welcome">
-        <h4>Kambiz</h4>
+        <h4>Ali Zare - Computer Engineering</h4>
         <button className="nav__logout">
-          <span className="mav__lagout--text">Contact</span>
+          <a className="mav__lagout--text" href="mailto:ali.zareh@std.medipol.edu.tr">
+            Contact
+          </a>
         </button>
       </div>
       <div className="explore__feed">

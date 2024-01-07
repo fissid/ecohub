@@ -84,6 +84,17 @@ export default function QuizModal({ onClose, selectedSkill }) {
   const mins = Math.floor(secondsRemained / 60);
   const secs = Math.floor(secondsRemained % 60);
 
+  useEffect(
+    function () {
+      const timerID = setInterval(function () {
+        dispatch({ type: "tick" });
+      }, 1000);
+      return function () {
+        clearInterval(timerID);
+      };
+    },
+    [dispatch]
+  );
   return (
     <div className="modal">
       {status === "loading" && (
@@ -97,7 +108,11 @@ export default function QuizModal({ onClose, selectedSkill }) {
         <div className="modal-content">
           <div className="header">
             <div className="time">
-              <span>15:00</span>
+              <span>
+                {mins < 10 && "0"}
+                {mins}:{secs < 10 && "0"}
+                {secs}
+              </span>
               <Icon name="timer" height={25} width={25}></Icon>
             </div>
             <h3>{selectedSkill}</h3>

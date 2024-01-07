@@ -37,7 +37,7 @@ const skills = [
   { id: 0, name: "Python", situation: 1 },
   { id: 1, name: "Data Structure", situation: 0 },
   { id: 2, name: "Algorithm", situation: 1 },
-  { id: 3, name: "React", situation: 0 },
+  { id: 3, name: "React", situation: 3 },
   { id: 4, name: "Linear Algebra", situation: 0 },
 ];
 

@@ -34,12 +34,11 @@ const unDoneSVG = (
 
 // const skills = ["Python", "Data structure", "Algorithm", "Numerical Analysis", "Linear Algebra", "Artifitial inteligence"];
 const skills = [
-  { id: 0, name: "python", situation: 1 },
+  { id: 0, name: "Python", situation: 1 },
   { id: 1, name: "Data Structure", situation: 0 },
   { id: 2, name: "Algorithm", situation: 1 },
-  { id: 3, name: "Numerical Analysis", situation: 0 },
+  { id: 3, name: "React", situation: 0 },
   { id: 4, name: "Linear Algebra", situation: 0 },
-  { id: 5, name: "Artifitial Inteligence", situation: 3 },
 ];
 
 export default function Quiz(props) {

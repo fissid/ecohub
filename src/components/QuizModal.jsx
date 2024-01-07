@@ -1,6 +1,8 @@
 import { useEffect, useReducer } from "react";
 import "../scss/Quiz.scss";
 import Icon from "./Icon";
+import accept from "../img/minim/community.png";
+import not from "../img/minim/not.png";
 
 const SEC_PER_QUESTION = 15;
 const INITIALSTATE = {
@@ -35,7 +37,17 @@ function reducer(state, action) {
     case "nextQuestion":
       return {
         ...state,
+        currentQuestion: state.currentQuestion + 1,
+        answer: null,
       };
+
+    case "quizFinished":
+      return {
+        ...state,
+        status: "finished",
+      };
+    case "reset":
+      return INITIALSTATE;
 
     default:
       throw new Error("smt happened");
@@ -83,7 +95,7 @@ export default function QuizModal({ onClose, selectedSkill }) {
           </div>
           <div className="body">
             <div className="bar-container">
-              <div className="bar" style={{ width: `${currentQuestion + 1 * 10}%` }}></div>
+              <div className="bar" style={{ width: `${(currentQuestion + 1) * 10}%` }}></div>
             </div>
             <div className="question">
               <p className="count">
@@ -100,13 +112,46 @@ export default function QuizModal({ onClose, selectedSkill }) {
             </ul>
           </div>
           <div className="footer">
-            <button className="nav__logout" onClick={dispatch({ type: "nextQuestion" })}>
-              <span className="mav__lagout--text">Next</span>
+            {currentQuestion === numQuestions - 1 ? (
+              <button className="nav__logout" onClick={() => dispatch({ type: "quizFinished" })}>
+                <span className="mav__lagout--text">Finish</span>
+              </button>
+            ) : (
+              <button className="nav__logout" onClick={() => dispatch({ type: "nextQuestion" })}>
+                <span className="mav__lagout--text">Next</span>
+              </button>
+            )}
+          </div>
+        </div>
+      )}
+      {status === "finished" && (
+        <div className="modal-content">
+          <div className="header">
+            <h3>{selectedSkill}</h3>
+            <Icon name="cross" className="close" onClick={() => onClose(false)}></Icon>
+          </div>
+          <div className="body result">
+            <div className="left">
+              <h5 className="ff">You have got</h5>
+              <h4 className="point">{points}</h4>
+              <p className="line"></p>
+              <h4 className="hundred">100</h4>
+            </div>
+            <div className="right">{points >= 60 ? <img src={accept}></img> : <img src={not}></img>}</div>
+          </div>
+          <div className="footer">
+            <button
+              className="nav__logout"
+              onClick={() => {
+                onClose(false);
+                dispatch({ type: "reset" });
+              }}
+            >
+              <span className="mav__lagout--text">Close</span>
             </button>
           </div>
         </div>
       )}
-      {status === "finished" && 1}
     </div>
   );
 }

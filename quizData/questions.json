@@ -40,25 +40,25 @@
       "question": "When to use derived state?",
       "options": ["Whenever the state should not trigger a re-render", "Whenever the state can be synchronized with an effect", "Whenever the state should be accessible to all components", "Whenever the state can be computed from another state variable"],
       "correctOption": 3,
-      "points": 30
+      "points": 10
     },
     {
       "question": "What triggers a UI re-render in React?",
       "options": ["Running an effect", "Passing props", "Updating state", "Adding event listeners to DOM elements"],
       "correctOption": 2,
-      "points": 20
+      "points": 10
     },
     {
       "question": "When do we directly \"touch\" the DOM in React?",
       "options": ["When we need to listen to an event", "When we need to change the UI", "When we need to add styles", "Almost never"],
       "correctOption": 3,
-      "points": 20
+      "points": 10
     },
     {
       "question": "In what situation do we use a callback to update state?",
       "options": ["When updating the state will be slow", "When the updated state is very data-intensive", "When the state update should happen faster", "When the new state depends on the previous state"],
       "correctOption": 3,
-      "points": 30
+      "points": 10
     }
   ]
 }

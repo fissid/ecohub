@@ -46,6 +46,13 @@ function reducer(state, action) {
         ...state,
         status: "finished",
       };
+
+    case "tick":
+      return {
+        ...state,
+        secondsRemained: state.secondsRemained - 1,
+        status: state.secondsRemained === 0 ? "finished" : state.status,
+      };
     case "reset":
       return INITIALSTATE;
 
@@ -71,9 +78,12 @@ export default function QuizModal({ onClose, selectedSkill }) {
     }
     fetchQuestions();
   }, []);
+
   const hasAnswered = answer !== null;
 
-  console.log("dd");
+  const mins = Math.floor(secondsRemained / 60);
+  const secs = Math.floor(secondsRemained % 60);
+
   return (
     <div className="modal">
       {status === "loading" && (
@@ -137,7 +147,7 @@ export default function QuizModal({ onClose, selectedSkill }) {
               <p className="line"></p>
               <h4 className="hundred">100</h4>
             </div>
-            <div className="right">{points >= 60 ? <img src={accept}></img> : <img src={not}></img>}</div>
+            <div className="right">{points >= 60 ? <img src={accept} alt=""></img> : <img src={not} alt=""></img>}</div>
           </div>
           <div className="footer">
             <button

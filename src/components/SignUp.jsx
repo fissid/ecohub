@@ -6,6 +6,9 @@ export default function SignUp({ userSignUpHandler, loginPageHandler }) {
   const [showPass, setShowPass] = useState(false);
   const [name, setName] = useState("");
   const [major, setMajor] = useState("");
+  const [nat, setNat] = useState("");
+  const [grade, setGrade] = useState("");
+
   // saeed.salehi@std.medipol.edu.tr
   function submitHandler(e) {
     e.preventDefault();
@@ -37,14 +40,14 @@ export default function SignUp({ userSignUpHandler, loginPageHandler }) {
             <input id="major" name="major" value={major} onChange={(e) => setMajor(e.target.value)} required />
           </div>
 
-          <div className="name form-box">
-            <label htmlFor="name">Temp:</label>
-            <input id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
+          <div className="grade form-box">
+            <label htmlFor="grade">Grade:</label>
+            <input id="grade" name="grade" value={grade} onChange={(e) => setGrade(e.target.value)} required />
           </div>
 
-          <div className="name form-box">
-            <label htmlFor="name">Temp:</label>
-            <input id="name" name="name" value={name} onChange={(e) => setName(e.target.value)} required />
+          <div className="nat form-box">
+            <label htmlFor="nat">Nationality:</label>
+            <input id="nat" name="nat" value={nat} onChange={(e) => setNat(e.target.value)} required />
           </div>
 
           <div className="email form-box">

@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "../scss/Quiz.scss";
-import Icon from "./Icon";
 import QuizModal from "./QuizModal";
 const acceptedSVG = (
   <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">

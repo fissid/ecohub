@@ -43,9 +43,9 @@ const menuBtns = [
 
 function App() {
   const [sideMenu, editSideMenu] = useState(menuBtns);
-  const [displayLogin, setDisplayLogin] = useState(false);
+  const [displayLogin, setDisplayLogin] = useState(true);
   const [displaySignup, setDisplaySignup] = useState(false);
-  const [diplayUserInfo, setDisplayUserInfo] = useState(true);
+  const [diplayUserInfo, setDisplayUserInfo] = useState(false);
 
   // useEffect(
   //   function () {

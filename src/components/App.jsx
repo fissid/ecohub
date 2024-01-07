@@ -9,6 +9,7 @@ import UserProfile from "./UserProfile";
 import Projects from "./Projects";
 import Login from "./Login";
 import SignUp from "./SignUp";
+
 const menuBtns = [
   {
     id: 0,
@@ -163,9 +164,10 @@ function App() {
       ) : (
         <section className="top">
           <MainNavbar menu={sideMenu} onClick={menuClickHandler} logoutHandler={loginPageHandler}></MainNavbar>
-          {tag}
-          <UserProfile className="none middle"></UserProfile>
-          {profileNav}
+          {/* {tag} */}
+          <UserProfile className="middle"></UserProfile>
+          <ProfileNavbar></ProfileNavbar>
+          {/* {profileNav} */}
         </section>
       )}
     </main>

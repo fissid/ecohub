@@ -13,17 +13,30 @@ const INITIALSTATE = {
 };
 function reducer(state, action) {
   // status:
-  // loading, error, ready, active, finish
+  // loading, error, active, finished
 
   // state.types:
-  // dataRecieved, dataFailed, quizStarted, questionAnswer, nextQuestion, quizFinished, reset
+  // dataFailed, quizStarted, questionAnswer, nextQuestion, quizFinished, reset
   switch (action.type) {
-    case "dataRecieved":
+    case "quizStarted":
       return {
         ...state,
         questions: action.payload,
-        status: "reday",
+        status: "active",
+        secondsRemained: SEC_PER_QUESTION * 10,
       };
+    case "questionAnswer":
+      const question = state.questions.at(state.currentQuestion);
+      return {
+        ...state,
+        answer: action.payload,
+        points: action.payload === question.correctOption ? state.points + question.points : state.points,
+      };
+    case "nextQuestion":
+      return {
+        ...state,
+      };
+
     default:
       throw new Error("smt happened");
   }
@@ -38,7 +51,7 @@ export default function QuizModal({ onClose, selectedSkill }) {
       try {
         const resp = await fetch("http://localhost:8000/questions");
         const data = await resp.json();
-        dispatch({ type: "dataRecieved", payload: data });
+        dispatch({ type: "quizStarted", payload: data });
       } catch (err) {
         dispatch({ type: "dataFailed" });
         console.log(err);
@@ -46,8 +59,9 @@ export default function QuizModal({ onClose, selectedSkill }) {
     }
     fetchQuestions();
   }, []);
-  console.log(questions.at(currentQuestion));
+  const hasAnswered = answer !== null;
 
+  console.log("dd");
   return (
     <div className="modal">
       {status === "loading" && (
@@ -57,7 +71,7 @@ export default function QuizModal({ onClose, selectedSkill }) {
         </div>
       )}
       {status === "error" && <p className="error">There was an error fecthing questions.</p>}
-      {status === "reday" && (
+      {status === "active" && (
         <div className="modal-content">
           <div className="header">
             <div className="time">
@@ -78,27 +92,21 @@ export default function QuizModal({ onClose, selectedSkill }) {
               <p className="text">{questions.at(currentQuestion).question}</p>
             </div>
             <ul className="answers">
-              {questions.at(currentQuestion).options.map((each) => (
-                <li key={each}>
+              {questions.at(currentQuestion).options.map((each, index) => (
+                <button key={each} className={`${index === answer ? "answer" : ""} ${hasAnswered ? (index === questions.at(currentQuestion).correctOption ? "correct" : "wrong") : ""}`} onClick={() => dispatch({ type: "questionAnswer", payload: index })} disabled={hasAnswered}>
                   <span>{each}</span>
-                </li>
+                </button>
               ))}
             </ul>
           </div>
           <div className="footer">
-            <button className="nav__logout">
-              <span className="mav__lagout--text">
-                <Icon name="arrow-left2" height={25} width={25}></Icon>
-              </span>
-            </button>
-            <button className="nav__logout">
-              <span className="mav__lagout--text">
-                <Icon name="arrow-right2" height={25} width={25}></Icon>
-              </span>
+            <button className="nav__logout" onClick={dispatch({ type: "nextQuestion" })}>
+              <span className="mav__lagout--text">Next</span>
             </button>
           </div>
         </div>
       )}
+      {status === "finished" && 1}
     </div>
   );
 }

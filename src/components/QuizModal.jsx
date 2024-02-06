@@ -53,6 +53,7 @@ function reducer(state, action) {
         secondsRemained: state.secondsRemained - 1,
         status: state.secondsRemained === 0 ? "finished" : state.status,
       };
+
     case "reset":
       return INITIALSTATE;
 

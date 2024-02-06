@@ -60,6 +60,7 @@ export default function Login({ userLoginHandler, signUpPageHandler }) {
               <p>Continue with MEBİS</p>
             </button>
           </div>
+          <p className="hint">To enter the app, go to sign up page and sign up with a dummy data</p>
         </form>
         <img className="minimal" src={image} alt="" />
       </div>
